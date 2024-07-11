@@ -48,7 +48,7 @@ import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -58,7 +58,7 @@ public final class MysteriousUtils {
 
     public static <T extends EntityType<?>> Supplier<T> createEntity(
         String name, Supplier<T> entity) {
-        return Services.PLATFORM.register(entity, new ResourceLocation(MysteriousCommon.MOD_ID, name),
+        return Services.PLATFORM.register(entity, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, name),
             BuiltInRegistries.ENTITY_TYPE);
     }
 
@@ -69,77 +69,77 @@ public final class MysteriousUtils {
                 modId, name, Suppliers.memoize(() -> new BlockItem(block.get(), new Item.Properties())));
         }
         return Services.PLATFORM.register(
-            block, new ResourceLocation(modId, name), BuiltInRegistries.BLOCK);
+            block, ResourceLocation.fromNamespaceAndPath(modId, name), BuiltInRegistries.BLOCK);
     }
 
     public static <T extends Item> Supplier<T> createItem(String modId, String name, Supplier<T> item) {
-        return Services.PLATFORM.register(item, new ResourceLocation(modId, name), BuiltInRegistries.ITEM);
+        return Services.PLATFORM.register(item, ResourceLocation.fromNamespaceAndPath(modId, name), BuiltInRegistries.ITEM);
     }
 
     public static Supplier<RotatedPillarBlock> makePillarBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new RotatedPillarBlock(
-            Block.Properties.copy(Blocks.OAK_LOG))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_LOG))), true);
     }
 
-    public static Supplier<Block> makeWoodBlock(String modId, String name) {
-        return createBlock(modId, name, Suppliers.memoize(() -> new Block(
-            BlockBehaviour.Properties.copy(Blocks.OAK_WOOD))), true);
+    public static Supplier<RotatedPillarBlock> makeWoodBlock(String modId, String name) {
+        return createBlock(modId, name, Suppliers.memoize(() -> new RotatedPillarBlock(
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD))), true);
     }
 
     public static Supplier<Block> makePlanksBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new Block(
-            Block.Properties.copy(Blocks.OAK_PLANKS))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_PLANKS))), true);
     }
 
     public static Supplier<Block> makeLeavesBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new LeavesBlock(
-            Block.Properties.copy(Blocks.OAK_LEAVES))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_LEAVES))), true);
     }
 
     public static Supplier<SlabBlock> makeSlabBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new SlabBlock(
-            Block.Properties.copy(Blocks.OAK_SLAB))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_SLAB))), true);
     }
 
     public static Supplier<FenceBlock> makeFenceBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new FenceBlock(
-            Block.Properties.copy(Blocks.OAK_FENCE))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_FENCE))), true);
     }
 
     public static Supplier<FenceGateBlock> makeGateBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new FenceGateBlock(
-            Block.Properties.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK)), true);
+            WoodType.OAK, Block.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE))), true);
     }
 
     public static Supplier<ButtonBlock> makeButtonBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new ButtonBlock(
-            Block.Properties.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 30, true)), true);
+            BlockSetType.OAK, 30, Block.Properties.ofFullCopy(Blocks.OAK_BUTTON))), true);
     }
 
     public static Supplier<PressurePlateBlock> makePressurePlateBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new PressurePlateBlock(
-            PressurePlateBlock.Sensitivity.EVERYTHING,
-            Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK)), true);
+            BlockSetType.OAK, Block.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE))), true);
     }
 
     public static Supplier<TrapDoorBlock> makeTrapdoorBlock(String modId, String name) {
         return createBlock(modId, name, Suppliers.memoize(() -> new TrapDoorBlock(
-            Block.Properties.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK)), true);
+            BlockSetType.OAK, Block.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR))), true);
     }
 
     public static Supplier<DoorBlock> makeDoorBlock(String modId, String name) {
-        return createBlock(modId, name, Suppliers.memoize(() -> new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR)
-                .strength(3.0F).noOcclusion().ignitedByLava(), BlockSetType.OAK)), true);
+        return createBlock(modId, name, Suppliers.memoize(() -> new DoorBlock(BlockSetType.OAK,
+            Block.Properties.ofFullCopy(Blocks.OAK_DOOR).strength(3.0F)
+                .noOcclusion().ignitedByLava())), true);
     }
 
-    public static Supplier<SaplingBlock> makeSaplingBlock(String modId, String name, AbstractTreeGrower generator) {
+    public static Supplier<SaplingBlock> makeSaplingBlock(String modId, String name, TreeGrower generator) {
         return createBlock(modId, name, Suppliers.memoize(() -> new SaplingBlock(generator,
-            Block.Properties.copy(Blocks.OAK_SAPLING))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_SAPLING))), true);
     }
 
     public static Supplier<StairBlock> makeStairsBlock(String modId, String name, Supplier<BlockState> blockState) {
         return createBlock(modId, name, Suppliers.memoize(() -> new StairBlock(blockState.get(),
-            Block.Properties.copy(Blocks.OAK_STAIRS))), true);
+            Block.Properties.ofFullCopy(Blocks.OAK_STAIRS))), true);
     }
 
     public static Supplier<SignItem> makeSignItem(String modId, String name, Supplier<StandingSignBlock> signBlock,
@@ -150,12 +150,12 @@ public final class MysteriousUtils {
 
     public static Supplier<StandingSignBlock> makeFloorSignBlock(String modId, String name, WoodType signType) {
         return createBlock(modId, name, Suppliers.memoize(() -> new StandingSignBlock(
-            Block.Properties.copy(Blocks.OAK_SIGN), signType)), false);
+            signType, Block.Properties.ofFullCopy(Blocks.OAK_SIGN))), false);
     }
 
-    public static Supplier<WallSignBlock> makeWallSignBlock(String modId, String name, WoodType woodType) {
+    public static Supplier<WallSignBlock> makeWallSignBlock(String modId, String name, WoodType signType) {
         return createBlock(modId, name, Suppliers.memoize(() -> new WallSignBlock(
-            Block.Properties.copy(Blocks.OAK_WALL_SIGN), woodType)), false);
+            signType, Block.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN))), false);
     }
 
     public static Supplier<HangingSignItem> makeHangingSignItem(String modId, String name,
@@ -167,12 +167,12 @@ public final class MysteriousUtils {
 
     public static Supplier<CeilingHangingSignBlock> makeHangingSignBlock(String modId, String name, WoodType signType) {
         return createBlock(modId, name, Suppliers.memoize(() -> new CeilingHangingSignBlock(
-            Block.Properties.copy(Blocks.OAK_HANGING_SIGN), signType)), false);
+            signType, Block.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN))), false);
     }
 
     public static Supplier<WallHangingSignBlock> makeWallHangingSignBlock(String modId, String name,
                                                                           WoodType signType) {
         return createBlock(modId, name, Suppliers.memoize(() -> new WallHangingSignBlock(
-            Block.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), signType)), false);
+            signType, Block.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN))), false);
     }
 }

@@ -21,11 +21,8 @@
 package dev.tophatcat.mysteriousbiomes.datagen.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -34,31 +31,31 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
+
 public class MysteriousLootTableProvider {
 
-    public static LootTableProvider create(PackOutput output) {
-        return new LootTableProvider(
-            output,
-            Set.of(),
-            List.of(
-                new LootTableProvider.SubProviderEntry(
-                    MysteriousLootTables::new, LootContextParamSets.BLOCK)));
+    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
+        return new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(
+            MysteriousLootTables::new, LootContextParamSets.BLOCK)), provider);
     }
 
     private static class MysteriousLootTables extends BlockLootSubProvider {
 
-        protected MysteriousLootTables() {
-            super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+        protected MysteriousLootTables(HolderLookup.Provider provider) {
+            super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
         }
 
         @Override
         protected void generate() {
             // Misc blocks.
             dropSelf(MysteriousRegistry.BLOODIED_DIRT.get());
-            add(
-                MysteriousRegistry.BLOODIED_GRASS.get(),
-                block ->
-                    createSingleItemTableWithSilkTouch(block, MysteriousRegistry.BLOODIED_DIRT.get()));
+            add(MysteriousRegistry.BLOODIED_GRASS.get(), block -> createSingleItemTableWithSilkTouch(block,
+                MysteriousRegistry.BLOODIED_DIRT.get()));
 
             // Bloodwood tree family.
             dropSelf(MysteriousRegistry.BLOODWOOD_LOG.get());
@@ -79,13 +76,9 @@ public class MysteriousLootTableProvider {
             dropSelf(MysteriousRegistry.BLOODWOOD_HANGING_SIGN.get());
             dropSelf(MysteriousRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
             add(MysteriousRegistry.BLOODWOOD_DOOR.get(), this::createDoorTable);
-            add(
-                MysteriousRegistry.BLOODWOOD_LEAVES.get(),
-                block ->
-                    createLeavesDrops(
-                        MysteriousRegistry.BLOODWOOD_LEAVES.get(),
-                        MysteriousRegistry.BLOODWOOD_SAPLING.get(),
-                        BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+            add(MysteriousRegistry.BLOODWOOD_LEAVES.get(), block -> createLeavesDrops(
+                MysteriousRegistry.BLOODWOOD_LEAVES.get(), MysteriousRegistry.BLOODWOOD_SAPLING.get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Ghostly tree family.
             dropSelf(MysteriousRegistry.GHOSTLY_LOG.get());
@@ -106,13 +99,9 @@ public class MysteriousLootTableProvider {
             dropSelf(MysteriousRegistry.GHOSTLY_HANGING_SIGN.get());
             dropSelf(MysteriousRegistry.GHOSTLY_WALL_HANGING_SIGN.get());
             add(MysteriousRegistry.GHOSTLY_DOOR.get(), this::createDoorTable);
-            add(
-                MysteriousRegistry.GHOSTLY_LEAVES.get(),
-                block ->
-                    createLeavesDrops(
-                        MysteriousRegistry.GHOSTLY_LEAVES.get(),
-                        MysteriousRegistry.GHOSTLY_SAPLING.get(),
-                        BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+            add(MysteriousRegistry.GHOSTLY_LEAVES.get(), block -> createLeavesDrops(
+                MysteriousRegistry.GHOSTLY_LEAVES.get(), MysteriousRegistry.GHOSTLY_SAPLING.get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Seeping tree family.
             dropSelf(MysteriousRegistry.SEEPING_LOG.get());
@@ -133,13 +122,9 @@ public class MysteriousLootTableProvider {
             dropSelf(MysteriousRegistry.SEEPING_HANGING_SIGN.get());
             dropSelf(MysteriousRegistry.SEEPING_WALL_HANGING_SIGN.get());
             add(MysteriousRegistry.SEEPING_DOOR.get(), this::createDoorTable);
-            add(
-                MysteriousRegistry.SEEPING_LEAVES.get(),
-                block ->
-                    createLeavesDrops(
-                        MysteriousRegistry.SEEPING_LEAVES.get(),
-                        MysteriousRegistry.SEEPING_SAPLING.get(),
-                        BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+            add(MysteriousRegistry.SEEPING_LEAVES.get(), block -> createLeavesDrops(
+                MysteriousRegistry.SEEPING_LEAVES.get(), MysteriousRegistry.SEEPING_SAPLING.get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Sorbus tree family.
             dropSelf(MysteriousRegistry.SORBUS_LOG.get());
@@ -160,13 +145,9 @@ public class MysteriousLootTableProvider {
             dropSelf(MysteriousRegistry.SORBUS_HANGING_SIGN.get());
             dropSelf(MysteriousRegistry.SORBUS_WALL_HANGING_SIGN.get());
             add(MysteriousRegistry.SORBUS_DOOR.get(), this::createDoorTable);
-            add(
-                MysteriousRegistry.SORBUS_LEAVES.get(),
-                block ->
-                    createLeavesDrops(
-                        MysteriousRegistry.SORBUS_LEAVES.get(),
-                        MysteriousRegistry.SORBUS_SAPLING.get(),
-                        BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+            add(MysteriousRegistry.SORBUS_LEAVES.get(), block -> createLeavesDrops(
+                MysteriousRegistry.SORBUS_LEAVES.get(), MysteriousRegistry.SORBUS_SAPLING.get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Walnut tree family.
             dropSelf(MysteriousRegistry.WALNUT_LOG.get());
@@ -187,13 +168,9 @@ public class MysteriousLootTableProvider {
             dropSelf(MysteriousRegistry.WALNUT_HANGING_SIGN.get());
             dropSelf(MysteriousRegistry.WALNUT_WALL_HANGING_SIGN.get());
             add(MysteriousRegistry.WALNUT_DOOR.get(), this::createDoorTable);
-            add(
-                MysteriousRegistry.WALNUT_LEAVES.get(),
-                block ->
-                    createLeavesDrops(
-                        MysteriousRegistry.WALNUT_LEAVES.get(),
-                        MysteriousRegistry.WALNUT_SAPLING.get(),
-                        BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+            add(MysteriousRegistry.WALNUT_LEAVES.get(), block -> createLeavesDrops(
+                MysteriousRegistry.WALNUT_LEAVES.get(), MysteriousRegistry.WALNUT_SAPLING.get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
         }
 
         @Override

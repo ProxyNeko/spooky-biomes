@@ -1,0 +1,235 @@
+plugins {
+	id "pmd"
+	id "java-library"
+	id "maven-publish"
+	id "net.neoforged.licenser"
+	id "com.diffplug.spotless"
+}
+
+def ENV = System.getenv()
+def NOW = new Date();
+def buildTime = ENV.BUILD_TIME ?: NOW.format('yyyyMMddHHmmss')
+
+boolean isPreviewBuild = !ENV.TAG || ENV.TAG.matches(".+-.+")
+def buildNumber = !ENV.TAG ? ("${ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}" : buildTime}") : ""
+version = (ENV.TAG ?: "${project.minecraft_version}-development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : "")
+
+def mod_name = rootProject.name.replaceAll("-", "_").toLowerCase(Locale.ROOT)
+
+println("Building ${project.name} ${version}")
+
+base {
+	archivesName = "${rootProject.name}-${project.name}"
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
+	withSourcesJar()
+	withJavadocJar()
+}
+
+repositories {
+	mavenCentral()
+	// https://docs.gradle.org/current/userguide/declaring_repositories.html#declaring_content_exclusively_found_in_one_repository
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Sponge"
+				url = "https://repo.spongepowered.org/repository/maven-public/"
+			}
+		}
+		filter {
+			includeGroupAndSubgroups("org.spongepowered")
+		}
+	}
+	exclusiveContent {
+		forRepositories(
+			maven {
+				name = "ParchmentMC"
+				url = "https://maven.parchmentmc.org/"
+			},
+			maven {
+				name = "NeoForge"
+				url = "https://maven.neoforged.net/releases/"
+			}
+		)
+		filter {
+			includeGroup("org.parchmentmc.data")
+		}
+
+        maven {
+            name = "Team Resourceful Maven"
+            url = "https://maven.teamresourceful.com/repository/maven-public/"
+        }
+
+        maven {
+            name "TerraformersMC"
+            url "https://maven.terraformersmc.com/releases/"
+        }
+
+        maven {
+            name = "uuid.gg Maven Repository"
+            url = "https://maven.uuid.gg/releases/"
+        }
+
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven/"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
+	}
+}
+
+// Declare capabilities on the outgoing configurations.
+// Read more about capabilities here: https://docs.gradle.org/current/userguide/component_capabilities.html#sec:declaring-additional-capabilities-for-a-local-component
+["apiElements", "runtimeElements", "sourcesElements", "javadocElements"].each { variant ->
+	configurations."$variant".outgoing {
+		capability("$group:${base.archivesName.get()}:$version")
+		capability("$group:$mod_id-${project.name}-${project.minecraft_version}:$version")
+		capability("$group:$mod_id:$version")
+	}
+	publishing.publications.configureEach {
+		suppressPomMetadataWarningsFor(variant)
+	}
+}
+
+sourcesJar {
+	from(rootProject.file("LICENSE.md")) {
+		rename { "${it}_${project.mod_name}" }
+	}
+}
+
+jar {
+	from(rootProject.file("LICENSE.md")) {
+		rename { "${it}_${project.mod_name}" }
+	}
+
+	manifest {
+		attributes([
+			"Specification-Title"         : project.mod_name,
+			"Specification-Vendor"        : project.author,
+			"Specification-Version"       : project.jar.archiveVersion,
+			"Implementation-Title"        : project.name,
+			"Implementation-Version"      : project.jar.archiveVersion,
+			"Implementation-Vendor"       : project.author,
+			"Implementation-Timestamp"    : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+			"Timestamp"                   : System.currentTimeMillis(),
+			"Built-On-Java"               : "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})",
+			"Built-On-Minecraft"          : project.minecraft_version
+		])
+	}
+}
+
+processResources {
+	def expandProps = [
+		"version"                       : version,
+		"group"                         : project.group,
+		"mod_name"                      : project.mod_name,
+		"mod_id"                        : project.mod_id,
+		"author"                        : project.author,
+		"credits"                       : project.credits,
+		"license"                       : project.license,
+		"description"                   : project.description,
+
+		"display_url"                   : project.display_url,
+		"discord"                       : project.discord,
+		"mod_source"                    : project.mod_source,
+		"license_url"                   : project.license_url,
+		"modrinth_url"                  : project.modrinth_url,
+		"curseforge_url"                : project.curseforge_url,
+
+		"java_version"                  : project.java_version,
+		"minecraft_version"             : project.minecraft_version,
+		"minecraft_version_range"       : project.minecraft_version_range,
+		"curseforge_id"                 : project.curseforge_id,
+		"modrinth_id"                   : project.modrinth_id,
+
+		"neoforge_version"              : project.neoforge_version,
+		"neoforge_version_range"        : project.neoforge_version_range,
+		"neoforge_loader_version"       : project.neoforge_loader_version,
+		"neoforge_loader_version_range" : project.neoforge_loader_version_range,
+
+		"fabric_version"                : project.fabric_version,
+		"fabric_version_range"          : project.fabric_version_range,
+		"fabric_loader_version"         : project.fabric_loader_version,
+		"fabric_loader_version_range"   : project.fabric_loader_version_range
+	]
+
+	filesMatching(["*.mod.json", "META-INF/neoforge.mods.toml", "*.mixins.json"]) {
+		expand expandProps
+	}
+	inputs.properties(expandProps)
+}
+
+license {
+	ignoreFailures = true
+	header = rootProject.file("LICENSE_HEADER.txt")
+	newLine = false
+	include "**/*.java"
+	include "**/*.kt"
+	exclude "**/package-info.java"
+	exclude "**/module-info.java"
+	properties {
+		name = "KiriCattus"
+		year = "2013 - " + Calendar.getInstance().get(Calendar.YEAR)
+		license_link = project.license_url
+		project_information = license_description
+	}
+}
+
+spotless {
+	java {
+		importOrder()
+		removeUnusedImports()
+		endWithNewline()
+		toggleOffOn()
+
+		// Courtesy of diffplug/spotless#240
+		// https://github.com/diffplug/spotless/issues/240#issuecomment-385206606
+		custom "noWildcardImports", { String fileContents ->
+			if (fileContents.contains("*;\n")) {
+				throw new GradleException("No wildcard imports are allowed!")
+			}
+		}
+
+		bumpThisNumberIfACustomStepChanges(1)
+	}
+}
+
+pmd {
+	ignoreFailures = true
+	reportsDir = project.file("reports/")
+	rulesMinimumPriority = 5
+	toolVersion = "7.3.0"
+}
+
+tasks.named("spotlessApply").configure{mustRunAfter "licenseFormat"}
+tasks.named("pmdMain").configure{mustRunAfter "spotlessApply"}
+
+tasks.register("cleanCode", Task) {
+	dependsOn "licenseFormat", "spotlessApply", "pmdMain"
+}
+
+tasks.named("assemble").configure{dependsOn "cleanCode"}
+
+publishing {
+	publications {
+		"mavenJava${project.name}"(MavenPublication) {
+			artifactId "${rootProject.name}-${project.name}"
+			from components.java
+		}
+	}
+	repositories {
+		if (ENV.MAVEN_UPLOAD_URL) {
+			maven {
+				url = ENV.MAVEN_UPLOAD_URL
+				credentials {
+					username = ENV.MAVEN_UPLOAD_USERNAME
+					password = ENV.MAVEN_UPLOAD_PASSWORD
+				}
+			}
+		}
+	}
+}

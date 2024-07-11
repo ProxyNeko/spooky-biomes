@@ -1,17 +1,48 @@
 plugins {
-	alias libs.plugins.vanilla.gradle
+    id "multiloader-common"
+    id "net.neoforged.moddev"
 }
 
-minecraft {
-	version(libs.versions.minecraft.get())
-	if (file("src/main/resources/${mod_id}.accesswidener").exists()) {
-		accessWideners(file("src/main/resources/${mod_id}.accesswidener"))
-	}
+neoForge {
+    neoFormVersion = project.neo_form_version
+    // Automatically enable AccessTransformers if the file exists
+    def at = file("src/main/resources/META-INF/accesstransformer.cfg")
+    if (at.exists()) {
+        accessTransformers.add(at.absolutePath)
+    }
+    parchment {
+        minecraftVersion = project.parchment_minecraft
+        mappingsVersion = project.parchment_version
+    }
 }
 
 dependencies {
-	compileOnly libs.bundles.mixin
-	compileOnly libs.jetbrains.annotations
+    compileOnly group: "org.spongepowered", name: "mixin", version: "0.8.5"
+    // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
+    compileOnly group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
+    annotationProcessor group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
 
-	implementation libs.terrablender
+    implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-${project.minecraft_version}:${project.resourceful_config_version}"
+}
+
+sourceSets.main.resources {
+    srcDir "src/generated/resources"
+}
+
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    commonJava sourceSets.main.java.sourceDirectories.singleFile
+    for (def dir : sourceSets.main.resources.sourceDirectories.files) {
+        commonResources dir
+    }
 }

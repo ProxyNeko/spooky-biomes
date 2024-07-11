@@ -28,7 +28,8 @@
   Fixed grass and dirt being instantly breakable.
 
 - 1.2.0:  
-  Full mod rewrite. Blocks will vanish in existing worlds sadly but new biomes can generate.
+  Full mod rewrite.  
+  Blocks will vanish in existing worlds sadly but new biomes can generate.  
   Added 2 new biomes and 2 full sets of trees with blocks.
 
 - 1.1.1:  

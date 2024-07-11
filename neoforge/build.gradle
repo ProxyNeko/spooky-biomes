@@ -1,87 +1,53 @@
 plugins {
-	alias neoforge.plugins.neogradle
+    id "multiloader-loader"
+    id "net.neoforged.moddev"
+}
+
+neoForge {
+    version = neoforge_version
+    // Automatically enable neoforge AccessTransformers if the file exists
+    def at = project(":common").file("src/main/resources/META-INF/accesstransformer.cfg")
+    if (at.exists()) {
+        accessTransformers.add(at.absolutePath)
+    }
+    parchment {
+        minecraftVersion = project.parchment_minecraft
+        mappingsVersion = project.parchment_version
+    }
+    runs {
+        configureEach {
+            systemProperty("neoforge.enabledGameTestNamespaces", project.mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+        }
+        client {
+            client()
+
+            if (rootProject.hasProperty("mc_uuid")) {
+                programArguments.addAll "--uuid", rootProject.mc_uuid
+            }
+
+            if (rootProject.hasProperty("mc_username")) {
+                programArguments.addAll "--username", rootProject.mc_username
+            }
+        }
+        data {
+            data()
+            programArguments.addAll("--mod", project.mod_id, "--all", "--output", file("../common/src/generated/resources").absolutePath, "--existing", file("../common/src/generated/resources").absolutePath)
+        }
+        server {
+            server()
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
 }
 
 dependencies {
-	implementation "${neoforge.neoforge.get()}"
-	implementation project(path: ":common")
-	compileOnly project(":common")
-
-	implementation neoforge.terrablender
-	implementation neoforge.jade
+    implementation "maven.modrinth:jade:${project.jade_neoforge_version}"
+    implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-${project.minecraft_version}:${project.resourceful_config_version}"
 }
 
-// Automatically enable neoforge AccessTransformers if the file exists
-// This location is hardcoded in FML and can not be changed.
-// https://github.com/neoforged/FancyModLoader/blob/a952595eaaddd571fbc53f43847680b00894e0c1/loader/src/main/java/net/neoforged/fml/loading/moddiscovery/ModFile.java#L118
-if (file("src/main/resources/META-INF/accesstransformer.cfg").exists()) {
-	accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
-}
-
-runs {
-	configureEach {
-		systemProperty "forge.logging.markers", "REGISTRIES"
-		systemProperty "forge.logging.console.level", "debug"
-		modSource project.sourceSets.main
-		modSource project(":common").sourceSets.main
-	}
-
-	client {
-		workingDirectory project.file("run")
-
-		if (project.hasProperty("mc_uuid")) {
-			programArgument "--uuid=${project.mc_uuid}"
-		}
-
-		if (project.hasProperty("mc_username")) {
-			programArgument "--username=${project.mc_username}"
-		}
-
-		if (rootProject.hasProperty("mc_java_agent_path")) {
-			programArgument "-javaagent:${rootProject.mc_java_agent_path}"
-		}
-	}
-
-	server {
-		workingDirectory project.file("run/server")
-		programArgument "--nogui"
-	}
-
-	data {
-		workingDirectory project.file("run/data")
-		programArguments.addAll(
-			"--mod", mod_id, "--all",
-			"--output", file("../common/src/generated/resources/").getAbsolutePath(),
-			"--existing", file("../common/src/main/resources/").getAbsolutePath()
-		)
-	}
-}
-
-sourceSets.main.resources.srcDir("../common/src/generated/resources")
-
-// NeoGradle compiles the game, but we don't want to add our common code to the game's code
-Spec<Task> notNeoTask = { Task it -> !it.name.startsWith("neo") } as Spec<Task>
-
-tasks.withType(JavaCompile).matching(notNeoTask).configureEach {
-	source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).matching(notNeoTask).configureEach {
-	source(project(":common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-	from(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(ProcessResources).matching(notNeoTask).configureEach {
-	from project(":common").sourceSets.main.resources
-}
-
-publishing {
-	publications {
-		"mavenJava${project.name}"(MavenPublication) {
-			jarJar.component(it)
-		}
-	}
-}
+sourceSets.main.resources { srcDir "src/generated/resources" }

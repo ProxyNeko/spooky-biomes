@@ -1,46 +1,36 @@
 pluginManagement {
-	repositories {
-		gradlePluginPortal()
-        maven {
-            name = "Sponge"
-            url = "https://repo.spongepowered.org/repository/maven-public/"
-        }
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
         maven {
             name = "Quilt"
             url = "https://maven.quiltmc.org/repository/release/"
         }
         maven {
-			name = "NeoForge"
-			url = "https://maven.neoforged.net/releases/"
-		}
-        maven {
-            name = "Fabric"
-            url = "https://maven.fabricmc.net/"
+            name = "NeoForge"
+            url = "https://maven.neoforged.net"
         }
-	}
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Fabric"
+                    url = "https://maven.fabricmc.net"
+                }
+            }
+            filter {
+                includeGroup("net.fabricmc")
+                includeGroup("fabric-loom")
+            }
+        }
+    }
 }
 
 plugins {
-	id "org.gradle.toolchains.foojay-resolver-convention" version "0.8.0"
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
 
-dependencyResolutionManagement {
-	versionCatalogs {
-		libs {
-			from(files("./common/libs.versions.toml"))
-		}
-        quilt {
-            from(files("./quilt/libs.versions.toml"))
-        }
-        neoforge {
-            from(files("./neoforge/libs.versions.toml"))
-        }
-        fabric {
-            from(files("./fabric/libs.versions.toml"))
-        }
-	}
-}
-
+// This should match the folder name of the project, or else IDEA may complain (see https://youtrack.jetbrains.com/issue/IDEA-317606)
 rootProject.name = "mysterious-biomes"
-
-include "common", "quilt", "neoforge", "fabric"
+include("common")
+include("fabric")
+include("neoforge")

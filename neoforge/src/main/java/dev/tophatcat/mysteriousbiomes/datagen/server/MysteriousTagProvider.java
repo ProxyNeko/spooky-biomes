@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.datagen.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousTags;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;

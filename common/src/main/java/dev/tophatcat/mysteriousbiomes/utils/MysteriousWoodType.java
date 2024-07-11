@@ -46,24 +46,14 @@ public final class MysteriousWoodType {
     private static final BlockSetType SEEPING_SET = new BlockSetType("seeping");
     private static final BlockSetType WALNUT_SET = new BlockSetType("walnut");
 
-    public static final WoodType BLOODWOOD_TYPE =
-        new WoodType(
-            new ResourceLocation(MysteriousCommon.MOD_ID, "bloodwood").toString(),
-            new BlockSetType(BLOODWOOD_SET.name()));
-    public static final WoodType GHOSTLY_TYPE =
-        new WoodType(
-            new ResourceLocation(MysteriousCommon.MOD_ID, "ghostly").toString(),
-            new BlockSetType(GHOSTLY_SET.name()));
-    public static final WoodType SORBUS_TYPE =
-        new WoodType(
-            new ResourceLocation(MysteriousCommon.MOD_ID, "sorbus").toString(),
-            new BlockSetType(SORBUS_SET.name()));
-    public static final WoodType SEEPING_TYPE =
-        new WoodType(
-            new ResourceLocation(MysteriousCommon.MOD_ID, "seeping").toString(),
-            new BlockSetType(SEEPING_SET.name()));
-    public static final WoodType WALNUT_TYPE =
-        new WoodType(
-            new ResourceLocation(MysteriousCommon.MOD_ID, "walnut").toString(),
-            new BlockSetType(WALNUT_SET.name()));
+    public static final WoodType BLOODWOOD_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+        MysteriousCommon.MOD_ID, "bloodwood").toString(), new BlockSetType(BLOODWOOD_SET.name()));
+    public static final WoodType GHOSTLY_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "ghostly").toString(), new BlockSetType(GHOSTLY_SET.name()));
+    public static final WoodType SORBUS_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+        MysteriousCommon.MOD_ID, "sorbus").toString(), new BlockSetType(SORBUS_SET.name()));
+    public static final WoodType SEEPING_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "seeping").toString(), new BlockSetType(SEEPING_SET.name()));
+    public static final WoodType WALNUT_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "walnut").toString(), new BlockSetType(WALNUT_SET.name()));
 }

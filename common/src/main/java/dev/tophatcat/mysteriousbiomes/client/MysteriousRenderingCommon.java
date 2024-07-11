@@ -20,9 +20,9 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
 import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -36,15 +36,12 @@ import java.util.function.Supplier;
 public class MysteriousRenderingCommon {
 
     public static <T extends Entity> List<Renderers<?>> getRenderers() {
-        return List.of(
-            new Renderers<>(MysteriousRegistry.THE_FORGOTTEN_WARLOCK, TheForgottenWarlockRenderer::new)
-        );
+        return List.of(new Renderers<>(MysteriousRegistry.THE_FORGOTTEN_WARLOCK, TheForgottenWarlockRenderer::new));
     }
 
     public static List<LayerDefinitions> getLayerDefinitions() {
-        return new ArrayList<>(List.of(
-            new LayerDefinitions(TheForgottenWarlockModel.LAYER_LOCATION, TheForgottenWarlockModel.createBodyLayer())
-        ));
+        return new ArrayList<>(List.of(new LayerDefinitions(TheForgottenWarlockModel.LAYER_LOCATION,
+            TheForgottenWarlockModel.createBodyLayer())));
     }
 
     public record Renderers<T extends Entity>(Supplier<EntityType<T>> type, EntityRendererProvider<T> renderer) {

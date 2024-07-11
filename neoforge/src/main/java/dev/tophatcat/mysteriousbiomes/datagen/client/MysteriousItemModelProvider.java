@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.datagen.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -49,7 +49,7 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
         var name = getName(block);
         singleTexture(
             name,
-            new ResourceLocation("minecraft", "item/generated"),
+            ResourceLocation.fromNamespaceAndPath("minecraft", "item/generated"),
             "layer0",
             modLoc("block/" + name));
     }
@@ -114,23 +114,23 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
 
         fenceInventory(
             getName(MysteriousRegistry.BLOODWOOD_FENCE.get()),
-            new ResourceLocation(
+            ResourceLocation.fromNamespaceAndPath(
                 MysteriousCommon.MOD_ID,
                 "block/" + getName(MysteriousRegistry.BLOODWOOD_PLANKS.get())));
         fenceInventory(
             getName(MysteriousRegistry.GHOSTLY_FENCE.get()),
-            new ResourceLocation(
+            ResourceLocation.fromNamespaceAndPath(
                 MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.GHOSTLY_PLANKS.get())));
         fenceInventory(
             getName(MysteriousRegistry.SEEPING_FENCE.get()),
-            new ResourceLocation(
+            ResourceLocation.fromNamespaceAndPath(
                 MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.SEEPING_PLANKS.get())));
         fenceInventory(
             getName(MysteriousRegistry.SORBUS_FENCE.get()),
-            new ResourceLocation(
+            ResourceLocation.fromNamespaceAndPath(
                 MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.SORBUS_PLANKS.get())));
         // fenceInventory(getName(MysteriousRegistry.WALNUT_FENCE.get()),
-        //    new ResourceLocation(MysteriousCommon.MOD_ID, "block/"
+        //    ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/"
         //        + getName(MysteriousRegistry.WALNUT_PLANKS.get())));
 
         simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_GATE.get());
@@ -141,14 +141,14 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
 
         buttonInventory(
             "bloodwood_button",
-            new ResourceLocation(MysteriousCommon.MOD_ID, "block/bloodwood_planks"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/bloodwood_planks"));
         buttonInventory(
-            "ghostly_button", new ResourceLocation(MysteriousCommon.MOD_ID, "block/ghostly_planks"));
+            "ghostly_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/ghostly_planks"));
         buttonInventory(
-            "seeping_button", new ResourceLocation(MysteriousCommon.MOD_ID, "block/seeping_planks"));
+            "seeping_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/seeping_planks"));
         buttonInventory(
-            "sorbus_button", new ResourceLocation(MysteriousCommon.MOD_ID, "block/sorbus_planks"));
-        // buttonInventory("walnut_button", new ResourceLocation(
+            "sorbus_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/sorbus_planks"));
+        // buttonInventory("walnut_button", ResourceLocation.fromNamespaceAndPath(
         //    MysteriousCommon.MOD_ID, "block/walnut_planks"));
 
         simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_PRESSURE_PLATE.get());

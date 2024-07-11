@@ -22,7 +22,7 @@ package dev.tophatcat.mysteriousbiomes.client.renderers;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -31,8 +31,8 @@ import net.minecraft.resources.ResourceLocation;
 public class TheForgottenWarlockRenderer
     extends MobRenderer<TheForgottenWarlockEntity, EntityModel<TheForgottenWarlockEntity>> {
 
-    private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(MysteriousCommon.MOD_ID,
-        "textures/entity/the_forgotten_warlock.png");
+    private static final ResourceLocation RESOURCE_LOCATION = ResourceLocation.fromNamespaceAndPath(
+        MysteriousCommon.MOD_ID, "textures/entity/the_forgotten_warlock.png");
 
     public TheForgottenWarlockRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new TheForgottenWarlockModel<>(renderManager.bakeLayer(

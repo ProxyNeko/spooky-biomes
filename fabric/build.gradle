@@ -1,100 +1,49 @@
 plugins {
-	alias fabric.plugins.fabric.loom
+    id "multiloader-loader"
+    id "fabric-loom"
 }
-
 dependencies {
-	minecraft libs.minecraft
-	mappings loom.officialMojangMappings()
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${project.parchment_minecraft}:${project.parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation fabric.fabric.loader
-	modImplementation fabric.fabric.api
-
-	compileOnly project(":common")
-
-	modImplementation fabric.terrablender
-	modImplementation fabric.jade
-	modImplementation fabric.modmenu
+    modImplementation "maven.modrinth:jade:${jade_fabric_version}"
+    modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
+    modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-${project.minecraft_version}:${project.resourceful_config_version}"
 }
 
 loom {
-	mods {
-		"${mod_id}" {
-			sourceSet("main")
-			project(":common").sourceSets.main
-		}
-	}
+    def aw = project(":common").file("src/main/resources/META-INF/${project.mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        defaultRefmapName.set("${project.mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName("Fabric Client")
+            ideConfigGenerated(true)
+            runDir("runs/client")
 
-	if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
-		accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
-	}
+            if (rootProject.hasProperty("mc_uuid")) {
+                programArgs("--uuid", rootProject.mc_uuid)
+            }
 
-	runs {
-		client {
-			client()
-			setConfigName("Fabric Client")
-			ideConfigGenerated(true)
-
-			runDir("run")
-
-			if (project.hasProperty("mc_uuid")) {
-				programArg("--uuid=${project.mc_uuid}")
-			}
-
-			if (project.hasProperty("mc_username")) {
-				programArg("--username=${project.mc_username}")
-			}
-
-			if (rootProject.hasProperty("mc_java_agent_path")) {
-				vmArg("-javaagent:${rootProject.mc_java_agent_path}")
-			}
-		}
-
-		server {
-			server()
-			setConfigName("Fabric Server")
-			ideConfigGenerated(true)
-			programArg("--nogui")
-			runDir("run/server")
-		}
-
-		datagen {
-			inherit server
-			setConfigName("Fabric Data Gen")
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("${project.rootDir}/common/src/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=${mod_id}"
-
-			runDir "run/datagen"
-		}
-	}
-}
-
-sourceSets.main.resources.srcDir("../common/src/generated/resources")
-
-tasks.withType(JavaCompile).configureEach {
-	source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-	source(project(":common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-	from(project(":common").sourceSets.main.allSource)
-}
-
-processResources {
-	from project(":common").sourceSets.main.resources
-}
-
-//We data generate our resources into the projects root directory so we have to
-//add them to the sub-project here to be loaded when the game runs.
-sourceSets {
-	main {
-		resources {
-			srcDirs += [
-				"${project.rootDir}/common/src/generated"
-			]
-		}
-	}
+            if (rootProject.hasProperty("mc_username")) {
+                programArgs("--username", rootProject.mc_username)
+            }
+        }
+        server {
+            server()
+            setConfigName("Fabric Server")
+            ideConfigGenerated(true)
+            runDir("runs/server")
+        }
+    }
 }

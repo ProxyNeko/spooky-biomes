@@ -1,69 +1,56 @@
-name: Build Status.
+name: Build Status
 
 on:
-  push:
-    paths-ignore:
-      - '*.md'
-      - '.github/**'
-    branches:
-      - '*'
-  pull_request:
+    push:
+        paths-ignore:
+            - '*.md'
+    pull_request:
+        paths-ignore:
+            - '*.md'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout latest commit.
-        uses: actions/checkout@v4
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout latest commit.
+              uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'microsoft'
-          java-version: 17
-          cache: 'gradle'
+            - name: Set up JDK 21
+              uses: actions/setup-java@v4
+              with:
+                  distribution: 'microsoft'
+                  java-version: 21
+                  cache: 'gradle'
 
-      - name: Set up Gradle Build
-        uses: gradle/gradle-build-action@v3
+            - name: Grant Gradle execute permissions
+              run: chmod +x ./gradlew
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+            - name: Build with Gradle
+              run: ./gradlew build
 
-      - name: Build with Gradle
-        run: ./gradlew build
+            - name: Upload build artifacts (Common)
+              continue-on-error: true
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-common-${{ github.sha }}
+                  path: |
+                      common/build/libs/*.jar
+                      !common/build/libs/*-dev.jar
 
-      - name: Upload build artifacts (Common)
-        continue-on-error: true
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.event.repository.name }}-common-${{ github.sha }}
-          path: |
-            common/build/libs/*.jar
-            common/build/libs/*-dev.jar
+            - name: Upload build artifacts (NeoForge)
+              continue-on-error: true
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-neoforge-${{ github.sha }}
+                  path: |
+                      neoforge/build/libs/*.jar
+                      !neoforge/build/libs/*-dev.jar
 
-      - name: Upload build artifacts (NeoForge)
-        continue-on-error: true
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.event.repository.name }}-neoforge-${{ github.sha }}
-          path: |
-            neoforge/build/libs/*.jar
-            !neoforge/build/libs/*-dev.jar
-
-      - name: Upload build artifacts (Fabric)
-        continue-on-error: true
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.event.repository.name }}-fabric-${{ github.sha }}
-          path: |
-            fabric/build/libs/*.jar
-            !fabric/build/libs/*-dev.jar
-
-      - name: Upload build artifacts (Quilt)
-        continue-on-error: true
-        uses: actions/upload-artifact@v4
-        with:
-            name: ${{ github.event.repository.name }}-quilt-${{ github.sha }}
-            path: |
-                quilt/build/libs/*.jar
-                !quilt/build/libs/*-dev.jar
+            - name: Upload build artifacts (Fabric)
+              continue-on-error: true
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-fabric-${{ github.sha }}
+                  path: |
+                      fabric/build/libs/*.jar
+                      !fabric/build/libs/*-dev.jar

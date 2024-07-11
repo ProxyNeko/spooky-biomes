@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen.client;
 
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 

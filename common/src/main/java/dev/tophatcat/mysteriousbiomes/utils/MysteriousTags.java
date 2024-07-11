@@ -31,31 +31,31 @@ public class MysteriousTags {
 
     public static final class MysteriousBlocks {
         public static final TagKey<Block> BLOODWOOD_LOGS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "bloodwood_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_logs"));
         public static final TagKey<Block> GHOSTLY_LOGS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "ghostly_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_logs"));
         public static final TagKey<Block> SEEPING_LOGS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "seeping_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "seeping_logs"));
         public static final TagKey<Block> SORBUS_LOGS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "sorbus_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "sorbus_logs"));
         public static final TagKey<Block> WALNUT_LOGS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "walnut_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "walnut_logs"));
         public static final TagKey<Block> SIGNS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "signs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "signs"));
         public static final TagKey<Block> HANGING_SIGNS = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "hanging_signs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "hanging_signs"));
     }
 
     public static final class MysteriousItems {
         public static final TagKey<Item> BLOODWOOD_LOGS = TagKey.create(Registries.ITEM,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "bloodwood_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_logs"));
         public static final TagKey<Item> GHOSTLY_LOGS = TagKey.create(Registries.ITEM,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "ghostly_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_logs"));
         public static final TagKey<Item> SEEPING_LOGS = TagKey.create(Registries.ITEM,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "seeping_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "seeping_logs"));
         public static final TagKey<Item> SORBUS_LOGS = TagKey.create(Registries.ITEM,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "sorbus_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "sorbus_logs"));
         public static final TagKey<Item> WALNUT_LOGS = TagKey.create(Registries.ITEM,
-            new ResourceLocation(MysteriousCommon.MOD_ID, "walnut_logs"));
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "walnut_logs"));
     }
 }

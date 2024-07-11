@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.datagen.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -258,23 +258,17 @@ public class MysteriousBlockStateProvider extends BlockStateProvider {
         //    modLoc("block/walnut_door_top"));
 
         // Saplings
-        simpleBlock(
-            MysteriousRegistry.BLOODWOOD_SAPLING.get(),
-            models()
-                .cross("bloodwood_sapling", modLoc("block/bloodwood_sapling"))
-                .renderType("cutout"));
-        simpleBlock(
-            MysteriousRegistry.GHOSTLY_SAPLING.get(),
-            models().cross("ghostly_sapling", modLoc("block/ghostly_sapling")).renderType("cutout"));
-        simpleBlock(
-            MysteriousRegistry.SEEPING_SAPLING.get(),
-            models().cross("seeping_sapling", modLoc("block/seeping_sapling")).renderType("cutout"));
-        simpleBlock(
-            MysteriousRegistry.SORBUS_SAPLING.get(),
-            models().cross("sorbus_sapling", modLoc("block/sorbus_sapling")).renderType("cutout"));
+        simpleBlock(MysteriousRegistry.BLOODWOOD_SAPLING.get(),
+            models().cross("bloodwood_sapling", modLoc("block/bloodwood_sapling")));
+        simpleBlock(MysteriousRegistry.GHOSTLY_SAPLING.get(),
+            models().cross("ghostly_sapling", modLoc("block/ghostly_sapling")));
+        simpleBlock(MysteriousRegistry.SEEPING_SAPLING.get(),
+            models().cross("seeping_sapling", modLoc("block/seeping_sapling")));
+        simpleBlock(MysteriousRegistry.SORBUS_SAPLING.get(),
+            models().cross("sorbus_sapling", modLoc("block/sorbus_sapling")));
         // TODO Enable these once we have textures, data generation fails without them.
-        // simpleBlock(MysteriousRegistry.WALNUT_SAPLING.get(), models().cross("walnut_sapling",
-        //    modLoc("block/walnut_sapling")).renderType("cutout"));
+        // simpleBlock(MysteriousRegistry.WALNUT_SAPLING.get(),
+        // models().cross("walnut_sapling", modLoc("block/walnut_sapling")));
 
         // Floor/wall signs
         signBlock(

@@ -23,7 +23,7 @@ package dev.tophatcat.mysteriousbiomes.client.models;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -38,7 +38,7 @@ import net.minecraft.resources.ResourceLocation;
 public class TheForgottenWarlockModel<T extends TheForgottenWarlockEntity> extends EntityModel<T> {
 
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-        new ResourceLocation(MysteriousCommon.MOD_ID, "the_forgotten_warlock"), "main");
+        ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "the_forgotten_warlock"), "main");
     private final ModelPart headBone;
     private final ModelPart rightArmBone;
     private final ModelPart leftArmBone;
@@ -107,13 +107,12 @@ public class TheForgottenWarlockModel<T extends TheForgottenWarlockEntity> exten
     }
 
     @Override
-    public void renderToBuffer(PoseStack matrix, VertexConsumer vertexConsumer, int light, int overlay,
-                               float red, float green, float blue, float alpha) {
-        headBone.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
-        rightArmBone.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
-        leftArmBone.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
-        leftLegBone.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
-        rightLegBone.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
-        torso.render(matrix, vertexConsumer, light, overlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack matrix, VertexConsumer vertexConsumer, int light, int overlay, int color) {
+        headBone.render(matrix, vertexConsumer, light, overlay, color);
+        rightArmBone.render(matrix, vertexConsumer, light, overlay, color);
+        leftArmBone.render(matrix, vertexConsumer, light, overlay, color);
+        leftLegBone.render(matrix, vertexConsumer, light, overlay, color);
+        rightLegBone.render(matrix, vertexConsumer, light, overlay, color);
+        torso.render(matrix, vertexConsumer, light, overlay, color);
     }
 }

@@ -20,6 +20,9 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
+import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
@@ -27,13 +30,29 @@ public class MysteriousRenderingNeo {
 
     public static void registerEntityModels(EntityRenderersEvent.RegisterRenderers event) {
         MysteriousRenderingCommon.getRenderers().forEach(
-            record -> event.registerEntityRenderer((EntityType) record.type().get(), record.renderer())
-        );
+            record -> event.registerEntityRenderer((EntityType) record.type().get(), record.renderer()));
     }
 
     public static void registerModelLayers(final EntityRenderersEvent.RegisterLayerDefinitions event) {
         MysteriousRenderingCommon.getLayerDefinitions().forEach(
-            layers -> event.registerLayerDefinition(layers.layerLocation(), layers::supplier)
-        );
+            layers -> event.registerLayerDefinition(layers.layerLocation(), layers::supplier));
+    }
+
+    public static void registerCutouts(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.BLOODWOOD_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.BLOODWOOD_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.BLOODWOOD_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.GHOSTLY_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.GHOSTLY_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.GHOSTLY_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SEEPING_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SEEPING_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SEEPING_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SORBUS_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SORBUS_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.SORBUS_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.WALNUT_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.WALNUT_TRAPDOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MysteriousRegistry.WALNUT_SAPLING.get(), RenderType.cutout());
     }
 }

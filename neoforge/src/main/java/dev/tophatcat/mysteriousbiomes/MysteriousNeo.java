@@ -21,8 +21,10 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingNeo;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.datagen.MysteriousBiomeGen;
+import dev.tophatcat.mysteriousbiomes.datagen.MysteriousFeaturesGen;
+import dev.tophatcat.mysteriousbiomes.datagen.MysteriousPlacementsGen;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousBlockStateProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousItemModelProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousLanguageProvider;
@@ -31,9 +33,11 @@ import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousRecipeProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousTagProvider;
 import dev.tophatcat.mysteriousbiomes.platform.NeoForgePlatformHelper;
 import net.minecraft.core.Holder;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -76,31 +80,27 @@ public class MysteriousNeo {
         if (FMLEnvironment.dist == Dist.CLIENT) {
             bus.addListener(MysteriousRenderingNeo::registerEntityModels);
             bus.addListener(MysteriousRenderingNeo::registerModelLayers);
+            bus.addListener(MysteriousRenderingNeo::registerCutouts);
         }
 
         TABS.register(bus);
-
-        bus.addListener(this::worldGenSetup);
-    }
-
-    private void worldGenSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(MysteriousCommon::initTerraBlender);
     }
 
     public void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(),
-            TheForgottenWarlockEntity.createAttributes().build());
-        SpawnPlacements.register(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(),
-            SpawnPlacements.Type.ON_GROUND,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            TheForgottenWarlockEntity::checkSpawnRules);
+        event.put(MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(), TheForgottenWarlockEntity.createAttributes().build());
+        SpawnPlacements.register(MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(), SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TheForgottenWarlockEntity::checkSpawnRules);
     }
 
     public void gatherData(GatherDataEvent event) {
         var gen = event.getGenerator();
         var existingHelper = event.getExistingFileHelper();
+
+        // Datagen trees.
+        RegistrySetBuilder builder = new RegistrySetBuilder()
+            .add(Registries.CONFIGURED_FEATURE, MysteriousFeaturesGen::run)
+            .add(Registries.PLACED_FEATURE, MysteriousPlacementsGen::run)
+            .add(Registries.BIOME, MysteriousBiomeGen::run);
 
         // Datagen block and item tags.
         var blockTags = gen.addProvider(true, new MysteriousTagProvider.MysteriousBlockTags(gen.getPackOutput(),
@@ -124,6 +124,7 @@ public class MysteriousNeo {
             gen.getPackOutput(), event.getLookupProvider()));
 
         // Datagen loot tables.
-        gen.addProvider(event.includeServer(), MysteriousLootTableProvider.create(gen.getPackOutput()));
+        gen.addProvider(event.includeServer(), MysteriousLootTableProvider.create(gen.getPackOutput(),
+            event.getLookupProvider()));
     }
 }
