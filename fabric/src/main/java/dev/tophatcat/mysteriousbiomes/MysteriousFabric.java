@@ -21,6 +21,7 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
+import java.util.Comparator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -36,8 +37,6 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
-
-import java.util.Comparator;
 
 public class MysteriousFabric implements ModInitializer {
 

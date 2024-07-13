@@ -1,2 +1,229 @@
 {
+  "values": {
+    "mysteriousbiomes:bloodwood_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_stripped_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_stripped_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_planks": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_stairs": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_slab": {
+      "burn_time": 150
+    },
+    "mysteriousbiomes:bloodwood_trapdoor": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_pressure_plate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_fence": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_gate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:bloodwood_sign": {
+      "burn_time": 200
+    },
+    "mysteriousbiomes:bloodwood_hanging_sign": {
+      "burn_time": 800
+    },
+    "mysteriousbiomes:bloodwood_button": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:bloodwood_sapling": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:ghostly_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_stripped_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_stripped_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_planks": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_stairs": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_slab": {
+      "burn_time": 150
+    },
+    "mysteriousbiomes:ghostly_trapdoor": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_pressure_plate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_fence": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_gate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:ghostly_sign": {
+      "burn_time": 200
+    },
+    "mysteriousbiomes:ghostly_hanging_sign": {
+      "burn_time": 800
+    },
+    "mysteriousbiomes:ghostly_button": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:ghostly_sapling": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:seeping_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_stripped_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_stripped_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_planks": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_stairs": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_slab": {
+      "burn_time": 150
+    },
+    "mysteriousbiomes:seeping_trapdoor": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_pressure_plate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_fence": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_gate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:seeping_sign": {
+      "burn_time": 200
+    },
+    "mysteriousbiomes:seeping_hanging_sign": {
+      "burn_time": 800
+    },
+    "mysteriousbiomes:seeping_button": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:seeping_sapling": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:sorbus_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_stripped_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_stripped_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_planks": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_stairs": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_slab": {
+      "burn_time": 150
+    },
+    "mysteriousbiomes:sorbus_trapdoor": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_pressure_plate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_fence": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_gate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:sorbus_sign": {
+      "burn_time": 200
+    },
+    "mysteriousbiomes:sorbus_hanging_sign": {
+      "burn_time": 800
+    },
+    "mysteriousbiomes:sorbus_button": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:sorbus_sapling": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:walnut_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_stripped_log": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_stripped_wood": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_planks": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_stairs": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_slab": {
+      "burn_time": 150
+    },
+    "mysteriousbiomes:walnut_trapdoor": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_pressure_plate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_fence": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_gate": {
+      "burn_time": 300
+    },
+    "mysteriousbiomes:walnut_sign": {
+      "burn_time": 200
+    },
+    "mysteriousbiomes:walnut_hanging_sign": {
+      "burn_time": 800
+    },
+    "mysteriousbiomes:walnut_button": {
+      "burn_time": 100
+    },
+    "mysteriousbiomes:walnut_sapling": {
+      "burn_time": 100
+    }
+  }
 }

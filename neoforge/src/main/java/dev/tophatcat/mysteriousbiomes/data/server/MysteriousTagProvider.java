@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.datagen.server;
+package dev.tophatcat.mysteriousbiomes.data.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;

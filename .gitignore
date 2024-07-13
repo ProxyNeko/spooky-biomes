@@ -23,6 +23,8 @@ build
 eclipse
 run
 runs
+*/reports/*
+TODO.txt
 
 # Visual Studio Code
 .settings/

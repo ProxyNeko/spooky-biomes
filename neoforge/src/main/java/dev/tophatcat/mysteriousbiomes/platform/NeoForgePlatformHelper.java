@@ -23,16 +23,15 @@ package dev.tophatcat.mysteriousbiomes.platform;
 import com.mojang.datafixers.util.Pair;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.platform.services.IPlatformHelper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Supplier;
 
 public class NeoForgePlatformHelper implements IPlatformHelper {
 

@@ -25,6 +25,7 @@ import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
+import java.util.function.Supplier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.HangingSignItem;
@@ -47,8 +48,6 @@ import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
-
-import java.util.function.Supplier;
 
 public class MysteriousRegistry {
 

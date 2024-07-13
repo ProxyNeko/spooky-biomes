@@ -21,17 +21,18 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingNeo;
-import dev.tophatcat.mysteriousbiomes.datagen.MysteriousBiomeGen;
-import dev.tophatcat.mysteriousbiomes.datagen.MysteriousFeaturesGen;
-import dev.tophatcat.mysteriousbiomes.datagen.MysteriousPlacementsGen;
+import dev.tophatcat.mysteriousbiomes.data.MysteriousBiomeGen;
+import dev.tophatcat.mysteriousbiomes.data.MysteriousFeaturesGen;
+import dev.tophatcat.mysteriousbiomes.data.MysteriousPlacementsGen;
+import dev.tophatcat.mysteriousbiomes.data.client.MysteriousBlockStateProvider;
+import dev.tophatcat.mysteriousbiomes.data.client.MysteriousItemModelProvider;
+import dev.tophatcat.mysteriousbiomes.data.client.MysteriousLanguageProvider;
+import dev.tophatcat.mysteriousbiomes.data.server.MysteriousLootTableProvider;
+import dev.tophatcat.mysteriousbiomes.data.server.MysteriousRecipeProvider;
+import dev.tophatcat.mysteriousbiomes.data.server.MysteriousTagProvider;
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
-import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousBlockStateProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousItemModelProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousLanguageProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousLootTableProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousRecipeProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousTagProvider;
 import dev.tophatcat.mysteriousbiomes.platform.NeoForgePlatformHelper;
+import java.util.Comparator;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -45,14 +46,11 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.Comparator;
 
 @Mod(MysteriousCommon.MOD_ID)
 public class MysteriousNeo {
