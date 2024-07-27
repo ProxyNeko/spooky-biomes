@@ -20,6 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 public class MysteriousStrippableBlocks {
@@ -29,25 +30,25 @@ public class MysteriousStrippableBlocks {
     }
 
     private void init() {
-        StrippableBlockRegistry.register(MysteriousRegistry.BLOODWOOD_LOG.get(),
-            MysteriousRegistry.BLOODWOOD_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.BLOODWOOD_WOOD.get(),
-            MysteriousRegistry.BLOODWOOD_STRIPPED_WOOD.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.GHOSTLY_LOG.get(),
-            MysteriousRegistry.GHOSTLY_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.GHOSTLY_WOOD.get(),
-            MysteriousRegistry.GHOSTLY_STRIPPED_WOOD.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.SEEPING_LOG.get(),
-            MysteriousRegistry.SEEPING_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.SEEPING_WOOD.get(),
-            MysteriousRegistry.SEEPING_STRIPPED_WOOD.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.SORBUS_LOG.get(),
-            MysteriousRegistry.SORBUS_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.SORBUS_WOOD.get(),
-            MysteriousRegistry.SORBUS_STRIPPED_WOOD.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.WALNUT_LOG.get(),
-            MysteriousRegistry.WALNUT_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(MysteriousRegistry.WALNUT_WOOD.get(),
-            MysteriousRegistry.WALNUT_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.BLOODWOOD_LOG.get(),
+            BlockRegistry.BLOODWOOD_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.BLOODWOOD_WOOD.get(),
+            BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.GHOSTLY_LOG.get(),
+            BlockRegistry.GHOSTLY_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.GHOSTLY_WOOD.get(),
+            BlockRegistry.GHOSTLY_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.SEEPING_LOG.get(),
+            BlockRegistry.SEEPING_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.SEEPING_WOOD.get(),
+            BlockRegistry.SEEPING_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.SORBUS_LOG.get(),
+            BlockRegistry.SORBUS_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.SORBUS_WOOD.get(),
+            BlockRegistry.SORBUS_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.WALNUT_LOG.get(),
+            BlockRegistry.WALNUT_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.WALNUT_WOOD.get(),
+            BlockRegistry.WALNUT_STRIPPED_WOOD.get());
     }
 }

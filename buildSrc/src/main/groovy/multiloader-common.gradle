@@ -1,5 +1,6 @@
 plugins {
 	id "pmd"
+    id "idea"
 	id "java-library"
 	id "maven-publish"
 	id "net.neoforged.licenser"
@@ -78,6 +79,11 @@ repositories {
             content {
                 includeGroup "maven.modrinth"
             }
+        }
+
+        maven {
+            name = "Minecraft Forge"
+            url = "https://maven.minecraftforge.net/"
         }
 	}
 }

@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -51,11 +51,11 @@ public class MysteriousFeaturesGen {
     public static void run(BootstrapContext<ConfiguredFeature<?, ?>> feature) {
         feature.register(BLOODWOOD_TREE, new ConfiguredFeature<>(Feature.TREE,
             new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(MysteriousRegistry.BLOODWOOD_LOG.get()),
+                BlockStateProvider.simple(BlockRegistry.BLOODWOOD_LOG.get()),
                 new StraightTrunkPlacer(1, 0, 0),
-                BlockStateProvider.simple(MysteriousRegistry.BLOODWOOD_LEAVES.get()),
+                BlockStateProvider.simple(BlockRegistry.BLOODWOOD_LEAVES.get()),
                 new BushFoliagePlacer(ConstantInt.of(2),
                 ConstantInt.of(1), 2), new TwoLayersFeatureSize(0, 0, 0))
-                .dirt(BlockStateProvider.simple(MysteriousRegistry.BLOODIED_DIRT.get())).build()));
+                .dirt(BlockStateProvider.simple(BlockRegistry.BLOODIED_DIRT.get())).build()));
     }
 }

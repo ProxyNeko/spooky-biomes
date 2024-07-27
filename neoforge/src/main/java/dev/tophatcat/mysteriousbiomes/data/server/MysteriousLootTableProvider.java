@@ -21,12 +21,15 @@
 package dev.tophatcat.mysteriousbiomes.data.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
+
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -52,123 +55,123 @@ public class MysteriousLootTableProvider {
         @Override
         protected void generate() {
             // Misc blocks.
-            dropSelf(MysteriousRegistry.BLOODIED_DIRT.get());
-            add(MysteriousRegistry.BLOODIED_GRASS.get(), block -> createSingleItemTableWithSilkTouch(block,
-                MysteriousRegistry.BLOODIED_DIRT.get()));
+            dropSelf(BlockRegistry.BLOODIED_DIRT.get());
+            add(BlockRegistry.BLOODIED_GRASS.get(), block -> createSingleItemTableWithSilkTouch(block,
+                BlockRegistry.BLOODIED_DIRT.get()));
 
             // Bloodwood tree family.
-            dropSelf(MysteriousRegistry.BLOODWOOD_LOG.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_STRIPPED_LOG.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_WOOD.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_STRIPPED_WOOD.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_PLANKS.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_STAIRS.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_SLAB.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_FENCE.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_GATE.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_BUTTON.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_PRESSURE_PLATE.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_TRAPDOOR.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_SAPLING.get());
-            dropSelf(Block.byItem(MysteriousRegistry.BLOODWOOD_SIGN.get()));
-            dropSelf(MysteriousRegistry.BLOODWOOD_WALL_SIGN.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_HANGING_SIGN.get());
-            dropSelf(MysteriousRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
-            add(MysteriousRegistry.BLOODWOOD_DOOR.get(), this::createDoorTable);
-            add(MysteriousRegistry.BLOODWOOD_LEAVES.get(), block -> createLeavesDrops(
-                MysteriousRegistry.BLOODWOOD_LEAVES.get(), MysteriousRegistry.BLOODWOOD_SAPLING.get(),
+            dropSelf(BlockRegistry.BLOODWOOD_LOG.get());
+            dropSelf(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.BLOODWOOD_WOOD.get());
+            dropSelf(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.BLOODWOOD_PLANKS.get());
+            dropSelf(BlockRegistry.BLOODWOOD_STAIRS.get());
+            dropSelf(BlockRegistry.BLOODWOOD_SLAB.get());
+            dropSelf(BlockRegistry.BLOODWOOD_FENCE.get());
+            dropSelf(BlockRegistry.BLOODWOOD_GATE.get());
+            dropSelf(BlockRegistry.BLOODWOOD_BUTTON.get());
+            dropSelf(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.BLOODWOOD_TRAPDOOR.get());
+            dropSelf(BlockRegistry.BLOODWOOD_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.BLOODWOOD_SIGN.get()));
+            dropSelf(BlockRegistry.BLOODWOOD_WALL_SIGN.get());
+            dropSelf(BlockRegistry.BLOODWOOD_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.BLOODWOOD_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.BLOODWOOD_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.BLOODWOOD_LEAVES.get(), BlockRegistry.BLOODWOOD_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Ghostly tree family.
-            dropSelf(MysteriousRegistry.GHOSTLY_LOG.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_STRIPPED_LOG.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_WOOD.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_STRIPPED_WOOD.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_PLANKS.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_STAIRS.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_SLAB.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_FENCE.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_GATE.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_BUTTON.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_PRESSURE_PLATE.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_TRAPDOOR.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_SAPLING.get());
-            dropSelf(Block.byItem(MysteriousRegistry.GHOSTLY_SIGN.get()));
-            dropSelf(MysteriousRegistry.GHOSTLY_WALL_SIGN.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_HANGING_SIGN.get());
-            dropSelf(MysteriousRegistry.GHOSTLY_WALL_HANGING_SIGN.get());
-            add(MysteriousRegistry.GHOSTLY_DOOR.get(), this::createDoorTable);
-            add(MysteriousRegistry.GHOSTLY_LEAVES.get(), block -> createLeavesDrops(
-                MysteriousRegistry.GHOSTLY_LEAVES.get(), MysteriousRegistry.GHOSTLY_SAPLING.get(),
+            dropSelf(BlockRegistry.GHOSTLY_LOG.get());
+            dropSelf(BlockRegistry.GHOSTLY_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.GHOSTLY_WOOD.get());
+            dropSelf(BlockRegistry.GHOSTLY_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.GHOSTLY_PLANKS.get());
+            dropSelf(BlockRegistry.GHOSTLY_STAIRS.get());
+            dropSelf(BlockRegistry.GHOSTLY_SLAB.get());
+            dropSelf(BlockRegistry.GHOSTLY_FENCE.get());
+            dropSelf(BlockRegistry.GHOSTLY_GATE.get());
+            dropSelf(BlockRegistry.GHOSTLY_BUTTON.get());
+            dropSelf(BlockRegistry.GHOSTLY_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.GHOSTLY_TRAPDOOR.get());
+            dropSelf(BlockRegistry.GHOSTLY_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.GHOSTLY_SIGN.get()));
+            dropSelf(BlockRegistry.GHOSTLY_WALL_SIGN.get());
+            dropSelf(BlockRegistry.GHOSTLY_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.GHOSTLY_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.GHOSTLY_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.GHOSTLY_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.GHOSTLY_LEAVES.get(), BlockRegistry.GHOSTLY_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Seeping tree family.
-            dropSelf(MysteriousRegistry.SEEPING_LOG.get());
-            dropSelf(MysteriousRegistry.SEEPING_STRIPPED_LOG.get());
-            dropSelf(MysteriousRegistry.SEEPING_WOOD.get());
-            dropSelf(MysteriousRegistry.SEEPING_STRIPPED_WOOD.get());
-            dropSelf(MysteriousRegistry.SEEPING_PLANKS.get());
-            dropSelf(MysteriousRegistry.SEEPING_STAIRS.get());
-            dropSelf(MysteriousRegistry.SEEPING_SLAB.get());
-            dropSelf(MysteriousRegistry.SEEPING_FENCE.get());
-            dropSelf(MysteriousRegistry.SEEPING_GATE.get());
-            dropSelf(MysteriousRegistry.SEEPING_BUTTON.get());
-            dropSelf(MysteriousRegistry.SEEPING_PRESSURE_PLATE.get());
-            dropSelf(MysteriousRegistry.SEEPING_TRAPDOOR.get());
-            dropSelf(MysteriousRegistry.SEEPING_SAPLING.get());
-            dropSelf(Block.byItem(MysteriousRegistry.SEEPING_SIGN.get()));
-            dropSelf(MysteriousRegistry.SEEPING_WALL_SIGN.get());
-            dropSelf(MysteriousRegistry.SEEPING_HANGING_SIGN.get());
-            dropSelf(MysteriousRegistry.SEEPING_WALL_HANGING_SIGN.get());
-            add(MysteriousRegistry.SEEPING_DOOR.get(), this::createDoorTable);
-            add(MysteriousRegistry.SEEPING_LEAVES.get(), block -> createLeavesDrops(
-                MysteriousRegistry.SEEPING_LEAVES.get(), MysteriousRegistry.SEEPING_SAPLING.get(),
+            dropSelf(BlockRegistry.SEEPING_LOG.get());
+            dropSelf(BlockRegistry.SEEPING_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.SEEPING_WOOD.get());
+            dropSelf(BlockRegistry.SEEPING_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.SEEPING_PLANKS.get());
+            dropSelf(BlockRegistry.SEEPING_STAIRS.get());
+            dropSelf(BlockRegistry.SEEPING_SLAB.get());
+            dropSelf(BlockRegistry.SEEPING_FENCE.get());
+            dropSelf(BlockRegistry.SEEPING_GATE.get());
+            dropSelf(BlockRegistry.SEEPING_BUTTON.get());
+            dropSelf(BlockRegistry.SEEPING_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.SEEPING_TRAPDOOR.get());
+            dropSelf(BlockRegistry.SEEPING_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.SEEPING_SIGN.get()));
+            dropSelf(BlockRegistry.SEEPING_WALL_SIGN.get());
+            dropSelf(BlockRegistry.SEEPING_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.SEEPING_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.SEEPING_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.SEEPING_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.SEEPING_LEAVES.get(), BlockRegistry.SEEPING_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Sorbus tree family.
-            dropSelf(MysteriousRegistry.SORBUS_LOG.get());
-            dropSelf(MysteriousRegistry.SORBUS_STRIPPED_LOG.get());
-            dropSelf(MysteriousRegistry.SORBUS_WOOD.get());
-            dropSelf(MysteriousRegistry.SORBUS_STRIPPED_WOOD.get());
-            dropSelf(MysteriousRegistry.SORBUS_PLANKS.get());
-            dropSelf(MysteriousRegistry.SORBUS_STAIRS.get());
-            dropSelf(MysteriousRegistry.SORBUS_SLAB.get());
-            dropSelf(MysteriousRegistry.SORBUS_FENCE.get());
-            dropSelf(MysteriousRegistry.SORBUS_GATE.get());
-            dropSelf(MysteriousRegistry.SORBUS_BUTTON.get());
-            dropSelf(MysteriousRegistry.SORBUS_PRESSURE_PLATE.get());
-            dropSelf(MysteriousRegistry.SORBUS_TRAPDOOR.get());
-            dropSelf(MysteriousRegistry.SORBUS_SAPLING.get());
-            dropSelf(Block.byItem(MysteriousRegistry.SORBUS_SIGN.get()));
-            dropSelf(MysteriousRegistry.SORBUS_WALL_SIGN.get());
-            dropSelf(MysteriousRegistry.SORBUS_HANGING_SIGN.get());
-            dropSelf(MysteriousRegistry.SORBUS_WALL_HANGING_SIGN.get());
-            add(MysteriousRegistry.SORBUS_DOOR.get(), this::createDoorTable);
-            add(MysteriousRegistry.SORBUS_LEAVES.get(), block -> createLeavesDrops(
-                MysteriousRegistry.SORBUS_LEAVES.get(), MysteriousRegistry.SORBUS_SAPLING.get(),
+            dropSelf(BlockRegistry.SORBUS_LOG.get());
+            dropSelf(BlockRegistry.SORBUS_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.SORBUS_WOOD.get());
+            dropSelf(BlockRegistry.SORBUS_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.SORBUS_PLANKS.get());
+            dropSelf(BlockRegistry.SORBUS_STAIRS.get());
+            dropSelf(BlockRegistry.SORBUS_SLAB.get());
+            dropSelf(BlockRegistry.SORBUS_FENCE.get());
+            dropSelf(BlockRegistry.SORBUS_GATE.get());
+            dropSelf(BlockRegistry.SORBUS_BUTTON.get());
+            dropSelf(BlockRegistry.SORBUS_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.SORBUS_TRAPDOOR.get());
+            dropSelf(BlockRegistry.SORBUS_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.SORBUS_SIGN.get()));
+            dropSelf(BlockRegistry.SORBUS_WALL_SIGN.get());
+            dropSelf(BlockRegistry.SORBUS_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.SORBUS_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.SORBUS_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.SORBUS_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.SORBUS_LEAVES.get(), BlockRegistry.SORBUS_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Walnut tree family.
-            dropSelf(MysteriousRegistry.WALNUT_LOG.get());
-            dropSelf(MysteriousRegistry.WALNUT_STRIPPED_LOG.get());
-            dropSelf(MysteriousRegistry.WALNUT_WOOD.get());
-            dropSelf(MysteriousRegistry.WALNUT_STRIPPED_WOOD.get());
-            dropSelf(MysteriousRegistry.WALNUT_PLANKS.get());
-            dropSelf(MysteriousRegistry.WALNUT_STAIRS.get());
-            dropSelf(MysteriousRegistry.WALNUT_SLAB.get());
-            dropSelf(MysteriousRegistry.WALNUT_FENCE.get());
-            dropSelf(MysteriousRegistry.WALNUT_GATE.get());
-            dropSelf(MysteriousRegistry.WALNUT_BUTTON.get());
-            dropSelf(MysteriousRegistry.WALNUT_PRESSURE_PLATE.get());
-            dropSelf(MysteriousRegistry.WALNUT_TRAPDOOR.get());
-            dropSelf(MysteriousRegistry.WALNUT_SAPLING.get());
-            dropSelf(Block.byItem(MysteriousRegistry.WALNUT_SIGN.get()));
-            dropSelf(MysteriousRegistry.WALNUT_WALL_SIGN.get());
-            dropSelf(MysteriousRegistry.WALNUT_HANGING_SIGN.get());
-            dropSelf(MysteriousRegistry.WALNUT_WALL_HANGING_SIGN.get());
-            add(MysteriousRegistry.WALNUT_DOOR.get(), this::createDoorTable);
-            add(MysteriousRegistry.WALNUT_LEAVES.get(), block -> createLeavesDrops(
-                MysteriousRegistry.WALNUT_LEAVES.get(), MysteriousRegistry.WALNUT_SAPLING.get(),
+            dropSelf(BlockRegistry.WALNUT_LOG.get());
+            dropSelf(BlockRegistry.WALNUT_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.WALNUT_WOOD.get());
+            dropSelf(BlockRegistry.WALNUT_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.WALNUT_PLANKS.get());
+            dropSelf(BlockRegistry.WALNUT_STAIRS.get());
+            dropSelf(BlockRegistry.WALNUT_SLAB.get());
+            dropSelf(BlockRegistry.WALNUT_FENCE.get());
+            dropSelf(BlockRegistry.WALNUT_GATE.get());
+            dropSelf(BlockRegistry.WALNUT_BUTTON.get());
+            dropSelf(BlockRegistry.WALNUT_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.WALNUT_TRAPDOOR.get());
+            dropSelf(BlockRegistry.WALNUT_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.WALNUT_SIGN.get()));
+            dropSelf(BlockRegistry.WALNUT_WALL_SIGN.get());
+            dropSelf(BlockRegistry.WALNUT_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.WALNUT_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.WALNUT_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.WALNUT_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.WALNUT_LEAVES.get(), BlockRegistry.WALNUT_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
         }
 

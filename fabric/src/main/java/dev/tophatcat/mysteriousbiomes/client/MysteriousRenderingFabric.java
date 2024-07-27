@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -38,20 +38,20 @@ public class MysteriousRenderingFabric implements ClientModInitializer {
         MysteriousRenderingCommon.getLayerDefinitions().forEach(
             layers -> EntityModelLayerRegistry.registerModelLayer(layers.layerLocation(), layers::supplier));
 
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.BLOODWOOD_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.BLOODWOOD_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.BLOODWOOD_SAPLING.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.GHOSTLY_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.GHOSTLY_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.GHOSTLY_SAPLING.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SEEPING_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SEEPING_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SEEPING_SAPLING.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SORBUS_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SORBUS_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.SORBUS_SAPLING.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.WALNUT_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.WALNUT_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousRegistry.WALNUT_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SEEPING_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SEEPING_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SEEPING_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SORBUS_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SORBUS_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SORBUS_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WALNUT_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WALNUT_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WALNUT_SAPLING.get(), RenderType.cutout());
     }
 }

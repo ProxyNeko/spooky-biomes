@@ -12,6 +12,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "maven.modrinth:jade:${jade_fabric_version}"
+    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-${project.minecraft_version}:${project.resourceful_config_version}"
 }

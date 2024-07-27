@@ -20,7 +20,10 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.platform.Services;
+import dev.tophatcat.mysteriousbiomes.platform.IPlatform;
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -29,11 +32,14 @@ import net.minecraft.world.level.biome.Biome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ServiceLoader;
+
 public class MysteriousCommon {
 
     public static final String MOD_ID = "mysteriousbiomes";
     public static final String MOD_NAME = "Mysterious Biomes";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
+    public static final IPlatform COMMON_PLATFORM = ServiceLoader.load(IPlatform.class).findFirst().orElseThrow();
 
     public static final ResourceKey<Biome> BLOODIED_PLAINS = ResourceKey.create(Registries.BIOME,
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "bloodied_plains"));
@@ -48,10 +54,15 @@ public class MysteriousCommon {
 
     public static void init() {
         LOG.debug("We are currently loaded via the {} mod loader in a {} environment!",
-            Services.PLATFORM.getPlatformName(),
-            Services.PLATFORM.getEnvironmentName());
+            COMMON_PLATFORM.getPlatformName(),
+            COMMON_PLATFORM.getEnvironmentName());
 
-        MysteriousRegistry.init();
         MysteriousWoodType.init();
+        //Block Entities
+        BlockRegistry.init();
+        EntityRegistry.init();
+        ItemRegistry.init();
+        //Sounds
+        //Creative tabs
     }
 }

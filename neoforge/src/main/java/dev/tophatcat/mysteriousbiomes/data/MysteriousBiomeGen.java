@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.CavePlacements;
@@ -142,7 +142,7 @@ public class MysteriousBiomeGen {
     private static MobSpawnSettings.Builder commonMobSpawnSettings() {
         return new MobSpawnSettings.Builder()
             .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(
-                MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(), 1, 1, 2))
+                EntityRegistry.THE_FORGOTTEN_WARLOCK.get(), 1, 1, 2))
             .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(
                 EntityType.ZOMBIE, 1, 2, 2))
             .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(

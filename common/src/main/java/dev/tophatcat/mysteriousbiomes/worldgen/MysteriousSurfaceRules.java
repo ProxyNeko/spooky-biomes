@@ -21,15 +21,15 @@
 package dev.tophatcat.mysteriousbiomes.worldgen;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 
 public class MysteriousSurfaceRules {
 
     private static final SurfaceRules.RuleSource BLOODIED_GRASS = SurfaceRules.state(
-        MysteriousRegistry.BLOODIED_GRASS.get().defaultBlockState());
+        BlockRegistry.BLOODIED_GRASS.get().defaultBlockState());
     private static final SurfaceRules.RuleSource BLOODIED_DIRT = SurfaceRules.state(
-        MysteriousRegistry.BLOODIED_DIRT.get().defaultBlockState());
+        BlockRegistry.BLOODIED_DIRT.get().defaultBlockState());
 
     public static SurfaceRules.RuleSource makeRules() {
         return SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(MysteriousCommon.BLOODIED_PLAINS),

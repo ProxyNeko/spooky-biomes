@@ -47,6 +47,7 @@ neoForge {
 
 dependencies {
     implementation "maven.modrinth:jade:${project.jade_neoforge_version}"
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_neoforge_version}"
     implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-neoforge-${project.minecraft_version}:${project.resourceful_config_version}"
 }
 

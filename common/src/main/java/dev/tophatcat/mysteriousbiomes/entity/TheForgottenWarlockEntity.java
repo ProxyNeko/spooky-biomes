@@ -27,6 +27,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -51,7 +52,9 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import org.apache.commons.lang3.builder.Diff;
 
 public class TheForgottenWarlockEntity extends Monster implements RangedAttackMob {
 
@@ -104,28 +107,15 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
         super.aiStep();
         if (level().isClientSide) {
             for (int i = 0; i < 2; ++i) {
-                level()
-                    .addParticle(
-                        ParticleTypes.PORTAL,
+                level().addParticle(ParticleTypes.PORTAL,
                         getX() + (random.nextDouble() - 0.5D) * (double) getBbWidth(),
                         getY() + random.nextDouble() * (double) getBbHeight(),
                         getZ() + (random.nextDouble() - 0.5D) * (double) getBbWidth(),
-                        (random.nextDouble() - 0.5D) * 2.0D,
-                        -random.nextDouble(),
+                        (random.nextDouble() - 0.5D) * 2.0D, -random.nextDouble(),
                         (random.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }
-
-    //@Override
-    //protected float getEyeHeight(Pose pose, EntityDimensions dimensions) {
-    //    return 2.15F;
-    //}
-
-    //@Override
-    //public MobType getMobType() {
-    //    return MobType.UNDEAD;
-    //}
 
     //TODO Change it from an arrow to a blue fireball that doesn't burn flammable in world blocks,
     // only entities.
@@ -172,17 +162,12 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
         return false;
     }
 
-    public static <T extends Mob> boolean checkSpawnRules(
-        EntityType<T> entityType,
-        ServerLevelAccessor levelAccessor,
-        MobSpawnType spawnType,
-        BlockPos pos,
-        RandomSource source) {
-        return true;
+    public static boolean checkSpawnRules(EntityType<? extends TheForgottenWarlockEntity> type, LevelAccessor accessor,
+                                   MobSpawnType spawnReason, BlockPos pos, RandomSource source) {
+        return accessor.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     public static class TheForgottenWarlockAttackGoal extends RangedAttackGoal {
-
         public TheForgottenWarlockAttackGoal(TheForgottenWarlockEntity theForgottenWarlock) {
             super(theForgottenWarlock, 0.25D, 40, 10.0F);
         }

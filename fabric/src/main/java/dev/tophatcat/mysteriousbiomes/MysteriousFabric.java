@@ -21,52 +21,27 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
-import java.util.Comparator;
+import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class MysteriousFabric implements ModInitializer {
 
-    private static final ResourceKey<CreativeModeTab> MYSTERIOUS_TAB =
-        ResourceKey.create(Registries.CREATIVE_MODE_TAB,
-            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "mysterious_tab"));
-
     @Override
     public void onInitialize() {
         MysteriousCommon.init();
-        new MysteriousFlammableBlocks();
-        new MysteriousFuelSettings();
-        new MysteriousStrippableBlocks();
-
-        FabricDefaultAttributeRegistry.register(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(),
-            TheForgottenWarlockEntity.createAttributes());
+        EntityRegistry.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
         SpawnPlacements.register(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(),
+            EntityRegistry.THE_FORGOTTEN_WARLOCK.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             TheForgottenWarlockEntity::checkSpawnRules);
 
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MYSTERIOUS_TAB, FabricItemGroup.builder()
-            .icon(() -> new ItemStack(MysteriousRegistry.GHOSTLY_SAPLING.get())).title(Component.translatable(
-                "item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab")).displayItems(
-                (displayContext, entries) -> BuiltInRegistries.ITEM.holders().filter(itemReference -> itemReference
-                        .key().location().getNamespace().equals(MysteriousCommon.MOD_ID)).sorted(
-                        Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
-                    .map(Holder.Reference::value)
-                    .forEachOrdered(entries::accept)).build());
+        new MysteriousFlammableBlocks();
+        new MysteriousFuelSettings();
+        new MysteriousStrippableBlocks();
     }
 }

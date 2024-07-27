@@ -13,6 +13,7 @@ out
 *.iws
 *.iml
 .idea/*
+buildSrc/src/main/groovy/.idea/*
 !.idea/scopes
 
 # Gradle

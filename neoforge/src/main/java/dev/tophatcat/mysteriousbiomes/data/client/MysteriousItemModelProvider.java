@@ -21,7 +21,8 @@
 package dev.tophatcat.mysteriousbiomes.data.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -47,11 +48,8 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
 
     protected void simpleSaplingItemModel(Block block) {
         var name = getName(block);
-        singleTexture(
-            name,
-            ResourceLocation.fromNamespaceAndPath("minecraft", "item/generated"),
-            "layer0",
-            modLoc("block/" + name));
+        singleTexture(name, ResourceLocation.fromNamespaceAndPath("minecraft", "item/generated"),
+            "layer0", modLoc("block/" + name));
     }
 
     protected String getName(Block item) {
@@ -60,125 +58,114 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        simpleBlockItemModel(MysteriousRegistry.BLOODIED_GRASS.get());
-        simpleBlockItemModel(MysteriousRegistry.BLOODIED_DIRT.get());
+        simpleBlockItemModel(BlockRegistry.BLOODIED_GRASS.get());
+        simpleBlockItemModel(BlockRegistry.BLOODIED_DIRT.get());
 
         // Logs
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_LOG.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_LOG.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_LOG.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_LOG.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_LOG.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_LOG.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_STRIPPED_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_STRIPPED_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_STRIPPED_LOG.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_STRIPPED_LOG.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_STRIPPED_LOG.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_STRIPPED_LOG.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_STRIPPED_LOG.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_STRIPPED_LOG.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_WOOD.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_WOOD.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_STRIPPED_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_STRIPPED_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_STRIPPED_WOOD.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_STRIPPED_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_STRIPPED_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_STRIPPED_WOOD.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_STRIPPED_WOOD.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_STRIPPED_WOOD.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_PLANKS.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_PLANKS.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_PLANKS.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_PLANKS.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_PLANKS.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_PLANKS.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_PLANKS.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_PLANKS.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_PLANKS.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_STAIRS.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_STAIRS.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_STAIRS.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_STAIRS.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_STAIRS.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_STAIRS.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_STAIRS.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_STAIRS.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_STAIRS.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_LEAVES.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_LEAVES.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_LEAVES.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_LEAVES.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_LEAVES.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_LEAVES.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_LEAVES.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_LEAVES.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_LEAVES.get());
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_SLAB.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_SLAB.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_SLAB.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_SLAB.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_SLAB.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_SLAB.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_SLAB.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_SLAB.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_SLAB.get());
 
-        fenceInventory(
-            getName(MysteriousRegistry.BLOODWOOD_FENCE.get()),
-            ResourceLocation.fromNamespaceAndPath(
-                MysteriousCommon.MOD_ID,
-                "block/" + getName(MysteriousRegistry.BLOODWOOD_PLANKS.get())));
-        fenceInventory(
-            getName(MysteriousRegistry.GHOSTLY_FENCE.get()),
-            ResourceLocation.fromNamespaceAndPath(
-                MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.GHOSTLY_PLANKS.get())));
-        fenceInventory(
-            getName(MysteriousRegistry.SEEPING_FENCE.get()),
-            ResourceLocation.fromNamespaceAndPath(
-                MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.SEEPING_PLANKS.get())));
-        fenceInventory(
-            getName(MysteriousRegistry.SORBUS_FENCE.get()),
-            ResourceLocation.fromNamespaceAndPath(
-                MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.SORBUS_PLANKS.get())));
-        // fenceInventory(getName(MysteriousRegistry.WALNUT_FENCE.get()),
-        //    ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/"
-        //        + getName(MysteriousRegistry.WALNUT_PLANKS.get())));
+        fenceInventory(getName(BlockRegistry.BLOODWOOD_FENCE.get()), ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/" + getName(BlockRegistry.BLOODWOOD_PLANKS.get())));
+        fenceInventory(getName(BlockRegistry.GHOSTLY_FENCE.get()), ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/" + getName(BlockRegistry.GHOSTLY_PLANKS.get())));
+        fenceInventory(getName(BlockRegistry.SEEPING_FENCE.get()), ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/" + getName(BlockRegistry.SEEPING_PLANKS.get())));
+        fenceInventory(getName(BlockRegistry.SORBUS_FENCE.get()), ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/" + getName(BlockRegistry.SORBUS_PLANKS.get())));
+        // fenceInventory(getName(MysteriousRegistry.WALNUT_FENCE.get()), ResourceLocation.fromNamespaceAndPath(
+        // MysteriousCommon.MOD_ID, "block/" + getName(MysteriousRegistry.WALNUT_PLANKS.get())));
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_GATE.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_GATE.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_GATE.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_GATE.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_GATE.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_GATE.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_GATE.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_GATE.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_GATE.get());
 
-        buttonInventory(
-            "bloodwood_button",
-            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/bloodwood_planks"));
-        buttonInventory(
-            "ghostly_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/ghostly_planks"));
-        buttonInventory(
-            "seeping_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/seeping_planks"));
-        buttonInventory(
-            "sorbus_button", ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "block/sorbus_planks"));
+        buttonInventory("bloodwood_button", ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/bloodwood_planks"));
+        buttonInventory("ghostly_button", ResourceLocation.fromNamespaceAndPath(
+            MysteriousCommon.MOD_ID, "block/ghostly_planks"));
+        buttonInventory("seeping_button", ResourceLocation.fromNamespaceAndPath(
+                MysteriousCommon.MOD_ID, "block/seeping_planks"));
+        buttonInventory("sorbus_button", ResourceLocation.fromNamespaceAndPath(
+                MysteriousCommon.MOD_ID, "block/sorbus_planks"));
         // buttonInventory("walnut_button", ResourceLocation.fromNamespaceAndPath(
-        //    MysteriousCommon.MOD_ID, "block/walnut_planks"));
+        // MysteriousCommon.MOD_ID, "block/walnut_planks"));
 
-        simpleBlockItemModel(MysteriousRegistry.BLOODWOOD_PRESSURE_PLATE.get());
-        simpleBlockItemModel(MysteriousRegistry.GHOSTLY_PRESSURE_PLATE.get());
-        simpleBlockItemModel(MysteriousRegistry.SEEPING_PRESSURE_PLATE.get());
-        simpleBlockItemModel(MysteriousRegistry.SORBUS_PRESSURE_PLATE.get());
+        simpleBlockItemModel(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get());
+        simpleBlockItemModel(BlockRegistry.GHOSTLY_PRESSURE_PLATE.get());
+        simpleBlockItemModel(BlockRegistry.SEEPING_PRESSURE_PLATE.get());
+        simpleBlockItemModel(BlockRegistry.SORBUS_PRESSURE_PLATE.get());
         // simpleBlockItemModel(MysteriousRegistry.WALNUT_PRESSURE_PLATE.get());
 
-        simpleTrapdoorBlockItemModel(MysteriousRegistry.BLOODWOOD_TRAPDOOR.get());
-        simpleTrapdoorBlockItemModel(MysteriousRegistry.GHOSTLY_TRAPDOOR.get());
-        simpleTrapdoorBlockItemModel(MysteriousRegistry.SEEPING_TRAPDOOR.get());
-        simpleTrapdoorBlockItemModel(MysteriousRegistry.SORBUS_TRAPDOOR.get());
+        simpleTrapdoorBlockItemModel(BlockRegistry.BLOODWOOD_TRAPDOOR.get());
+        simpleTrapdoorBlockItemModel(BlockRegistry.GHOSTLY_TRAPDOOR.get());
+        simpleTrapdoorBlockItemModel(BlockRegistry.SEEPING_TRAPDOOR.get());
+        simpleTrapdoorBlockItemModel(BlockRegistry.SORBUS_TRAPDOOR.get());
         // simpleTrapdoorBlockItemModel(MysteriousRegistry.WALNUT_TRAPDOOR.get());
 
-        basicItem(MysteriousRegistry.BLOODWOOD_DOOR.get().asItem());
-        basicItem(MysteriousRegistry.GHOSTLY_DOOR.get().asItem());
-        basicItem(MysteriousRegistry.SEEPING_DOOR.get().asItem());
-        basicItem(MysteriousRegistry.SORBUS_DOOR.get().asItem());
+        basicItem(BlockRegistry.BLOODWOOD_DOOR.get().asItem());
+        basicItem(BlockRegistry.GHOSTLY_DOOR.get().asItem());
+        basicItem(BlockRegistry.SEEPING_DOOR.get().asItem());
+        basicItem(BlockRegistry.SORBUS_DOOR.get().asItem());
         // basicItem(MysteriousRegistry.WALNUT_DOOR.get().asItem());
 
-        simpleSaplingItemModel(MysteriousRegistry.BLOODWOOD_SAPLING.get());
-        simpleSaplingItemModel(MysteriousRegistry.GHOSTLY_SAPLING.get());
-        simpleSaplingItemModel(MysteriousRegistry.SEEPING_SAPLING.get());
-        simpleSaplingItemModel(MysteriousRegistry.SORBUS_SAPLING.get());
+        simpleSaplingItemModel(BlockRegistry.BLOODWOOD_SAPLING.get());
+        simpleSaplingItemModel(BlockRegistry.GHOSTLY_SAPLING.get());
+        simpleSaplingItemModel(BlockRegistry.SEEPING_SAPLING.get());
+        simpleSaplingItemModel(BlockRegistry.SORBUS_SAPLING.get());
         // simpleSaplingItemModel(MysteriousRegistry.WALNUT_SAPLING.get());
 
-        basicItem(MysteriousRegistry.BLOODWOOD_SIGN.get());
-        basicItem(MysteriousRegistry.GHOSTLY_SIGN.get());
-        basicItem(MysteriousRegistry.SEEPING_SIGN.get());
-        basicItem(MysteriousRegistry.SORBUS_SIGN.get());
+        basicItem(ItemRegistry.BLOODWOOD_SIGN.get());
+        basicItem(ItemRegistry.GHOSTLY_SIGN.get());
+        basicItem(ItemRegistry.SEEPING_SIGN.get());
+        basicItem(ItemRegistry.SORBUS_SIGN.get());
         // basicItem(MysteriousRegistry.WALNUT_SIGN.get());
 
         // TODO Enable these once we have textures, data generation fails without them.
