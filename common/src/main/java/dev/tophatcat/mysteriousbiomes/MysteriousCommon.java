@@ -22,6 +22,7 @@ package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.platform.IPlatform;
 import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
+import dev.tophatcat.mysteriousbiomes.registries.CreativeTabRegistry;
 import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
 import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
@@ -63,6 +64,6 @@ public class MysteriousCommon {
         EntityRegistry.init();
         ItemRegistry.init();
         //Sounds
-        //Creative tabs
+        CreativeTabRegistry.init();
     }
 }
