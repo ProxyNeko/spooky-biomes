@@ -207,26 +207,26 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_SAPLING.get(), new Item.Properties()));
 
     // Sign items
-    public static final Supplier<SignItem> BLOODWOOD_SIGN = RegistryTools.makeSignItem(
+    public static final Supplier<SignItem> BLOODWOOD_SIGN = RegistryTools.createSign(
         "bloodwood_sign", BlockRegistry.BLOODWOOD_FLOOR_SIGN, BlockRegistry.BLOODWOOD_WALL_SIGN);
-    public static final Supplier<SignItem> GHOSTLY_SIGN = RegistryTools.makeSignItem(
+    public static final Supplier<SignItem> GHOSTLY_SIGN = RegistryTools.createSign(
         "ghostly_sign", BlockRegistry.GHOSTLY_FLOOR_SIGN, BlockRegistry.GHOSTLY_WALL_SIGN);
-    public static final Supplier<SignItem> SEEPING_SIGN = RegistryTools.makeSignItem(
+    public static final Supplier<SignItem> SEEPING_SIGN = RegistryTools.createSign(
         "seeping_sign", BlockRegistry.SEEPING_FLOOR_SIGN, BlockRegistry.SEEPING_WALL_SIGN);
-    public static final Supplier<SignItem> SORBUS_SIGN = RegistryTools.makeSignItem(
+    public static final Supplier<SignItem> SORBUS_SIGN = RegistryTools.createSign(
         "sorbus_sign", BlockRegistry.SORBUS_FLOOR_SIGN, BlockRegistry.SORBUS_WALL_SIGN);
-    public static final Supplier<SignItem> WALNUT_SIGN = RegistryTools.makeSignItem(
+    public static final Supplier<SignItem> WALNUT_SIGN = RegistryTools.createSign(
         "walnut_sign", BlockRegistry.WALNUT_FLOOR_SIGN, BlockRegistry.WALNUT_WALL_SIGN);
 
     // Hanging sign items
-    public static final Supplier<HangingSignItem> BLOODWOOD_HANGING_SIGN_ITEM = RegistryTools.makeHangingSignItem(
-        "bloodwood_hanging_sign_item", BlockRegistry.BLOODWOOD_HANGING_SIGN, BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN);
-    public static final Supplier<HangingSignItem> GHOSTLY_HANGING_SIGN_ITEM = RegistryTools.makeHangingSignItem(
-        "ghostly_hanging_sign_item", BlockRegistry.GHOSTLY_HANGING_SIGN, BlockRegistry.GHOSTLY_WALL_HANGING_SIGN);
-    public static final Supplier<HangingSignItem> SEEPING_HANGING_SIGN_ITEM = RegistryTools.makeHangingSignItem(
-        "seeping_hanging_sign_item", BlockRegistry.SEEPING_HANGING_SIGN, BlockRegistry.SEEPING_WALL_HANGING_SIGN);
-    public static final Supplier<HangingSignItem> SORBUS_HANGING_SIGN_ITEM = RegistryTools.makeHangingSignItem(
-        "sorbus_hanging_sign_item", BlockRegistry.SORBUS_HANGING_SIGN, BlockRegistry.SORBUS_WALL_HANGING_SIGN);
-    public static final Supplier<HangingSignItem> WALNUT_HANGING_SIGN_ITEM = RegistryTools.makeHangingSignItem(
-        "walnut_hanging_sign_item", BlockRegistry.WALNUT_HANGING_SIGN, BlockRegistry.WALNUT_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> BLOODWOOD_HANGING_SIGN = RegistryTools.createHangingSign(
+        "bloodwood_hanging_sign", BlockRegistry.BLOODWOOD_HANGING_SIGN, BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> GHOSTLY_HANGING_SIGN = RegistryTools.createHangingSign(
+        "ghostly_hanging_sign", BlockRegistry.GHOSTLY_HANGING_SIGN, BlockRegistry.GHOSTLY_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> SEEPING_HANGING_SIGN = RegistryTools.createHangingSign(
+        "seeping_hanging_sign", BlockRegistry.SEEPING_HANGING_SIGN, BlockRegistry.SEEPING_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> SORBUS_HANGING_SIGN = RegistryTools.createHangingSign(
+        "sorbus_hanging_sign", BlockRegistry.SORBUS_HANGING_SIGN, BlockRegistry.SORBUS_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> WALNUT_HANGING_SIGN = RegistryTools.createHangingSign(
+        "walnut_hanging_sign", BlockRegistry.WALNUT_HANGING_SIGN, BlockRegistry.WALNUT_WALL_HANGING_SIGN);
 }

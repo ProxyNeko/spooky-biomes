@@ -247,47 +247,67 @@ public final class RegistryTools {
             Block.Properties.ofFullCopy(Blocks.OAK_SAPLING))));
     }
 
-
-
-
-
-
-
-    //The rest of these methods are all older helper methods to be refactored or removed.
-    public static Supplier<SignItem> makeSignItem(
-        String name,
-        Supplier<StandingSignBlock> signBlock,
-        Supplier<WallSignBlock> wallSignBlock) {
+    /**
+     * A helper method to create signs.
+     * @param name The name of the sign being registered.
+     * @param signBlock The sign block to be placed when placing signs on floors.
+     * @param wallSignBlock The sign block to be placed when placing signs on walls.
+     */
+    public static Supplier<SignItem> createSign(String name, Supplier<StandingSignBlock> signBlock,
+                                                Supplier<WallSignBlock> wallSignBlock) {
         return registerItem(name, Suppliers.memoize(() -> new SignItem(new Item.Properties()
             .stacksTo(16), signBlock.get(), wallSignBlock.get())));
     }
 
-    public static Supplier<StandingSignBlock> makeFloorSignBlock(
-        String name,
-        WoodType signType) {
+    /**
+     * A helper method to create standing sign blocks.
+     * @param name The name of the standing sign being registered.
+     * @param signType The wood type of the sign.
+     */
+    public static Supplier<StandingSignBlock> createStandingSignBlock(String name, WoodType signType) {
         return registerBlock(name, Suppliers.memoize(() -> new StandingSignBlock(
             signType, Block.Properties.ofFullCopy(Blocks.OAK_SIGN))));
     }
 
-    public static Supplier<WallSignBlock> makeWallSignBlock(
-        String name,
-        WoodType signType) {
+    /**
+     * A helper method to create wall sign blocks.
+     * @param name The name of the wall sign being registered.
+     * @param signType The wood type of the sign.
+     */
+    public static Supplier<WallSignBlock> createWallSignBlock(String name, WoodType signType) {
         return registerBlock(name, Suppliers.memoize(() -> new WallSignBlock(
             signType, Block.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN))));
     }
 
-    public static Supplier<HangingSignItem> makeHangingSignItem(String name,
-        Supplier<CeilingHangingSignBlock> hangingSignBlock, Supplier<WallHangingSignBlock> wallHangingSignBlock) {
+    /**
+     * A helper method to create hanging signs.
+     * @param name The name of the hanging sign being registered.
+     * @param hangingSignBlock The hanging sign block to be placed when placing hanging signs on a down facing surface.
+     * @param wallHangingSignBlock The hanging sign block to be placed when hanging signs from a side facing surface.
+     */
+    public static Supplier<HangingSignItem> createHangingSign(
+        String name, Supplier<CeilingHangingSignBlock> hangingSignBlock,
+        Supplier<WallHangingSignBlock> wallHangingSignBlock) {
         return registerItem(name, Suppliers.memoize(() -> new HangingSignItem(hangingSignBlock.get(),
             wallHangingSignBlock.get(), new Item.Properties().stacksTo(16))));
     }
 
-    public static Supplier<CeilingHangingSignBlock> makeHangingSignBlock(String name, WoodType signType) {
+    /**
+     * A helper method to create hanging sign blocks.
+     * @param name The name of the hanging sign block being registered.
+     * @param signType The wood type of the sign.
+     */
+    public static Supplier<CeilingHangingSignBlock> createHangingSignBlock(String name, WoodType signType) {
         return registerBlock(name, Suppliers.memoize(() -> new CeilingHangingSignBlock(
             signType, Block.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN))));
     }
 
-    public static Supplier<WallHangingSignBlock> makeWallHangingSignBlock(String name, WoodType signType) {
+    /**
+     * A helper method to create wall hanging sign blocks.
+     * @param name The name of the wall hanging sign block being registered.
+     * @param signType The wood type of the sign.
+     */
+    public static Supplier<WallHangingSignBlock> createWallHangingSignBlock(String name, WoodType signType) {
         return registerBlock(name, Suppliers.memoize(() -> new WallHangingSignBlock(
             signType, Block.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN))));
     }

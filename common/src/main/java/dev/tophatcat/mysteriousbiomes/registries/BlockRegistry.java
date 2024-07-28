@@ -186,50 +186,50 @@ public class BlockRegistry {
         = RegistryTools.createSaplingBlock("walnut_sapling", TreeGrower.BIRCH);
 
     // Floor signs
-    public static final Supplier<StandingSignBlock> BLOODWOOD_FLOOR_SIGN = RegistryTools.makeFloorSignBlock(
+    public static final Supplier<StandingSignBlock> BLOODWOOD_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "bloodwood_sign", MysteriousWoodType.BLOODWOOD_TYPE);
-    public static final Supplier<StandingSignBlock> GHOSTLY_FLOOR_SIGN = RegistryTools.makeFloorSignBlock(
+    public static final Supplier<StandingSignBlock> GHOSTLY_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "ghostly_sign", MysteriousWoodType.GHOSTLY_TYPE);
-    public static final Supplier<StandingSignBlock> SEEPING_FLOOR_SIGN = RegistryTools.makeFloorSignBlock(
+    public static final Supplier<StandingSignBlock> SEEPING_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "seeping_sign", MysteriousWoodType.SEEPING_TYPE);
-    public static final Supplier<StandingSignBlock> SORBUS_FLOOR_SIGN = RegistryTools.makeFloorSignBlock(
+    public static final Supplier<StandingSignBlock> SORBUS_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "sorbus_sign", MysteriousWoodType.SORBUS_TYPE);
-    public static final Supplier<StandingSignBlock> WALNUT_FLOOR_SIGN = RegistryTools.makeFloorSignBlock(
+    public static final Supplier<StandingSignBlock> WALNUT_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "walnut_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Wall signs
-    public static final Supplier<WallSignBlock> BLOODWOOD_WALL_SIGN = RegistryTools.makeWallSignBlock(
+    public static final Supplier<WallSignBlock> BLOODWOOD_WALL_SIGN = RegistryTools.createWallSignBlock(
         "bloodwood_wall_sign", MysteriousWoodType.BLOODWOOD_TYPE);
-    public static final Supplier<WallSignBlock> GHOSTLY_WALL_SIGN = RegistryTools.makeWallSignBlock(
+    public static final Supplier<WallSignBlock> GHOSTLY_WALL_SIGN = RegistryTools.createWallSignBlock(
         "ghostly_wall_sign", MysteriousWoodType.GHOSTLY_TYPE);
-    public static final Supplier<WallSignBlock> SEEPING_WALL_SIGN = RegistryTools.makeWallSignBlock(
+    public static final Supplier<WallSignBlock> SEEPING_WALL_SIGN = RegistryTools.createWallSignBlock(
         "seeping_wall_sign", MysteriousWoodType.SEEPING_TYPE);
-    public static final Supplier<WallSignBlock> SORBUS_WALL_SIGN = RegistryTools.makeWallSignBlock(
+    public static final Supplier<WallSignBlock> SORBUS_WALL_SIGN = RegistryTools.createWallSignBlock(
         "sorbus_wall_sign", MysteriousWoodType.SORBUS_TYPE);
-    public static final Supplier<WallSignBlock> WALNUT_WALL_SIGN = RegistryTools.makeWallSignBlock(
+    public static final Supplier<WallSignBlock> WALNUT_WALL_SIGN = RegistryTools.createWallSignBlock(
         "walnut_wall_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Hanging signs
-    public static final Supplier<CeilingHangingSignBlock> BLOODWOOD_HANGING_SIGN = RegistryTools.makeHangingSignBlock(
+    public static final Supplier<CeilingHangingSignBlock> BLOODWOOD_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "bloodwood_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
-    public static final Supplier<CeilingHangingSignBlock> GHOSTLY_HANGING_SIGN = RegistryTools.makeHangingSignBlock(
+    public static final Supplier<CeilingHangingSignBlock> GHOSTLY_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "ghostly_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
-    public static final Supplier<CeilingHangingSignBlock> SEEPING_HANGING_SIGN = RegistryTools.makeHangingSignBlock(
+    public static final Supplier<CeilingHangingSignBlock> SEEPING_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "seeping_hanging_sign", MysteriousWoodType.SEEPING_TYPE);
-    public static final Supplier<CeilingHangingSignBlock> SORBUS_HANGING_SIGN = RegistryTools.makeHangingSignBlock(
+    public static final Supplier<CeilingHangingSignBlock> SORBUS_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "sorbus_hanging_sign", MysteriousWoodType.SORBUS_TYPE);
-    public static final Supplier<CeilingHangingSignBlock> WALNUT_HANGING_SIGN = RegistryTools.makeHangingSignBlock(
+    public static final Supplier<CeilingHangingSignBlock> WALNUT_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "walnut_hanging_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Wall hanging signs
     public static final Supplier<WallHangingSignBlock> BLOODWOOD_WALL_HANGING_SIGN
-        = RegistryTools.makeWallHangingSignBlock("bloodwood_wall_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
+        = RegistryTools.createWallHangingSignBlock("bloodwood_wall_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
     public static final Supplier<WallHangingSignBlock> GHOSTLY_WALL_HANGING_SIGN
-        = RegistryTools.makeWallHangingSignBlock("ghostly_wall_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
+        = RegistryTools.createWallHangingSignBlock("ghostly_wall_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<WallHangingSignBlock> SEEPING_WALL_HANGING_SIGN
-        = RegistryTools.makeWallHangingSignBlock("seeping_wall_hanging_sign", MysteriousWoodType.SEEPING_TYPE);
+        = RegistryTools.createWallHangingSignBlock("seeping_wall_hanging_sign", MysteriousWoodType.SEEPING_TYPE);
     public static final Supplier<WallHangingSignBlock> SORBUS_WALL_HANGING_SIGN
-        = RegistryTools.makeWallHangingSignBlock("sorbus_wall_hanging_sign", MysteriousWoodType.SORBUS_TYPE);
+        = RegistryTools.createWallHangingSignBlock("sorbus_wall_hanging_sign", MysteriousWoodType.SORBUS_TYPE);
     public static final Supplier<WallHangingSignBlock> WALNUT_WALL_HANGING_SIGN
-        = RegistryTools.makeWallHangingSignBlock("walnut_wall_hanging_sign", MysteriousWoodType.WALNUT_TYPE);
+        = RegistryTools.createWallHangingSignBlock("walnut_wall_hanging_sign", MysteriousWoodType.WALNUT_TYPE);
 }

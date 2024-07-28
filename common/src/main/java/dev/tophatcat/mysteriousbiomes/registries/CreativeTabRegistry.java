@@ -125,6 +125,20 @@ public class CreativeTabRegistry {
             entries.accept(ItemRegistry.SEEPING_SAPLING.get());
             entries.accept(ItemRegistry.SORBUS_SAPLING.get());
             entries.accept(ItemRegistry.WALNUT_SAPLING.get());
+
+            // Signs
+            entries.accept(ItemRegistry.BLOODWOOD_SIGN.get());
+            entries.accept(ItemRegistry.GHOSTLY_SIGN.get());
+            entries.accept(ItemRegistry.SEEPING_SIGN.get());
+            entries.accept(ItemRegistry.SORBUS_SIGN.get());
+            entries.accept(ItemRegistry.WALNUT_SIGN.get());
+
+            // Hanging Signs
+            entries.accept(ItemRegistry.BLOODWOOD_HANGING_SIGN.get());
+            entries.accept(ItemRegistry.GHOSTLY_HANGING_SIGN.get());
+            entries.accept(ItemRegistry.SEEPING_HANGING_SIGN.get());
+            entries.accept(ItemRegistry.SORBUS_HANGING_SIGN.get());
+            entries.accept(ItemRegistry.WALNUT_HANGING_SIGN.get());
         })
         .build());
 }
