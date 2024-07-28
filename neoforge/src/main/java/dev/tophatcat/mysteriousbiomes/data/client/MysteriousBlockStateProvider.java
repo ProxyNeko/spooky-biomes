@@ -196,16 +196,16 @@ public class MysteriousBlockStateProvider extends BlockStateProvider {
 
         // Saplings
         simpleBlock(BlockRegistry.BLOODWOOD_SAPLING.get(),
-            models().cross("bloodwood_sapling", modLoc("block/bloodwood_sapling")));
+            models().cross("bloodwood_sapling", modLoc("block/bloodwood_sapling")).renderType("cutout"));
         simpleBlock(BlockRegistry.GHOSTLY_SAPLING.get(),
-            models().cross("ghostly_sapling", modLoc("block/ghostly_sapling")));
+            models().cross("ghostly_sapling", modLoc("block/ghostly_sapling")).renderType("cutout"));
         simpleBlock(BlockRegistry.SEEPING_SAPLING.get(),
-            models().cross("seeping_sapling", modLoc("block/seeping_sapling")));
+            models().cross("seeping_sapling", modLoc("block/seeping_sapling")).renderType("cutout"));
         simpleBlock(BlockRegistry.SORBUS_SAPLING.get(),
-            models().cross("sorbus_sapling", modLoc("block/sorbus_sapling")));
+            models().cross("sorbus_sapling", modLoc("block/sorbus_sapling")).renderType("cutout"));
         // TODO Enable these once we have textures, data generation fails without them.
         // simpleBlock(MysteriousRegistry.WALNUT_SAPLING.get(),
-        // models().cross("walnut_sapling", modLoc("block/walnut_sapling")));
+        // models().cross("walnut_sapling", modLoc("block/walnut_sapling")).renderType("cutout"));
 
         // Floor/wall signs
         signBlock(BlockRegistry.BLOODWOOD_FLOOR_SIGN.get(), BlockRegistry.BLOODWOOD_WALL_SIGN.get(),

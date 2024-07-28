@@ -43,13 +43,13 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
 
     protected void simpleTrapdoorBlockItemModel(Block block) {
         var name = getName(block);
-        withExistingParent(name, modLoc("block/" + name + "_bottom"));
+        withExistingParent(name, modLoc("block/" + name + "_bottom")).renderType("cutout");
     }
 
     protected void simpleSaplingItemModel(Block block) {
         var name = getName(block);
         singleTexture(name, ResourceLocation.fromNamespaceAndPath("minecraft", "item/generated"),
-            "layer0", modLoc("block/" + name));
+            "layer0", modLoc("block/" + name)).renderType("cutout");
     }
 
     protected String getName(Block item) {
@@ -150,11 +150,11 @@ public class MysteriousItemModelProvider extends ItemModelProvider {
         simpleTrapdoorBlockItemModel(BlockRegistry.SORBUS_TRAPDOOR.get());
         // simpleTrapdoorBlockItemModel(MysteriousRegistry.WALNUT_TRAPDOOR.get());
 
-        basicItem(BlockRegistry.BLOODWOOD_DOOR.get().asItem());
-        basicItem(BlockRegistry.GHOSTLY_DOOR.get().asItem());
-        basicItem(BlockRegistry.SEEPING_DOOR.get().asItem());
-        basicItem(BlockRegistry.SORBUS_DOOR.get().asItem());
-        // basicItem(MysteriousRegistry.WALNUT_DOOR.get().asItem());
+        basicItem(BlockRegistry.BLOODWOOD_DOOR.get().asItem()).renderType("cutout");
+        basicItem(BlockRegistry.GHOSTLY_DOOR.get().asItem()).renderType("cutout");
+        basicItem(BlockRegistry.SEEPING_DOOR.get().asItem()).renderType("cutout");
+        basicItem(BlockRegistry.SORBUS_DOOR.get().asItem()).renderType("cutout");
+        // basicItem(MysteriousRegistry.WALNUT_DOOR.get().asItem()).renderType("cutout");
 
         simpleSaplingItemModel(BlockRegistry.BLOODWOOD_SAPLING.get());
         simpleSaplingItemModel(BlockRegistry.GHOSTLY_SAPLING.get());

@@ -97,7 +97,6 @@ public class MysteriousNeo {
         if (FMLEnvironment.dist == Dist.CLIENT) {
             bus.addListener(MysteriousRenderingNeo::registerEntityModels);
             bus.addListener(MysteriousRenderingNeo::registerModelLayers);
-            bus.addListener(MysteriousRenderingNeo::registerCutouts);
         }
     }
 
