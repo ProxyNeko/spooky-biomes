@@ -82,7 +82,6 @@ public class MysteriousNeo {
         Registries.CREATIVE_MODE_TAB, MysteriousCommon.MOD_ID);
 
     public MysteriousNeo(IEventBus bus) {
-        MysteriousCommon.init();
         BLOCK_ENTITIES.register(bus);
         BLOCKS.register(bus);
         ENTITIES.register(bus);
@@ -92,6 +91,7 @@ public class MysteriousNeo {
         bus.<EntityAttributeCreationEvent>addListener(event -> EntityRegistry.registerEntityAttributes(event::put));
         bus.addListener(this::registerSpawnPlacements);
         bus.<FMLCommonSetupEvent>addListener(event -> MysteriousCommon.setupBlockEntities());
+        MysteriousCommon.init();
 
         bus.addListener(this::gatherData);
         if (FMLEnvironment.dist == Dist.CLIENT) {

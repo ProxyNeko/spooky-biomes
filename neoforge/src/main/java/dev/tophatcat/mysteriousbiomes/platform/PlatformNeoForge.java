@@ -36,6 +36,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 
 public class PlatformNeoForge implements IPlatform {
 
@@ -85,12 +86,10 @@ public class PlatformNeoForge implements IPlatform {
         return MysteriousNeo.CREATIVE_TABS.register(id, tab);
     }
 
-    //The vanilla SpawnEggItem can be used now, Neo's old deprecation warning can be ignored registry ordering is fixed.
-    @SuppressWarnings("deprecation")
     @Override
     public <E extends Mob> Supplier<SpawnEggItem> registerSpawnEggItem(
         Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties itemProperties) {
-        return () -> new SpawnEggItem(entityType.get(), primaryColor, secondaryColor, itemProperties);
+        return () -> new DeferredSpawnEggItem(entityType, primaryColor, secondaryColor, itemProperties);
     }
 
     @Override

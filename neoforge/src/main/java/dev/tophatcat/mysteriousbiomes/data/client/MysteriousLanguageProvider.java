@@ -38,8 +38,11 @@ public class MysteriousLanguageProvider extends LanguageProvider {
         //TODO Verify this is still the same.
         add("item_group.mysteriousbiomes.mysterious_tab", "Mysterious Biomes");
 
-        // Entities.
+        // Entities
         addEntityType(EntityRegistry.THE_FORGOTTEN_WARLOCK, "The Forgotten Warlock");
+
+        // Spawn eggs
+        addItem(ItemRegistry.THE_FORGOTTEN_WARLOCK_SPAWN_EGG, "The Forgotten Warlock Spawn Egg");
 
         // Misc blocks
         addBlock(BlockRegistry.BLOODIED_DIRT, "Bloodied Dirt");

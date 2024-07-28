@@ -18,14 +18,6 @@ public class CreativeTabRegistry {
         .title(Component.translatable("item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab"))
         .icon(() -> new ItemStack(ItemRegistry.GHOSTLY_SAPLING.get()))
         .displayItems((enabledFeatures, entries) -> {
-
-            // Mob eggs
-            entries.accept(ItemRegistry.THE_FORGOTTEN_WARLOCK_SPAWN_EGG.get());
-
-            // Dirt/Grass
-            entries.accept(ItemRegistry.BLOODIED_DIRT.get());
-            entries.accept(ItemRegistry.BLOODIED_GRASS.get());
-
             // Logs
             entries.accept(ItemRegistry.BLOODWOOD_LOG.get());
             entries.accept(ItemRegistry.GHOSTLY_LOG.get());
@@ -144,6 +136,13 @@ public class CreativeTabRegistry {
             entries.accept(ItemRegistry.SEEPING_HANGING_SIGN.get());
             entries.accept(ItemRegistry.SORBUS_HANGING_SIGN.get());
             entries.accept(ItemRegistry.WALNUT_HANGING_SIGN.get());
+
+            // Mob eggs
+            entries.accept(ItemRegistry.THE_FORGOTTEN_WARLOCK_SPAWN_EGG.get());
+
+            // Dirt/Grass
+            entries.accept(ItemRegistry.BLOODIED_DIRT.get());
+            entries.accept(ItemRegistry.BLOODIED_GRASS.get());
         })
         .build());
 }

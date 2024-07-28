@@ -32,7 +32,7 @@ neoForge {
         }
         data {
             data()
-            programArguments.addAll("--mod", project.mod_id, "--all", "--output", file("../common/src/generated/resources").absolutePath, "--existing", file("../common/src/generated/resources").absolutePath)
+            programArguments.addAll("--mod", project.mod_id, "--all", "--output", file("../common/src/generated/resources").absolutePath, "--existing", file("../common/src/main/resources").absolutePath)
         }
         server {
             server()

@@ -70,7 +70,8 @@ public final class RegistryTools {
      * @param id The block entities registry name.
      * @param blockEntity the block entity to be registered.
      */
-    public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String id, Supplier<BlockEntityType<T>> blockEntity) {
+    public static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(
+        String id, Supplier<BlockEntityType<T>> blockEntity) {
         return MysteriousCommon.COMMON_PLATFORM.registerBlockEntity(id, blockEntity);
     }
 
@@ -113,28 +114,6 @@ public final class RegistryTools {
      */
     public static <T extends SoundEvent> Supplier<T> registerSound(String id, Supplier<T> sound) {
         return MysteriousCommon.COMMON_PLATFORM.registerSound(id, sound);
-    }
-
-    /**
-     * Helper method for registering creative tabs.
-     * @param id The name of the creative tab.
-     * @param tab The creative tab to be registered.
-     */
-    public static <T extends CreativeModeTab> Supplier<T> registerCreativeTab(String id, Supplier<T> tab) {
-        return MysteriousCommon.COMMON_PLATFORM.registerCreativeTab(id, tab);
-    }
-
-    /**
-     * Helper method for registering spawn eggs for entities.
-     * You can use this website to help find colors for the egg: http://tslat.net/minitools/colourpicker/index.html
-     * @param entityType The entity to register a spawn egg for.
-     * @param primaryColor Primary egg color.
-     * @param secondaryColor Secondary egg color.
-     * @param properties The item to be registered with optional properties.
-     */
-    public static <E extends Mob> Supplier<SpawnEggItem> registerSpawnEggItem(
-        Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties properties) {
-        return MysteriousCommon.COMMON_PLATFORM.registerSpawnEggItem(entityType, primaryColor, secondaryColor, properties);
     }
 
     /**
