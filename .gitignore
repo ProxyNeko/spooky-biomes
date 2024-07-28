@@ -34,3 +34,4 @@ bin/
 
 # MacOS
 *.DS_Store
+/common/src/generated/resources/.cache

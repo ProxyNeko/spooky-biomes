@@ -1,3 +1,4 @@
 {
-  "parent": "mysteriousbiomes:block/sorbus_trapdoor_bottom"
+  "parent": "mysteriousbiomes:block/sorbus_trapdoor_bottom",
+  "render_type": "minecraft:cutout"
 }

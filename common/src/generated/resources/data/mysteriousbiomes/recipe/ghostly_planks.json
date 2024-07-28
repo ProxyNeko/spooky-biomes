@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "mysteriousbiomes:ghostly_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "mysteriousbiomes:ghostly_planks"
+  }
+}
