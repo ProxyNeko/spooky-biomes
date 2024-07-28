@@ -81,12 +81,6 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
         fireImmune();
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, 40.0D)
-            .add(Attributes.ATTACK_DAMAGE, 7.0D)
-            .add(Attributes.MOVEMENT_SPEED, 0.25D);
-    }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {

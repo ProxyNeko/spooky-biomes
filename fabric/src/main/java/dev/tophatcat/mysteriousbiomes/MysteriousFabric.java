@@ -43,5 +43,6 @@ public class MysteriousFabric implements ModInitializer {
         new MysteriousFlammableBlocks();
         new MysteriousFuelSettings();
         new MysteriousStrippableBlocks();
+        MysteriousCommon.setupBlockEntities();
     }
 }

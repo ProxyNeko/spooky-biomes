@@ -52,13 +52,7 @@ public class BloodiedGrass extends GrassBlock {
                 return false;
             } else {
                 int i =
-                    LightEngine.getLightBlockInto(
-                        world,
-                        state,
-                        pos,
-                        blockstate,
-                        blockpos,
-                        Direction.UP,
+                    LightEngine.getLightBlockInto(world, state, pos, blockstate, blockpos, Direction.UP,
                         blockstate.getLightBlock(world, blockpos));
                 return i < world.getMaxLightLevel();
             }
@@ -67,8 +61,7 @@ public class BloodiedGrass extends GrassBlock {
 
     public static boolean canPropagate(BlockState blockStateIn, ServerLevel world, BlockPos pos) {
         BlockPos blockpos = pos.above();
-        return canBeGrass(blockStateIn, world, pos)
-            && !world.getFluidState(blockpos).is(FluidTags.WATER);
+        return canBeGrass(blockStateIn, world, pos) && !world.getFluidState(blockpos).is(FluidTags.WATER);
     }
 
     /**
@@ -90,17 +83,14 @@ public class BloodiedGrass extends GrassBlock {
                 if (world.getMaxLocalRawBrightness(pos.above()) >= 9) {
                     // Attempt to spread grass onto neighboring bloodied dirt.
                     BlockState replacementBlock = BlockRegistry.BLOODIED_GRASS.get().defaultBlockState();
-
                     for (int i = 0; i < 4; ++i) {
-                        BlockPos blockpos =
-                            pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
+                        BlockPos blockpos = pos.offset(random.nextInt(3) - 1,
+                            random.nextInt(5) - 3, random.nextInt(3) - 1);
 
                         if (world.getBlockState(blockpos).getBlock() == BlockRegistry.BLOODIED_DIRT.get()
                             && canPropagate(replacementBlock, world, blockpos)) {
-                            world.setBlockAndUpdate(
-                                blockpos,
-                                replacementBlock.setValue(
-                                    SNOWY, world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
+                            world.setBlockAndUpdate(blockpos, replacementBlock.setValue(SNOWY,
+                                world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
                         }
                     }
                 }

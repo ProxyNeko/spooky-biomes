@@ -18,6 +18,11 @@ public class CreativeTabRegistry {
         .title(Component.translatable("item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab"))
         .icon(() -> new ItemStack(ItemRegistry.GHOSTLY_SAPLING.get()))
         .displayItems((enabledFeatures, entries) -> {
+
+            // Mob eggs
+            entries.accept(ItemRegistry.THE_FORGOTTEN_WARLOCK_SPAWN_EGG.get());
+
+            // Dirt/Grass
             entries.accept(ItemRegistry.BLOODIED_DIRT.get());
             entries.accept(ItemRegistry.BLOODIED_GRASS.get());
 

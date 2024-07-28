@@ -55,6 +55,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -90,6 +91,7 @@ public class MysteriousNeo {
         CREATIVE_TABS.register(bus);
         bus.<EntityAttributeCreationEvent>addListener(event -> EntityRegistry.registerEntityAttributes(event::put));
         bus.addListener(this::registerSpawnPlacements);
+        bus.<FMLCommonSetupEvent>addListener(event -> MysteriousCommon.setupBlockEntities());
 
         bus.addListener(this::gatherData);
         if (FMLEnvironment.dist == Dist.CLIENT) {

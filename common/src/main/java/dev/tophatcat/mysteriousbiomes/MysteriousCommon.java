@@ -30,10 +30,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashSet;
 import java.util.ServiceLoader;
+import java.util.Set;
 
 public class MysteriousCommon {
 
@@ -65,5 +69,35 @@ public class MysteriousCommon {
         ItemRegistry.init();
         //Sounds
         CreativeTabRegistry.init();
+    }
+
+    public static void setupBlockEntities() {
+        Set<Block> signBlocks = new HashSet<>(BlockEntityType.SIGN.validBlocks);
+        Set<Block> hangingSignBlocks = new HashSet<>(BlockEntityType.HANGING_SIGN.validBlocks);
+
+        signBlocks.add(BlockRegistry.BLOODWOOD_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.BLOODWOOD_WALL_SIGN.get());
+        signBlocks.add(BlockRegistry.GHOSTLY_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.GHOSTLY_WALL_SIGN.get());
+        signBlocks.add(BlockRegistry.SEEPING_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.SEEPING_WALL_SIGN.get());
+        signBlocks.add(BlockRegistry.SORBUS_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.SORBUS_WALL_SIGN.get());
+        signBlocks.add(BlockRegistry.WALNUT_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.WALNUT_WALL_SIGN.get());
+
+        hangingSignBlocks.add(BlockRegistry.BLOODWOOD_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.GHOSTLY_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.GHOSTLY_WALL_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.SEEPING_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.SEEPING_WALL_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.SORBUS_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.SORBUS_WALL_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.WALNUT_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.WALNUT_WALL_HANGING_SIGN.get());
+
+        BlockEntityType.SIGN.validBlocks = signBlocks;
+        BlockEntityType.HANGING_SIGN.validBlocks = hangingSignBlocks;
     }
 }

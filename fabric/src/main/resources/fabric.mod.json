@@ -24,9 +24,6 @@
     ]
   },
   "accessWidener": "META-INF/${mod_id}.accesswidener",
-  "mixins": [
-    "${mod_id}.mixins.json"
-  ],
   "depends": {
     "fabricloader": "${fabric_loader_version_range}",
     "fabric": "*",
