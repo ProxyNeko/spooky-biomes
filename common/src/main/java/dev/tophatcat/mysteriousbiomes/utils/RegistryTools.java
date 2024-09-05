@@ -22,17 +22,13 @@ package dev.tophatcat.mysteriousbiomes.utils;
 
 import com.google.common.base.Suppliers;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import java.util.function.Supplier;
-
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
@@ -57,6 +53,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+
+import java.util.function.Supplier;
 
 /**
  * A collection of methods or tools I use to help clean up code duplication and make things easier to set up.

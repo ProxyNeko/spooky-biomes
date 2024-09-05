@@ -21,7 +21,6 @@
 package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import java.util.List;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -35,6 +34,8 @@ import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
+
+import java.util.List;
 
 public class MysteriousPlacementsGen {
 

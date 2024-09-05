@@ -22,16 +22,16 @@ package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
 import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
-
 import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class MysteriousRenderingCommon {
 
