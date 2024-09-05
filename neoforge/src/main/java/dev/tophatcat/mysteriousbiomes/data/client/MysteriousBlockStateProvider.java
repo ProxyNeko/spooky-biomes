@@ -174,25 +174,30 @@ public class MysteriousBlockStateProvider extends BlockStateProvider {
         //    blockTexture(MysteriousRegistry.WALNUT_PLANKS.get()));
 
         // Trapdoors
-        trapdoorBlock(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), modLoc("block/bloodwood_trapdoor"), true);
-        trapdoorBlock(BlockRegistry.GHOSTLY_TRAPDOOR.get(), modLoc("block/ghostly_trapdoor"), true);
-        trapdoorBlock(BlockRegistry.SEEPING_TRAPDOOR.get(), modLoc("block/seeping_trapdoor"), true);
-        trapdoorBlock(BlockRegistry.SORBUS_TRAPDOOR.get(), modLoc("block/sorbus_trapdoor"), true);
+        trapdoorBlockWithRenderType(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), modLoc("block/bloodwood_trapdoor"),
+            true, "cutout");
+        trapdoorBlockWithRenderType(BlockRegistry.GHOSTLY_TRAPDOOR.get(), modLoc("block/ghostly_trapdoor"),
+            true, "cutout");
+        trapdoorBlockWithRenderType(BlockRegistry.SEEPING_TRAPDOOR.get(), modLoc("block/seeping_trapdoor"),
+            true, "cutout");
+        trapdoorBlockWithRenderType(BlockRegistry.SORBUS_TRAPDOOR.get(), modLoc("block/sorbus_trapdoor"),
+            true, "cutout");
         // TODO Enable these once we have textures, data generation fails without them.
-        // trapdoorBlock(MysteriousRegistry.WALNUT_TRAPDOOR.get(), modLoc("block/walnut_trapdoor"), true);
+        // trapdoorBlockWithRenderType(MysteriousRegistry.WALNUT_TRAPDOOR.get(), modLoc("block/walnut_trapdoor"),
+        // true, "cutout");
 
         // Doors
-        doorBlock(BlockRegistry.BLOODWOOD_DOOR.get(), modLoc("block/bloodwood_door_bottom"),
-            modLoc("block/bloodwood_door_top"));
-        doorBlock(BlockRegistry.GHOSTLY_DOOR.get(), modLoc("block/ghostly_door_bottom"),
-            modLoc("block/ghostly_door_top"));
-        doorBlock(BlockRegistry.SEEPING_DOOR.get(), modLoc("block/seeping_door_bottom"),
-            modLoc("block/seeping_door_top"));
-        doorBlock(BlockRegistry.SORBUS_DOOR.get(), modLoc("block/sorbus_door_bottom"),
-            modLoc("block/sorbus_door_top"));
+        doorBlockWithRenderType(BlockRegistry.BLOODWOOD_DOOR.get(), modLoc("block/bloodwood_door_bottom"),
+            modLoc("block/bloodwood_door_top"), "cutout");
+        doorBlockWithRenderType(BlockRegistry.GHOSTLY_DOOR.get(), modLoc("block/ghostly_door_bottom"),
+            modLoc("block/ghostly_door_top"), "cutout");
+        doorBlockWithRenderType(BlockRegistry.SEEPING_DOOR.get(), modLoc("block/seeping_door_bottom"),
+            modLoc("block/seeping_door_top"), "cutout");
+        doorBlockWithRenderType(BlockRegistry.SORBUS_DOOR.get(), modLoc("block/sorbus_door_bottom"),
+            modLoc("block/sorbus_door_top"), "cutout");
         // TODO Enable these once we have textures, data generation fails without them.
-        // doorBlock(MysteriousRegistry.WALNUT_DOOR.get(), modLoc("block/walnut_door_bottom"),
-        //    modLoc("block/walnut_door_top"));
+        // doorBlockWithRenderType(MysteriousRegistry.WALNUT_DOOR.get(), modLoc("block/walnut_door_bottom"),
+        //    modLoc("block/walnut_door_top"), "cutout");
 
         // Saplings
         simpleBlock(BlockRegistry.BLOODWOOD_SAPLING.get(),

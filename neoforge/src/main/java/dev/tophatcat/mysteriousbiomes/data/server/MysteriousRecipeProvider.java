@@ -23,7 +23,6 @@ package dev.tophatcat.mysteriousbiomes.data.server;
 import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousTags;
-import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -33,10 +32,11 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
 
+import java.util.concurrent.CompletableFuture;
+
 public class MysteriousRecipeProvider extends RecipeProvider {
 
-    public MysteriousRecipeProvider(
-        PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    public MysteriousRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider);
     }
 

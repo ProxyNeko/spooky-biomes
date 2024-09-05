@@ -39,95 +39,97 @@ public class TheForgottenWarlockModel<T extends TheForgottenWarlockEntity> exten
 
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
         ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "the_forgotten_warlock"), "main");
-    private final ModelPart headBone;
-    private final ModelPart rightArmBone;
-    private final ModelPart leftArmBone;
-    private final ModelPart leftLegBone;
-    private final ModelPart rightLegBone;
+    private final ModelPart head;
+    private final ModelPart rightArm;
+    private final ModelPart leftArm;
+    private final ModelPart leftLeg;
+    private final ModelPart rightLeg;
     private final ModelPart torso;
 
     public TheForgottenWarlockModel(ModelPart root) {
-        this.headBone = root.getChild("headBone");
-        this.rightArmBone = root.getChild("rightArmBone");
-        this.leftArmBone = root.getChild("leftArmBone");
-        this.leftLegBone = root.getChild("leftLegBone");
-        this.rightLegBone = root.getChild("rightLegBone");
+        this.head = root.getChild("head");
+        this.rightArm = root.getChild("rightArm");
+        this.leftArm = root.getChild("leftArm");
+        this.leftLeg = root.getChild("leftLeg");
+        this.rightLeg = root.getChild("rightLeg");
         this.torso = root.getChild("torso");
     }
 
     public static LayerDefinition createBodyLayer() {
-        MeshDefinition modelData = new MeshDefinition();
-        PartDefinition modelPartData = modelData.getRoot();
-        PartDefinition headBone = modelPartData.addOrReplaceChild("headBone", CubeListBuilder.create()
-            .texOffs(0, 0)
-                .addBox(-6.0F, -42.0F, -6.0F,
-                    12.0F, 12.0F, 12.0F,
-                    new CubeDeformation(0.0F)),
-            PartPose.offset(0.0F, 24.0F, 0.0F));
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition hoodMinor = headBone.addOrReplaceChild("hoodMinor", CubeListBuilder.create()
-            .texOffs(0, 67)
-                .addBox(-2.5F, -5.5F, -2.0F,
-                    5.0F, 5.0F, 4.0F,
+        PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create()
+                .texOffs(0, 0)
+                .addBox(-3.5F, -7.0F, -3.5F,
+                    7.0F, 7.0F, 7.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offsetAndRotation(0.0F, -31.7212F, 11.3161F, -0.3491F, 0.0F, 0.0F));
+            PartPose.offset(0.0F, 7.0F, 0.0F));
 
-        PartDefinition hoodMajor = headBone.addOrReplaceChild("hoodMajor", CubeListBuilder.create()
-            .texOffs(56, 40)
-                .addBox(-4.0F, -7.0F, -3.0F,
-                    8.0F, 8.0F, 6.0F,
+        PartDefinition hoodMinor = head.addOrReplaceChild("hoodMinor", CubeListBuilder.create()
+                .texOffs(29, 0)
+                .addBox(-2.5F, -13.0F, -3.5F,
+                    5.0F, 5.0F, 5.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offsetAndRotation(0.0F, -33.0964F, 7.1201F, -0.2182F, 0.0F, 0.0F));
+            PartPose.offsetAndRotation(0.0F, 6.5F, 2.0F, -0.2276F, 0.0F, 0.0F));
 
-        PartDefinition rightArmBone = modelPartData.addOrReplaceChild("rightArmBone", CubeListBuilder
-            .create().texOffs(32, 46)
-                .addBox(-12.0F, -30.0F, -3.0F,
-                    6.0F, 16.0F, 6.0F,
+        PartDefinition hoodMajor = hoodMinor.addOrReplaceChild("hoodMajor", CubeListBuilder.create()
+                .texOffs(50, 0)
+                .addBox(-1.5F, -1.0F, -4.5F,
+                    3.0F, 3.0F, 3.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offset(0.0F, 24.0F, 0.0F));
+            PartPose.offsetAndRotation(0.0F, -10.5F, 5.0F, -0.1367F, 0.0F, 0.0F));
 
-        PartDefinition leftArmBone = modelPartData.addOrReplaceChild("leftArmBone", CubeListBuilder.create()
-            .texOffs(38, 24)
-                .addBox(6.0F, -30.0F, -3.0F,
-                    6.0F, 16.0F, 6.0F,
+        PartDefinition rightArm = partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create()
+                .texOffs(33, 15)
+                .addBox(-1.5F, -1.5F, -3.0F,
+                    3.0F, 11.0F, 6.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offset(0.0F, 24.0F, 0.0F));
+            PartPose.offsetAndRotation(-6.5F, 8.5F, 0.0F, 0.0F, 0.0F, 0.1F));
 
-        PartDefinition leftLegBone = modelPartData.addOrReplaceChild("leftLegBone", CubeListBuilder.create()
-            .texOffs(0, 47)
-                .addBox(-5.0F, -14.0F, -3.0F,
-                    6.0F, 14.0F, 6.0F,
-                    new CubeDeformation(0.0F)),
-            PartPose.offset(5.0F, 24.0F, 0.0F));
+        PartDefinition leftArm = partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create()
+                .texOffs(33, 15).mirror()
+                .addBox(-1.5F, -0.5F, -3.0F,
+                    3.0F, 11.0F, 6.0F,
+                    new CubeDeformation(0.0F)).mirror(false),
+            PartPose.offsetAndRotation(6.5F, 7.5F, 0.0F, 0.0F, 0.0F, -0.1F));
 
-        PartDefinition leftLegFlare = leftLegBone.addOrReplaceChild("leftLegFlare", CubeListBuilder.create()
-            .texOffs(62, 20)
-                .addBox(-2.0F, -6.0F, -2.5F,
-                    4.0F, 12.0F, 5.0F,
+        PartDefinition rightLeg = partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create()
+                .texOffs(0, 33)
+                .addBox(-3.75F, -1.5F, -3.0F,
+                    5.0F, 6.0F, 6.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offsetAndRotation(0.5F, -6.5F, 0.0F, 0.0F, 0.0F, -0.2618F));
+            PartPose.offset(-1.25F, 19.5F, 0.0F));
 
-        PartDefinition rightLegBone = modelPartData.addOrReplaceChild("rightLegBone", CubeListBuilder.create()
-            .texOffs(48, 0)
-                .addBox(-1.0F, -14.0F, -3.0F,
-                    6.0F, 14.0F, 6.0F,
-                    new CubeDeformation(0.0F)),
-            PartPose.offset(-5.0F, 24.0F, 0.0F));
+        PartDefinition rightLegChild = rightLeg.addOrReplaceChild("rightLegChild", CubeListBuilder.create()
+                .texOffs(23, 33).mirror()
+                .addBox(-1.5F, -2.5F, -3.0F,
+                    3.0F, 5.0F, 6.0F,
+                    new CubeDeformation(0.0F)).mirror(false),
+            PartPose.offsetAndRotation(-3.75F, 1.0F, 0.1F, 0.0F, 0.0F, 0.5236F));
 
-        PartDefinition rightLegFlare = rightLegBone.addOrReplaceChild("rightLegFlare", CubeListBuilder.create()
-            .texOffs(56, 54)
-                .addBox(-2.0F, -6.0F, -2.5F,
-                    4.0F, 12.0F, 5.0F,
-                    new CubeDeformation(0.0F)),
-            PartPose.offsetAndRotation(-0.5F, -6.5F, 0.0F, 0.0F, 0.0F, 0.2618F));
+        PartDefinition leftLeg = partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create()
+                .texOffs(0, 33).mirror()
+                .addBox(2.5F, 0.0F, -3.0F,
+                    5.0F, 6.0F, 6.0F,
+                    new CubeDeformation(0.0F)).mirror(false),
+            PartPose.offset(-2.5F, 18.0F, 0.0F));
 
-        PartDefinition torso = modelPartData.addOrReplaceChild("torso", CubeListBuilder.create()
-            .texOffs(0, 24)
-                .addBox(-6.0F, -30.0F, -3.5F,
-                    12.0F, 16.0F, 7.0F,
+        PartDefinition leftLegChild = leftLeg.addOrReplaceChild("leftLegChild", CubeListBuilder.create()
+                .texOffs(23, 33).mirror()
+                .addBox(-2.5F, 0.0F, -3.0F,
+                    3.0F, 5.0F, 6.0F,
+                    new CubeDeformation(0.0F)).mirror(false),
+            PartPose.offsetAndRotation(7.5F, 0.0F, 0.1F, 0.0F, 0.0F, -0.5236F));
+
+        PartDefinition torso = partdefinition.addOrReplaceChild("torso", CubeListBuilder.create()
+                .texOffs(0, 15)
+                .addBox(-5.0F, -5.5F, -3.0F,
+                    10.0F, 11.0F, 6.0F,
                     new CubeDeformation(0.0F)),
-            PartPose.offset(0.0F, 24.0F, 0.0F));
-        return LayerDefinition.create(modelData, 128, 128);
+            PartPose.offset(0.0F, 12.5F, 0.0F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
     @Override
@@ -138,11 +140,11 @@ public class TheForgottenWarlockModel<T extends TheForgottenWarlockEntity> exten
 
     @Override
     public void renderToBuffer(PoseStack matrix, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        headBone.render(matrix, vertexConsumer, light, overlay, color);
-        rightArmBone.render(matrix, vertexConsumer, light, overlay, color);
-        leftArmBone.render(matrix, vertexConsumer, light, overlay, color);
-        leftLegBone.render(matrix, vertexConsumer, light, overlay, color);
-        rightLegBone.render(matrix, vertexConsumer, light, overlay, color);
+        head.render(matrix, vertexConsumer, light, overlay, color);
+        rightArm.render(matrix, vertexConsumer, light, overlay, color);
+        leftArm.render(matrix, vertexConsumer, light, overlay, color);
+        leftLeg.render(matrix, vertexConsumer, light, overlay, color);
+        rightLeg.render(matrix, vertexConsumer, light, overlay, color);
         torso.render(matrix, vertexConsumer, light, overlay, color);
     }
 }

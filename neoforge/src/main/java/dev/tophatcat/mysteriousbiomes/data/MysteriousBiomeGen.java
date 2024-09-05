@@ -22,7 +22,10 @@ package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
@@ -35,8 +38,17 @@ import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 
-public class MysteriousBiomeGen {
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+
+public class MysteriousBiomeGen extends DatapackBuiltinEntriesProvider {
+
+    public MysteriousBiomeGen(PackOutput output, CompletableFuture<HolderLookup.Provider> registries,
+                              RegistrySetBuilder builder) {
+        super(output, registries, builder, Set.of(MysteriousCommon.MOD_ID));
+    }
 
     public static void run(BootstrapContext<Biome> context) {
         context.register(MysteriousCommon.BLOODIED_PLAINS, bloodiedPlains(context));

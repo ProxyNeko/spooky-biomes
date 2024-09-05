@@ -31,39 +31,26 @@ import dev.tophatcat.mysteriousbiomes.data.server.MysteriousLootTableProvider;
 import dev.tophatcat.mysteriousbiomes.data.server.MysteriousRecipeProvider;
 import dev.tophatcat.mysteriousbiomes.data.server.MysteriousTagProvider;
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
-import dev.tophatcat.mysteriousbiomes.platform.PlatformNeoForge;
-import java.util.Comparator;
-
 import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
-import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.jetbrains.annotations.Nullable;
 
 @Mod(MysteriousCommon.MOD_ID)
 public class MysteriousNeo {
@@ -107,38 +94,28 @@ public class MysteriousNeo {
     }
 
     public void gatherData(GatherDataEvent event) {
-        var gen = event.getGenerator();
-        var existingHelper = event.getExistingFileHelper();
-
-        // Datagen trees.
-        RegistrySetBuilder builder = new RegistrySetBuilder()
+        RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, MysteriousFeaturesGen::run)
             .add(Registries.PLACED_FEATURE, MysteriousPlacementsGen::run)
             .add(Registries.BIOME, MysteriousBiomeGen::run);
 
-        // Datagen block and item tags.
-        var blockTags = gen.addProvider(true, new MysteriousTagProvider.MysteriousBlockTags(gen.getPackOutput(),
-            event.getLookupProvider(), existingHelper));
+        var generator = event.getGenerator();
+        boolean includeClient = event.includeClient();
+        boolean includeServer = event.includeServer();
+        var existingHelper = event.getExistingFileHelper();
+        var packOutput = event.getGenerator().getPackOutput();
+        var lookupProvider = event.getLookupProvider();
 
-        gen.addProvider(true, new MysteriousTagProvider.MysteriousItemTags(gen.getPackOutput(),
-            event.getLookupProvider(), blockTags.contentsGetter(), existingHelper));
-
-        // Datagen language files.
-        gen.addProvider(event.includeClient(), new MysteriousLanguageProvider(gen.getPackOutput(),
+        var blockTags = generator.addProvider(includeServer, new MysteriousTagProvider.MysteriousBlockTags(
+            packOutput, lookupProvider, existingHelper));
+        generator.addProvider(includeServer, new MysteriousTagProvider.MysteriousItemTags(packOutput,
+            lookupProvider, blockTags.contentsGetter(), existingHelper));
+        generator.addProvider(includeClient, new MysteriousLanguageProvider(packOutput,
             MysteriousCommon.MOD_ID, "en_us"));
-
-        // Datagen the block states and model files.
-        gen.addProvider(event.includeClient(), new MysteriousBlockStateProvider(gen.getPackOutput(), existingHelper));
-
-        // Datagen item model files.
-        gen.addProvider(event.includeClient(), new MysteriousItemModelProvider(gen.getPackOutput(), existingHelper));
-
-        // Datagen recipes.
-        gen.addProvider(event.includeServer(), new MysteriousRecipeProvider(
-            gen.getPackOutput(), event.getLookupProvider()));
-
-        // Datagen loot tables.
-        gen.addProvider(event.includeServer(), MysteriousLootTableProvider.create(gen.getPackOutput(),
-            event.getLookupProvider()));
+        generator.addProvider(includeClient, new MysteriousBlockStateProvider(packOutput, existingHelper));
+        generator.addProvider(includeClient, new MysteriousItemModelProvider(packOutput, existingHelper));
+        generator.addProvider(includeServer, new MysteriousRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), MysteriousLootTableProvider.create(packOutput, lookupProvider));
+        generator.addProvider(includeServer, new MysteriousBiomeGen(packOutput, lookupProvider, BUILDER));
     }
 }

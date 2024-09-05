@@ -21,13 +21,6 @@
 package dev.tophatcat.mysteriousbiomes.data.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
-
 import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
 import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
 import net.minecraft.core.HolderLookup;
@@ -38,6 +31,12 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class MysteriousLootTableProvider {
 

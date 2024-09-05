@@ -21,8 +21,6 @@
 package dev.tophatcat.mysteriousbiomes.platform;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import java.util.function.Supplier;
-
 import dev.tophatcat.mysteriousbiomes.MysteriousNeo;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
@@ -37,6 +35,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
+import java.util.function.Supplier;
 
 public class PlatformNeoForge implements IPlatform {
 
