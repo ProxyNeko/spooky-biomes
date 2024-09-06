@@ -37,8 +37,8 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 
 public class MysteriousFeaturesGen {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODWOOD_TREE = ResourceKey.create(
-        Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_tree"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOD_SOAKED_TREE = ResourceKey.create(
+        Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "blood_soaked_tree"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> GHOSTLY_TREE = ResourceKey.create(
         Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_tree"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> SORBUS_TREE = ResourceKey.create(
@@ -49,13 +49,13 @@ public class MysteriousFeaturesGen {
         Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "walnut_tree"));
 
     public static void run(BootstrapContext<ConfiguredFeature<?, ?>> feature) {
-        feature.register(BLOODWOOD_TREE, new ConfiguredFeature<>(Feature.TREE,
+        feature.register(BLOOD_SOAKED_TREE, new ConfiguredFeature<>(Feature.TREE,
             new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(BlockRegistry.BLOODWOOD_LOG.get()),
+                BlockStateProvider.simple(BlockRegistry.BLOOD_SOAKED_LOG.get()),
                 new StraightTrunkPlacer(1, 0, 0),
-                BlockStateProvider.simple(BlockRegistry.BLOODWOOD_LEAVES.get()),
+                BlockStateProvider.simple(BlockRegistry.BLOOD_SOAKED_LEAVES.get()),
                 new BushFoliagePlacer(ConstantInt.of(2),
                 ConstantInt.of(1), 2), new TwoLayersFeatureSize(0, 0, 0))
-                .dirt(BlockStateProvider.simple(BlockRegistry.BLOODIED_DIRT.get())).build()));
+                .dirt(BlockStateProvider.simple(BlockRegistry.BLOOD_SOAKED_DIRT.get())).build()));
     }
 }

@@ -30,10 +30,10 @@ public class MysteriousStrippableBlocks {
     }
 
     private void init() {
-        StrippableBlockRegistry.register(BlockRegistry.BLOODWOOD_LOG.get(),
-            BlockRegistry.BLOODWOOD_STRIPPED_LOG.get());
-        StrippableBlockRegistry.register(BlockRegistry.BLOODWOOD_WOOD.get(),
-            BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+        StrippableBlockRegistry.register(BlockRegistry.BLOOD_SOAKED_LOG.get(),
+            BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get());
+        StrippableBlockRegistry.register(BlockRegistry.BLOOD_SOAKED_WOOD.get(),
+            BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get());
         StrippableBlockRegistry.register(BlockRegistry.GHOSTLY_LOG.get(),
             BlockRegistry.GHOSTLY_STRIPPED_LOG.get());
         StrippableBlockRegistry.register(BlockRegistry.GHOSTLY_WOOD.get(),

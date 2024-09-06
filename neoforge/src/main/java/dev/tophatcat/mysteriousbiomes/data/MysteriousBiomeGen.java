@@ -51,14 +51,14 @@ public class MysteriousBiomeGen extends DatapackBuiltinEntriesProvider {
     }
 
     public static void run(BootstrapContext<Biome> context) {
-        context.register(MysteriousCommon.BLOODIED_PLAINS, bloodiedPlains(context));
+        context.register(MysteriousCommon.BLOOD_SOAKED_PLAINS, bloodSoakedPlains(context));
         context.register(MysteriousCommon.GHOSTLY_WOODLANDS, ghostlyWoodlands(context));
         context.register(MysteriousCommon.SEEPING_FOREST, seepingForest(context));
         context.register(MysteriousCommon.SORBUS_HIGHLANDS, sorbusHighlands(context));
         context.register(MysteriousCommon.WALNUT_WOODLANDS, walnutWoodlands(context));
     }
 
-    private static Biome bloodiedPlains(BootstrapContext<Biome> context) {
+    private static Biome bloodSoakedPlains(BootstrapContext<Biome> context) {
         BiomeSpecialEffects.Builder effects = new BiomeSpecialEffects.Builder()
             .skyColor(6226463)
             .fogColor(6226463)
@@ -146,7 +146,7 @@ public class MysteriousBiomeGen extends DatapackBuiltinEntriesProvider {
             .hasPrecipitation(true)
             .temperature(0.50F)
             .generationSettings(commonGenerationSettings(context).build())
-            .specialEffects(effects.build())
+            //.specialEffects(effects.build())
             .mobSpawnSettings(commonMobSpawnSettings().build())
             .build();
     }

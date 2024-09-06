@@ -39,8 +39,8 @@ import java.util.List;
 
 public class MysteriousPlacementsGen {
 
-    public static final ResourceKey<PlacedFeature> BLOODWOOD_TREE = ResourceKey.create(
-        Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_tree"));
+    public static final ResourceKey<PlacedFeature> BLOOD_SOAKED_TREE = ResourceKey.create(
+        Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "blood_soaked_tree"));
     public static final ResourceKey<PlacedFeature> GHOSTLY_TREE = ResourceKey.create(
         Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_tree"));
     public static final ResourceKey<PlacedFeature> SORBUS_TREE = ResourceKey.create(
@@ -52,7 +52,7 @@ public class MysteriousPlacementsGen {
 
     public static void run(BootstrapContext<PlacedFeature> feature) {
         HolderGetter<ConfiguredFeature<?, ?>> getter = feature.lookup(Registries.CONFIGURED_FEATURE);
-        feature.register(BLOODWOOD_TREE, new PlacedFeature(getter.getOrThrow(MysteriousFeaturesGen.BLOODWOOD_TREE),
+        feature.register(BLOOD_SOAKED_TREE, new PlacedFeature(getter.getOrThrow(MysteriousFeaturesGen.BLOOD_SOAKED_TREE),
             List.of(CountPlacement.of(10), RandomOffsetPlacement.horizontal(
                 UniformInt.of(0, 8)), HeightmapPlacement.onHeightmap(
                     Heightmap.Types.MOTION_BLOCKING), BiomeFilter.biome())));

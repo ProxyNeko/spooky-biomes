@@ -2,7 +2,7 @@ package dev.tophatcat.mysteriousbiomes.registries;
 
 import com.google.common.base.Suppliers;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
+import dev.tophatcat.mysteriousbiomes.blocks.BloodSoakedGrass;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import dev.tophatcat.mysteriousbiomes.utils.RegistryTools;
 import net.minecraft.world.level.block.Block;
@@ -33,15 +33,15 @@ public class BlockRegistry {
     }
 
     //Grass
-    public static final Supplier<Block> BLOODIED_GRASS = RegistryTools.registerBlock(
-        "bloodied_grass", BloodiedGrass::new);
-    public static final Supplier<Block> BLOODIED_DIRT = RegistryTools.registerBlock(
-        "bloodied_dirt", Suppliers.memoize(() -> new Block(Block.Properties.ofFullCopy(Blocks.DIRT)
+    public static final Supplier<Block> BLOOD_SOAKED_GRASS = RegistryTools.registerBlock(
+        "blood_soaked_grass", BloodSoakedGrass::new);
+    public static final Supplier<Block> BLOOD_SOAKED_DIRT = RegistryTools.registerBlock(
+        "blood_soaked_dirt", Suppliers.memoize(() -> new Block(Block.Properties.ofFullCopy(Blocks.DIRT)
             .strength(0.5F).sound(SoundType.ROOTED_DIRT))));
 
     // Logs
-    public static final Supplier<RotatedPillarBlock> BLOODWOOD_LOG
-        = RegistryTools.createPillarBlock("bloodwood_log");
+    public static final Supplier<RotatedPillarBlock> BLOOD_SOAKED_LOG
+        = RegistryTools.createPillarBlock("blood_soaked_log");
     public static final Supplier<RotatedPillarBlock> GHOSTLY_LOG
         = RegistryTools.createPillarBlock("ghostly_log");
     public static final Supplier<RotatedPillarBlock> SEEPING_LOG
@@ -52,8 +52,8 @@ public class BlockRegistry {
         = RegistryTools.createPillarBlock("walnut_log");
 
     // Stripped logs
-    public static final Supplier<RotatedPillarBlock> BLOODWOOD_STRIPPED_LOG
-        = RegistryTools.createPillarBlock("bloodwood_stripped_log");
+    public static final Supplier<RotatedPillarBlock> BLOOD_SOAKED_STRIPPED_LOG
+        = RegistryTools.createPillarBlock("blood_soaked_stripped_log");
     public static final Supplier<RotatedPillarBlock> GHOSTLY_STRIPPED_LOG
         = RegistryTools.createPillarBlock("ghostly_stripped_log");
     public static final Supplier<RotatedPillarBlock> SEEPING_STRIPPED_LOG
@@ -64,8 +64,8 @@ public class BlockRegistry {
         = RegistryTools.createPillarBlock("walnut_stripped_log");
 
     // Woods
-    public static final Supplier<RotatedPillarBlock> BLOODWOOD_WOOD
-        = RegistryTools.createPillarBlock("bloodwood_wood");
+    public static final Supplier<RotatedPillarBlock> BLOOD_SOAKED_WOOD
+        = RegistryTools.createPillarBlock("blood_soaked_wood");
     public static final Supplier<RotatedPillarBlock> GHOSTLY_WOOD
         = RegistryTools.createPillarBlock("ghostly_wood");
     public static final Supplier<RotatedPillarBlock> SEEPING_WOOD
@@ -76,8 +76,8 @@ public class BlockRegistry {
         = RegistryTools.createPillarBlock("walnut_wood");
 
     // Stripped woods
-    public static final Supplier<RotatedPillarBlock> BLOODWOOD_STRIPPED_WOOD
-        = RegistryTools.createPillarBlock("bloodwood_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> BLOOD_SOAKED_STRIPPED_WOOD
+        = RegistryTools.createPillarBlock("blood_soaked_stripped_wood");
     public static final Supplier<RotatedPillarBlock> GHOSTLY_STRIPPED_WOOD
         = RegistryTools.createPillarBlock("ghostly_stripped_wood");
     public static final Supplier<RotatedPillarBlock> SEEPING_STRIPPED_WOOD
@@ -88,15 +88,15 @@ public class BlockRegistry {
         = RegistryTools.createPillarBlock("walnut_stripped_wood");
 
     // Planks
-    public static final Supplier<Block> BLOODWOOD_PLANKS = RegistryTools.createPlanksBlock("bloodwood_planks");
+    public static final Supplier<Block> BLOOD_SOAKED_PLANKS = RegistryTools.createPlanksBlock("blood_soaked_planks");
     public static final Supplier<Block> GHOSTLY_PLANKS = RegistryTools.createPlanksBlock("ghostly_planks");
     public static final Supplier<Block> SEEPING_PLANKS = RegistryTools.createPlanksBlock("seeping_planks");
     public static final Supplier<Block> SORBUS_PLANKS = RegistryTools.createPlanksBlock("sorbus_planks");
     public static final Supplier<Block> WALNUT_PLANKS = RegistryTools.createPlanksBlock("walnut_planks");
 
     // Stairs
-    public static final Supplier<StairBlock> BLOODWOOD_STAIRS = RegistryTools.createStairsBlock(
-        "bloodwood_stairs", () -> BLOODWOOD_PLANKS.get().defaultBlockState());
+    public static final Supplier<StairBlock> BLOOD_SOAKED_STAIRS = RegistryTools.createStairsBlock(
+        "blood_soaked_stairs", () -> BLOOD_SOAKED_PLANKS.get().defaultBlockState());
     public static final Supplier<StairBlock> GHOSTLY_STAIRS = RegistryTools.createStairsBlock(
         "ghostly_stairs", () -> GHOSTLY_PLANKS.get().defaultBlockState());
     public static final Supplier<StairBlock> SEEPING_STAIRS = RegistryTools.createStairsBlock(
@@ -107,43 +107,43 @@ public class BlockRegistry {
         "walnut_stairs", () -> WALNUT_PLANKS.get().defaultBlockState());
 
     // Leaves
-    public static final Supplier<Block> BLOODWOOD_LEAVES = RegistryTools.createLeavesBlock("bloodwood_leaves");
+    public static final Supplier<Block> BLOOD_SOAKED_LEAVES = RegistryTools.createLeavesBlock("blood_soaked_leaves");
     public static final Supplier<Block> GHOSTLY_LEAVES = RegistryTools.createLeavesBlock("ghostly_leaves");
     public static final Supplier<Block> SEEPING_LEAVES = RegistryTools.createLeavesBlock("seeping_leaves");
     public static final Supplier<Block> SORBUS_LEAVES = RegistryTools.createLeavesBlock("sorbus_leaves");
     public static final Supplier<Block> WALNUT_LEAVES = RegistryTools.createLeavesBlock("walnut_leaves");
 
     // Slabs
-    public static final Supplier<SlabBlock> BLOODWOOD_SLAB = RegistryTools.createSlabBlock("bloodwood_slab");
+    public static final Supplier<SlabBlock> BLOOD_SOAKED_SLAB = RegistryTools.createSlabBlock("blood_soaked_slab");
     public static final Supplier<SlabBlock> GHOSTLY_SLAB = RegistryTools.createSlabBlock("ghostly_slab");
     public static final Supplier<SlabBlock> SEEPING_SLAB = RegistryTools.createSlabBlock("seeping_slab");
     public static final Supplier<SlabBlock> SORBUS_SLAB = RegistryTools.createSlabBlock("sorbus_slab");
     public static final Supplier<SlabBlock> WALNUT_SLAB = RegistryTools.createSlabBlock("walnut_slab");
 
     // Fences
-    public static final Supplier<FenceBlock> BLOODWOOD_FENCE = RegistryTools.createFenceBlock("bloodwood_fence");
+    public static final Supplier<FenceBlock> BLOOD_SOAKED_FENCE = RegistryTools.createFenceBlock("blood_soaked_fence");
     public static final Supplier<FenceBlock> GHOSTLY_FENCE = RegistryTools.createFenceBlock("ghostly_fence");
     public static final Supplier<FenceBlock> SEEPING_FENCE = RegistryTools.createFenceBlock("seeping_fence");
     public static final Supplier<FenceBlock> SORBUS_FENCE = RegistryTools.createFenceBlock("sorbus_fence");
     public static final Supplier<FenceBlock> WALNUT_FENCE = RegistryTools.createFenceBlock("walnut_fence");
 
     // Gates
-    public static final Supplier<FenceGateBlock> BLOODWOOD_GATE = RegistryTools.createGateBlock("bloodwood_gate");
+    public static final Supplier<FenceGateBlock> BLOOD_SOAKED_GATE = RegistryTools.createGateBlock("blood_soaked_gate");
     public static final Supplier<FenceGateBlock> GHOSTLY_GATE = RegistryTools.createGateBlock("ghostly_gate");
     public static final Supplier<FenceGateBlock> SEEPING_GATE = RegistryTools.createGateBlock("seeping_gate");
     public static final Supplier<FenceGateBlock> SORBUS_GATE = RegistryTools.createGateBlock("sorbus_gate");
     public static final Supplier<FenceGateBlock> WALNUT_GATE = RegistryTools.createGateBlock("walnut_gate");
 
     // Buttons
-    public static final Supplier<ButtonBlock> BLOODWOOD_BUTTON = RegistryTools.createButtonBlock("bloodwood_button");
+    public static final Supplier<ButtonBlock> BLOOD_SOAKED_BUTTON = RegistryTools.createButtonBlock("blood_soaked_button");
     public static final Supplier<ButtonBlock> GHOSTLY_BUTTON = RegistryTools.createButtonBlock("ghostly_button");
     public static final Supplier<ButtonBlock> SEEPING_BUTTON = RegistryTools.createButtonBlock("seeping_button");
     public static final Supplier<ButtonBlock> SORBUS_BUTTON = RegistryTools.createButtonBlock("sorbus_button");
     public static final Supplier<ButtonBlock> WALNUT_BUTTON = RegistryTools.createButtonBlock("walnut_button");
 
     // Pressure plates
-    public static final Supplier<PressurePlateBlock> BLOODWOOD_PRESSURE_PLATE
-        = RegistryTools.createPressurePlateBlock("bloodwood_pressure_plate");
+    public static final Supplier<PressurePlateBlock> BLOOD_SOAKED_PRESSURE_PLATE
+        = RegistryTools.createPressurePlateBlock("blood_soaked_pressure_plate");
     public static final Supplier<PressurePlateBlock> GHOSTLY_PRESSURE_PLATE
         = RegistryTools.createPressurePlateBlock("ghostly_pressure_plate");
     public static final Supplier<PressurePlateBlock> SEEPING_PRESSURE_PLATE
@@ -154,8 +154,8 @@ public class BlockRegistry {
         = RegistryTools.createPressurePlateBlock("walnut_pressure_plate");
 
     // Trapdoors
-    public static final Supplier<TrapDoorBlock> BLOODWOOD_TRAPDOOR
-        = RegistryTools.createTrapdoorBlock("bloodwood_trapdoor");
+    public static final Supplier<TrapDoorBlock> BLOOD_SOAKED_TRAPDOOR
+        = RegistryTools.createTrapdoorBlock("blood_soaked_trapdoor");
     public static final Supplier<TrapDoorBlock> GHOSTLY_TRAPDOOR
         = RegistryTools.createTrapdoorBlock("ghostly_trapdoor");
     public static final Supplier<TrapDoorBlock> SEEPING_TRAPDOOR
@@ -166,7 +166,7 @@ public class BlockRegistry {
         = RegistryTools.createTrapdoorBlock("walnut_trapdoor");
 
     // Doors
-    public static final Supplier<DoorBlock> BLOODWOOD_DOOR = RegistryTools.createDoorBlock("bloodwood_door");
+    public static final Supplier<DoorBlock> BLOOD_SOAKED_DOOR = RegistryTools.createDoorBlock("blood_soaked_door");
     public static final Supplier<DoorBlock> GHOSTLY_DOOR = RegistryTools.createDoorBlock("ghostly_door");
     public static final Supplier<DoorBlock> SEEPING_DOOR = RegistryTools.createDoorBlock("seeping_door");
     public static final Supplier<DoorBlock> SORBUS_DOOR = RegistryTools.createDoorBlock("sorbus_door");
@@ -174,8 +174,8 @@ public class BlockRegistry {
 
     // Saplings
     // TODO Make our own tree growers and fancy trees.
-    public static final Supplier<SaplingBlock> BLOODWOOD_SAPLING
-        = RegistryTools.createSaplingBlock("bloodwood_sapling", TreeGrower.BIRCH);
+    public static final Supplier<SaplingBlock> BLOOD_SOAKED_SAPLING
+        = RegistryTools.createSaplingBlock("blood_soaked_sapling", TreeGrower.BIRCH);
     public static final Supplier<SaplingBlock> GHOSTLY_SAPLING
         = RegistryTools.createSaplingBlock("ghostly_sapling", TreeGrower.BIRCH);
     public static final Supplier<SaplingBlock> SEEPING_SAPLING
@@ -186,8 +186,8 @@ public class BlockRegistry {
         = RegistryTools.createSaplingBlock("walnut_sapling", TreeGrower.BIRCH);
 
     // Floor signs
-    public static final Supplier<StandingSignBlock> BLOODWOOD_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
-        "bloodwood_sign", MysteriousWoodType.BLOODWOOD_TYPE);
+    public static final Supplier<StandingSignBlock> BLOOD_SOAKED_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
+        "blood_soaked_sign", MysteriousWoodType.BLOOD_SOAKED_TYPE);
     public static final Supplier<StandingSignBlock> GHOSTLY_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
         "ghostly_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<StandingSignBlock> SEEPING_FLOOR_SIGN = RegistryTools.createStandingSignBlock(
@@ -198,8 +198,8 @@ public class BlockRegistry {
         "walnut_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Wall signs
-    public static final Supplier<WallSignBlock> BLOODWOOD_WALL_SIGN = RegistryTools.createWallSignBlock(
-        "bloodwood_wall_sign", MysteriousWoodType.BLOODWOOD_TYPE);
+    public static final Supplier<WallSignBlock> BLOOD_SOAKED_WALL_SIGN = RegistryTools.createWallSignBlock(
+        "blood_soaked_wall_sign", MysteriousWoodType.BLOOD_SOAKED_TYPE);
     public static final Supplier<WallSignBlock> GHOSTLY_WALL_SIGN = RegistryTools.createWallSignBlock(
         "ghostly_wall_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<WallSignBlock> SEEPING_WALL_SIGN = RegistryTools.createWallSignBlock(
@@ -210,8 +210,8 @@ public class BlockRegistry {
         "walnut_wall_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Hanging signs
-    public static final Supplier<CeilingHangingSignBlock> BLOODWOOD_HANGING_SIGN = RegistryTools.createHangingSignBlock(
-        "bloodwood_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
+    public static final Supplier<CeilingHangingSignBlock> BLOOD_SOAKED_HANGING_SIGN = RegistryTools.createHangingSignBlock(
+        "blood_soaked_hanging_sign", MysteriousWoodType.BLOOD_SOAKED_TYPE);
     public static final Supplier<CeilingHangingSignBlock> GHOSTLY_HANGING_SIGN = RegistryTools.createHangingSignBlock(
         "ghostly_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<CeilingHangingSignBlock> SEEPING_HANGING_SIGN = RegistryTools.createHangingSignBlock(
@@ -222,8 +222,8 @@ public class BlockRegistry {
         "walnut_hanging_sign", MysteriousWoodType.WALNUT_TYPE);
 
     // Wall hanging signs
-    public static final Supplier<WallHangingSignBlock> BLOODWOOD_WALL_HANGING_SIGN
-        = RegistryTools.createWallHangingSignBlock("bloodwood_wall_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
+    public static final Supplier<WallHangingSignBlock> BLOOD_SOAKED_WALL_HANGING_SIGN
+        = RegistryTools.createWallHangingSignBlock("blood_soaked_wall_hanging_sign", MysteriousWoodType.BLOOD_SOAKED_TYPE);
     public static final Supplier<WallHangingSignBlock> GHOSTLY_WALL_HANGING_SIGN
         = RegistryTools.createWallHangingSignBlock("ghostly_wall_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<WallHangingSignBlock> SEEPING_WALL_HANGING_SIGN

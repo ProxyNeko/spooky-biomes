@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysteriousbiomes:item/blood_soaked_sign"
+  }
+}

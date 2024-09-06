@@ -48,91 +48,91 @@ public class MysteriousTagProvider {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             tag(ItemTags.PLANKS)
-                .add(ItemRegistry.BLOODWOOD_PLANKS.get())
+                .add(ItemRegistry.BLOOD_SOAKED_PLANKS.get())
                 .add(ItemRegistry.GHOSTLY_PLANKS.get())
                 .add(ItemRegistry.SEEPING_PLANKS.get())
                 .add(ItemRegistry.SORBUS_PLANKS.get())
                 .add(ItemRegistry.WALNUT_PLANKS.get());
 
             tag(ItemTags.WOODEN_BUTTONS)
-                .add(ItemRegistry.BLOODWOOD_BUTTON.get())
+                .add(ItemRegistry.BLOOD_SOAKED_BUTTON.get())
                 .add(ItemRegistry.GHOSTLY_BUTTON.get())
                 .add(ItemRegistry.SEEPING_BUTTON.get())
                 .add(ItemRegistry.SORBUS_BUTTON.get())
                 .add(ItemRegistry.WALNUT_BUTTON.get());
 
             tag(ItemTags.WOODEN_DOORS)
-                .add(ItemRegistry.BLOODWOOD_DOOR.get())
+                .add(ItemRegistry.BLOOD_SOAKED_DOOR.get())
                 .add(ItemRegistry.GHOSTLY_DOOR.get())
                 .add(ItemRegistry.SEEPING_DOOR.get())
                 .add(ItemRegistry.SORBUS_DOOR.get())
                 .add(ItemRegistry.WALNUT_DOOR.get());
 
             tag(ItemTags.WOODEN_STAIRS)
-                .add(ItemRegistry.BLOODWOOD_STAIRS.get())
+                .add(ItemRegistry.BLOOD_SOAKED_STAIRS.get())
                 .add(ItemRegistry.GHOSTLY_STAIRS.get())
                 .add(ItemRegistry.SEEPING_STAIRS.get())
                 .add(ItemRegistry.SORBUS_STAIRS.get())
                 .add(ItemRegistry.WALNUT_STAIRS.get());
 
             tag(ItemTags.WOODEN_SLABS)
-                .add(ItemRegistry.BLOODWOOD_SLAB.get())
+                .add(ItemRegistry.BLOOD_SOAKED_SLAB.get())
                 .add(ItemRegistry.GHOSTLY_SLAB.get())
                 .add(ItemRegistry.SEEPING_SLAB.get())
                 .add(ItemRegistry.SORBUS_SLAB.get())
                 .add(ItemRegistry.WALNUT_SLAB.get());
 
             tag(ItemTags.WOODEN_FENCES)
-                .add(ItemRegistry.BLOODWOOD_FENCE.get())
+                .add(ItemRegistry.BLOOD_SOAKED_FENCE.get())
                 .add(ItemRegistry.GHOSTLY_FENCE.get())
                 .add(ItemRegistry.SEEPING_FENCE.get())
                 .add(ItemRegistry.SORBUS_FENCE.get())
                 .add(ItemRegistry.WALNUT_FENCE.get());
 
             tag(ItemTags.SAPLINGS)
-                .add(ItemRegistry.BLOODWOOD_SAPLING.get())
+                .add(ItemRegistry.BLOOD_SOAKED_SAPLING.get())
                 .add(ItemRegistry.GHOSTLY_SAPLING.get())
                 .add(ItemRegistry.SEEPING_SAPLING.get())
                 .add(ItemRegistry.SORBUS_SAPLING.get())
                 .add(ItemRegistry.WALNUT_SAPLING.get());
 
             tag(ItemTags.WOODEN_PRESSURE_PLATES)
-                .add(ItemRegistry.BLOODWOOD_PRESSURE_PLATE.get())
+                .add(ItemRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get())
                 .add(ItemRegistry.GHOSTLY_PRESSURE_PLATE.get())
                 .add(ItemRegistry.SEEPING_PRESSURE_PLATE.get())
                 .add(ItemRegistry.SORBUS_PRESSURE_PLATE.get())
                 .add(ItemRegistry.WALNUT_PRESSURE_PLATE.get());
 
             tag(ItemTags.LEAVES)
-                .add(ItemRegistry.BLOODWOOD_LEAVES.get())
+                .add(ItemRegistry.BLOOD_SOAKED_LEAVES.get())
                 .add(ItemRegistry.GHOSTLY_LEAVES.get())
                 .add(ItemRegistry.SEEPING_LEAVES.get())
                 .add(ItemRegistry.SORBUS_LEAVES.get())
                 .add(ItemRegistry.WALNUT_LEAVES.get());
 
             tag(ItemTags.WOODEN_TRAPDOORS)
-                .add(ItemRegistry.BLOODWOOD_TRAPDOOR.get())
+                .add(ItemRegistry.BLOOD_SOAKED_TRAPDOOR.get())
                 .add(ItemRegistry.GHOSTLY_TRAPDOOR.get())
                 .add(ItemRegistry.SEEPING_TRAPDOOR.get())
                 .add(ItemRegistry.SORBUS_TRAPDOOR.get())
                 .add(ItemRegistry.WALNUT_TRAPDOOR.get());
 
             tag(ItemTags.FENCE_GATES)
-                .add(ItemRegistry.BLOODWOOD_GATE.get())
+                .add(ItemRegistry.BLOOD_SOAKED_GATE.get())
                 .add(ItemRegistry.GHOSTLY_GATE.get())
                 .add(ItemRegistry.SEEPING_GATE.get())
                 .add(ItemRegistry.SORBUS_GATE.get())
                 .add(ItemRegistry.WALNUT_GATE.get());
 
             tag(ItemTags.DIRT)
-                .add(ItemRegistry.BLOODIED_DIRT.get())
-                .add(ItemRegistry.BLOODIED_GRASS.get());
+                .add(ItemRegistry.BLOOD_SOAKED_DIRT.get())
+                .add(ItemRegistry.BLOOD_SOAKED_GRASS.get());
 
-            tag(MysteriousTags.MysteriousItems.BLOODWOOD_LOGS)
-                .add(ItemRegistry.BLOODWOOD_LOG.get())
-                .add(ItemRegistry.BLOODWOOD_STRIPPED_LOG.get())
-                .add(ItemRegistry.BLOODWOOD_WOOD.get())
-                .add(ItemRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+            tag(MysteriousTags.MysteriousItems.BLOOD_SOAKED_LOGS)
+                .add(ItemRegistry.BLOOD_SOAKED_LOG.get())
+                .add(ItemRegistry.BLOOD_SOAKED_STRIPPED_LOG.get())
+                .add(ItemRegistry.BLOOD_SOAKED_WOOD.get())
+                .add(ItemRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get());
 
             tag(MysteriousTags.MysteriousItems.GHOSTLY_LOGS)
                 .add(ItemRegistry.GHOSTLY_LOG.get())
@@ -159,7 +159,7 @@ public class MysteriousTagProvider {
                 .add(ItemRegistry.WALNUT_STRIPPED_WOOD.get());
 
             tag(ItemTags.LOGS_THAT_BURN)
-                .addTag(MysteriousTags.MysteriousItems.BLOODWOOD_LOGS)
+                .addTag(MysteriousTags.MysteriousItems.BLOOD_SOAKED_LOGS)
                 .addTag(MysteriousTags.MysteriousItems.GHOSTLY_LOGS)
                 .addTag(MysteriousTags.MysteriousItems.SORBUS_LOGS)
                 .addTag(MysteriousTags.MysteriousItems.SEEPING_LOGS)
@@ -179,91 +179,91 @@ public class MysteriousTagProvider {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             tag(BlockTags.PLANKS)
-                .add(BlockRegistry.BLOODWOOD_PLANKS.get())
+                .add(BlockRegistry.BLOOD_SOAKED_PLANKS.get())
                 .add(BlockRegistry.GHOSTLY_PLANKS.get())
                 .add(BlockRegistry.SEEPING_PLANKS.get())
                 .add(BlockRegistry.SORBUS_PLANKS.get())
                 .add(BlockRegistry.WALNUT_PLANKS.get());
 
             tag(BlockTags.WOODEN_BUTTONS)
-                .add(BlockRegistry.BLOODWOOD_BUTTON.get())
+                .add(BlockRegistry.BLOOD_SOAKED_BUTTON.get())
                 .add(BlockRegistry.GHOSTLY_BUTTON.get())
                 .add(BlockRegistry.SEEPING_BUTTON.get())
                 .add(BlockRegistry.SORBUS_BUTTON.get())
                 .add(BlockRegistry.WALNUT_BUTTON.get());
 
             tag(BlockTags.WOODEN_DOORS)
-                .add(BlockRegistry.BLOODWOOD_DOOR.get())
+                .add(BlockRegistry.BLOOD_SOAKED_DOOR.get())
                 .add(BlockRegistry.GHOSTLY_DOOR.get())
                 .add(BlockRegistry.SEEPING_DOOR.get())
                 .add(BlockRegistry.SORBUS_DOOR.get())
                 .add(BlockRegistry.WALNUT_DOOR.get());
 
             tag(BlockTags.WOODEN_STAIRS)
-                .add(BlockRegistry.BLOODWOOD_STAIRS.get())
+                .add(BlockRegistry.BLOOD_SOAKED_STAIRS.get())
                 .add(BlockRegistry.GHOSTLY_STAIRS.get())
                 .add(BlockRegistry.SEEPING_STAIRS.get())
                 .add(BlockRegistry.SORBUS_STAIRS.get())
                 .add(BlockRegistry.WALNUT_STAIRS.get());
 
             tag(BlockTags.WOODEN_SLABS)
-                .add(BlockRegistry.BLOODWOOD_SLAB.get())
+                .add(BlockRegistry.BLOOD_SOAKED_SLAB.get())
                 .add(BlockRegistry.GHOSTLY_SLAB.get())
                 .add(BlockRegistry.SEEPING_SLAB.get())
                 .add(BlockRegistry.SORBUS_SLAB.get())
                 .add(BlockRegistry.WALNUT_SLAB.get());
 
             tag(BlockTags.WOODEN_FENCES)
-                .add(BlockRegistry.BLOODWOOD_FENCE.get())
+                .add(BlockRegistry.BLOOD_SOAKED_FENCE.get())
                 .add(BlockRegistry.GHOSTLY_FENCE.get())
                 .add(BlockRegistry.SEEPING_FENCE.get())
                 .add(BlockRegistry.SORBUS_FENCE.get())
                 .add(BlockRegistry.WALNUT_FENCE.get());
 
             tag(BlockTags.SAPLINGS)
-                .add(BlockRegistry.BLOODWOOD_SAPLING.get())
+                .add(BlockRegistry.BLOOD_SOAKED_SAPLING.get())
                 .add(BlockRegistry.GHOSTLY_SAPLING.get())
                 .add(BlockRegistry.SEEPING_SAPLING.get())
                 .add(BlockRegistry.SORBUS_SAPLING.get())
                 .add(BlockRegistry.WALNUT_SAPLING.get());
 
             tag(BlockTags.WOODEN_PRESSURE_PLATES)
-                .add(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get())
+                .add(BlockRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get())
                 .add(BlockRegistry.GHOSTLY_PRESSURE_PLATE.get())
                 .add(BlockRegistry.SEEPING_PRESSURE_PLATE.get())
                 .add(BlockRegistry.SORBUS_PRESSURE_PLATE.get())
                 .add(BlockRegistry.WALNUT_PRESSURE_PLATE.get());
 
             tag(BlockTags.LEAVES)
-                .add(BlockRegistry.BLOODWOOD_LEAVES.get())
+                .add(BlockRegistry.BLOOD_SOAKED_LEAVES.get())
                 .add(BlockRegistry.GHOSTLY_LEAVES.get())
                 .add(BlockRegistry.SEEPING_LEAVES.get())
                 .add(BlockRegistry.SORBUS_LEAVES.get())
                 .add(BlockRegistry.WALNUT_LEAVES.get());
 
             tag(BlockTags.WOODEN_TRAPDOORS)
-                .add(BlockRegistry.BLOODWOOD_TRAPDOOR.get())
+                .add(BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get())
                 .add(BlockRegistry.GHOSTLY_TRAPDOOR.get())
                 .add(BlockRegistry.SEEPING_TRAPDOOR.get())
                 .add(BlockRegistry.SORBUS_TRAPDOOR.get())
                 .add(BlockRegistry.WALNUT_TRAPDOOR.get());
 
             tag(BlockTags.FENCE_GATES)
-                .add(BlockRegistry.BLOODWOOD_GATE.get())
+                .add(BlockRegistry.BLOOD_SOAKED_GATE.get())
                 .add(BlockRegistry.GHOSTLY_GATE.get())
                 .add(BlockRegistry.SEEPING_GATE.get())
                 .add(BlockRegistry.SORBUS_GATE.get())
                 .add(BlockRegistry.WALNUT_GATE.get());
 
             tag(BlockTags.DIRT)
-                .add(BlockRegistry.BLOODIED_DIRT.get())
-                .add(BlockRegistry.BLOODIED_GRASS.get());
+                .add(BlockRegistry.BLOOD_SOAKED_DIRT.get())
+                .add(BlockRegistry.BLOOD_SOAKED_GRASS.get());
 
-            tag(MysteriousTags.MysteriousBlocks.BLOODWOOD_LOGS)
-                .add(BlockRegistry.BLOODWOOD_LOG.get())
-                .add(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get())
-                .add(BlockRegistry.BLOODWOOD_WOOD.get())
-                .add(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
+            tag(MysteriousTags.MysteriousBlocks.BLOOD_SOAKED_LOGS)
+                .add(BlockRegistry.BLOOD_SOAKED_LOG.get())
+                .add(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get())
+                .add(BlockRegistry.BLOOD_SOAKED_WOOD.get())
+                .add(BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get());
 
             tag(MysteriousTags.MysteriousBlocks.GHOSTLY_LOGS)
                 .add(BlockRegistry.GHOSTLY_LOG.get())
@@ -290,31 +290,31 @@ public class MysteriousTagProvider {
                 .add(BlockRegistry.WALNUT_STRIPPED_WOOD.get());
 
             tag(BlockTags.LOGS_THAT_BURN)
-                .addTag(MysteriousTags.MysteriousBlocks.BLOODWOOD_LOGS)
+                .addTag(MysteriousTags.MysteriousBlocks.BLOOD_SOAKED_LOGS)
                 .addTag(MysteriousTags.MysteriousBlocks.GHOSTLY_LOGS)
                 .addTag(MysteriousTags.MysteriousBlocks.SORBUS_LOGS)
                 .addTag(MysteriousTags.MysteriousBlocks.SEEPING_LOGS)
                 .addTag(MysteriousTags.MysteriousBlocks.WALNUT_LOGS);
 
             tag(MysteriousTags.MysteriousBlocks.SIGNS)
-                .add(BlockRegistry.BLOODWOOD_WALL_SIGN.get())
+                .add(BlockRegistry.BLOOD_SOAKED_WALL_SIGN.get())
                 .add(BlockRegistry.GHOSTLY_WALL_SIGN.get())
                 .add(BlockRegistry.SEEPING_WALL_SIGN.get())
                 .add(BlockRegistry.SORBUS_WALL_SIGN.get())
                 .add(BlockRegistry.WALNUT_WALL_SIGN.get())
-                .add(BlockRegistry.BLOODWOOD_FLOOR_SIGN.get())
+                .add(BlockRegistry.BLOOD_SOAKED_FLOOR_SIGN.get())
                 .add(BlockRegistry.GHOSTLY_FLOOR_SIGN.get())
                 .add(BlockRegistry.SEEPING_FLOOR_SIGN.get())
                 .add(BlockRegistry.SORBUS_FLOOR_SIGN.get())
                 .add(BlockRegistry.WALNUT_FLOOR_SIGN.get());
 
             tag(MysteriousTags.MysteriousBlocks.HANGING_SIGNS)
-                .add(BlockRegistry.BLOODWOOD_HANGING_SIGN.get())
+                .add(BlockRegistry.BLOOD_SOAKED_HANGING_SIGN.get())
                 .add(BlockRegistry.GHOSTLY_HANGING_SIGN.get())
                 .add(BlockRegistry.SEEPING_HANGING_SIGN.get())
                 .add(BlockRegistry.SORBUS_HANGING_SIGN.get())
                 .add(BlockRegistry.WALNUT_HANGING_SIGN.get())
-                .add(BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN.get())
+                .add(BlockRegistry.BLOOD_SOAKED_WALL_HANGING_SIGN.get())
                 .add(BlockRegistry.GHOSTLY_WALL_HANGING_SIGN.get())
                 .add(BlockRegistry.SEEPING_WALL_HANGING_SIGN.get())
                 .add(BlockRegistry.SORBUS_WALL_HANGING_SIGN.get())
@@ -325,8 +325,8 @@ public class MysteriousTagProvider {
                 .addTag(MysteriousTags.MysteriousBlocks.HANGING_SIGNS);
 
             tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(BlockRegistry.BLOODIED_DIRT.get())
-                .add(BlockRegistry.BLOODIED_GRASS.get());
+                .add(BlockRegistry.BLOOD_SOAKED_DIRT.get())
+                .add(BlockRegistry.BLOOD_SOAKED_GRASS.get());
         }
     }
 }

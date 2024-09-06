@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "mysteriousbiomes:blood_soaked_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "mysteriousbiomes:blood_soaked_planks"
+  }
+}

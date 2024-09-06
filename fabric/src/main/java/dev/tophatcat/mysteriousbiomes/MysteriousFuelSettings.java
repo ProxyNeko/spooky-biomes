@@ -31,21 +31,21 @@ public class MysteriousFuelSettings {
     }
 
     private static void init() {
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_LOG.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_WOOD.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_PLANKS.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_STAIRS.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_SLAB.get(), 150);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_FENCE.get(), 300);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_GATE.get(), 300);
-        FuelRegistry.INSTANCE.add(ItemRegistry.BLOODWOOD_SIGN.get(), 200);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_HANGING_SIGN.get(), 800);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_BUTTON.get(), 100);
-        FuelRegistry.INSTANCE.add(BlockRegistry.BLOODWOOD_SAPLING.get(), 100);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_LOG.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_WOOD.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_PLANKS.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_STAIRS.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_SLAB.get(), 150);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_FENCE.get(), 300);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_GATE.get(), 300);
+        FuelRegistry.INSTANCE.add(ItemRegistry.BLOOD_SOAKED_SIGN.get(), 200);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_HANGING_SIGN.get(), 800);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_BUTTON.get(), 100);
+        FuelRegistry.INSTANCE.add(BlockRegistry.BLOOD_SOAKED_SAPLING.get(), 100);
 
         FuelRegistry.INSTANCE.add(BlockRegistry.GHOSTLY_LOG.get(), 300);
         FuelRegistry.INSTANCE.add(BlockRegistry.GHOSTLY_STRIPPED_LOG.get(), 300);

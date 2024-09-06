@@ -26,15 +26,15 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 
 public class MysteriousSurfaceRules {
 
-    private static final SurfaceRules.RuleSource BLOODIED_GRASS = SurfaceRules.state(
-        BlockRegistry.BLOODIED_GRASS.get().defaultBlockState());
-    private static final SurfaceRules.RuleSource BLOODIED_DIRT = SurfaceRules.state(
-        BlockRegistry.BLOODIED_DIRT.get().defaultBlockState());
+    private static final SurfaceRules.RuleSource BLOOD_SOAKED_GRASS = SurfaceRules.state(
+        BlockRegistry.BLOOD_SOAKED_GRASS.get().defaultBlockState());
+    private static final SurfaceRules.RuleSource BLOOD_SOAKED_DIRT = SurfaceRules.state(
+        BlockRegistry.BLOOD_SOAKED_DIRT.get().defaultBlockState());
 
     public static SurfaceRules.RuleSource makeRules() {
-        return SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(MysteriousCommon.BLOODIED_PLAINS),
+        return SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(MysteriousCommon.BLOOD_SOAKED_PLAINS),
                 SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(SurfaceRules.waterBlockCheck(0, 0), SurfaceRules.sequence(BLOODIED_GRASS)),
-                    BLOODIED_DIRT)))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, BLOODIED_DIRT));
+                    SurfaceRules.ifTrue(SurfaceRules.waterBlockCheck(0, 0), SurfaceRules.sequence(BLOOD_SOAKED_GRASS)),
+                    BLOOD_SOAKED_DIRT)))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, BLOOD_SOAKED_DIRT));
     }
 }

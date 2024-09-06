@@ -30,8 +30,8 @@ import net.minecraft.world.level.block.Block;
 public class MysteriousTags {
 
     public static final class MysteriousBlocks {
-        public static final TagKey<Block> BLOODWOOD_LOGS = TagKey.create(Registries.BLOCK,
-            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_logs"));
+        public static final TagKey<Block> BLOOD_SOAKED_LOGS = TagKey.create(Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "blood_soaked_logs"));
         public static final TagKey<Block> GHOSTLY_LOGS = TagKey.create(Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_logs"));
         public static final TagKey<Block> SEEPING_LOGS = TagKey.create(Registries.BLOCK,
@@ -47,8 +47,8 @@ public class MysteriousTags {
     }
 
     public static final class MysteriousItems {
-        public static final TagKey<Item> BLOODWOOD_LOGS = TagKey.create(Registries.ITEM,
-            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "bloodwood_logs"));
+        public static final TagKey<Item> BLOOD_SOAKED_LOGS = TagKey.create(Registries.ITEM,
+            ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "blood_soaked_logs"));
         public static final TagKey<Item> GHOSTLY_LOGS = TagKey.create(Registries.ITEM,
             ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "ghostly_logs"));
         public static final TagKey<Item> SEEPING_LOGS = TagKey.create(Registries.ITEM,

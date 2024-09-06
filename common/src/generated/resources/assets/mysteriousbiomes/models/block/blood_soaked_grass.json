@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "mysteriousbiomes:block/blood_soaked_dirt",
+    "particle": "mysteriousbiomes:block/blood_soaked_dirt",
+    "side": "mysteriousbiomes:block/blood_soaked_grass_side",
+    "top": "mysteriousbiomes:block/blood_soaked_grass_top"
+  }
+}

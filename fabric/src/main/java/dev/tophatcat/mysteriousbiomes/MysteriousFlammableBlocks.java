@@ -32,16 +32,16 @@ public class MysteriousFlammableBlocks {
     private static void init() {
         FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
 
-        registry.add(BlockRegistry.BLOODWOOD_LOG.get(), 5, 5);
-        registry.add(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get(), 5, 5);
-        registry.add(BlockRegistry.BLOODWOOD_WOOD.get(), 5, 5);
-        registry.add(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get(), 5, 5);
-        registry.add(BlockRegistry.BLOODWOOD_PLANKS.get(), 5, 20);
-        registry.add(BlockRegistry.BLOODWOOD_LEAVES.get(), 30, 60);
-        registry.add(BlockRegistry.BLOODWOOD_SLAB.get(), 5, 20);
-        registry.add(BlockRegistry.BLOODWOOD_GATE.get(), 5, 20);
-        registry.add(BlockRegistry.BLOODWOOD_FENCE.get(), 5, 20);
-        registry.add(BlockRegistry.BLOODWOOD_STAIRS.get(), 5, 20);
+        registry.add(BlockRegistry.BLOOD_SOAKED_LOG.get(), 5, 5);
+        registry.add(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get(), 5, 5);
+        registry.add(BlockRegistry.BLOOD_SOAKED_WOOD.get(), 5, 5);
+        registry.add(BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get(), 5, 5);
+        registry.add(BlockRegistry.BLOOD_SOAKED_PLANKS.get(), 5, 20);
+        registry.add(BlockRegistry.BLOOD_SOAKED_LEAVES.get(), 30, 60);
+        registry.add(BlockRegistry.BLOOD_SOAKED_SLAB.get(), 5, 20);
+        registry.add(BlockRegistry.BLOOD_SOAKED_GATE.get(), 5, 20);
+        registry.add(BlockRegistry.BLOOD_SOAKED_FENCE.get(), 5, 20);
+        registry.add(BlockRegistry.BLOOD_SOAKED_STAIRS.get(), 5, 20);
 
         registry.add(BlockRegistry.GHOSTLY_LOG.get(), 5, 5);
         registry.add(BlockRegistry.GHOSTLY_STRIPPED_LOG.get(), 5, 5);

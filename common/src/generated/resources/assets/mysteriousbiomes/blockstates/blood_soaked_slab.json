@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "mysteriousbiomes:block/blood_soaked_slab"
+    },
+    "type=double": {
+      "model": "mysteriousbiomes:block/blood_soaked_planks"
+    },
+    "type=top": {
+      "model": "mysteriousbiomes:block/blood_soaked_slab_top"
+    }
+  }
+}

@@ -28,27 +28,27 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 public final class MysteriousWoodType {
 
     public static void init() {
-        WoodType.register(BLOODWOOD_TYPE);
+        WoodType.register(BLOOD_SOAKED_TYPE);
         WoodType.register(GHOSTLY_TYPE);
         WoodType.register(SORBUS_TYPE);
         WoodType.register(SEEPING_TYPE);
         WoodType.register(WALNUT_TYPE);
 
-        BlockSetType.register(BLOODWOOD_SET);
+        BlockSetType.register(BLOOD_SOAKED_SET);
         BlockSetType.register(GHOSTLY_SET);
         BlockSetType.register(SORBUS_SET);
         BlockSetType.register(SEEPING_SET);
         BlockSetType.register(WALNUT_SET);
     }
 
-    private static final BlockSetType BLOODWOOD_SET = new BlockSetType("bloodwood");
+    private static final BlockSetType BLOOD_SOAKED_SET = new BlockSetType("blood_soaked");
     private static final BlockSetType GHOSTLY_SET = new BlockSetType("ghostly");
     private static final BlockSetType SORBUS_SET = new BlockSetType("sorbus");
     private static final BlockSetType SEEPING_SET = new BlockSetType("seeping");
     private static final BlockSetType WALNUT_SET = new BlockSetType("walnut");
 
-    public static final WoodType BLOODWOOD_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
-        MysteriousCommon.MOD_ID, "bloodwood").toString(), BLOODWOOD_SET);
+    public static final WoodType BLOOD_SOAKED_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
+        MysteriousCommon.MOD_ID, "blood_soaked").toString(), BLOOD_SOAKED_SET);
     public static final WoodType GHOSTLY_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(
             MysteriousCommon.MOD_ID, "ghostly").toString(), GHOSTLY_SET);
     public static final WoodType SORBUS_TYPE = new WoodType(ResourceLocation.fromNamespaceAndPath(

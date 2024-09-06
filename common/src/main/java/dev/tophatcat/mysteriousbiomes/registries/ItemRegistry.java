@@ -22,14 +22,14 @@ public class ItemRegistry {
         EntityRegistry.THE_FORGOTTEN_WARLOCK, 0x00127A, 0x702700, new SpawnEggItem.Properties()));
 
     //Grass
-    public static final Supplier<Item> BLOODIED_GRASS = RegistryTools.registerItem(
-        "bloodied_grass", () -> new BlockItem(BlockRegistry.BLOODIED_GRASS.get(), new Item.Properties()));
-    public static final Supplier<Item> BLOODIED_DIRT = RegistryTools.registerItem(
-        "bloodied_dirt", () -> new BlockItem(BlockRegistry.BLOODIED_DIRT.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_GRASS = RegistryTools.registerItem(
+        "blood_soaked_grass", () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_GRASS.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_DIRT = RegistryTools.registerItem(
+        "blood_soaked_dirt", () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_DIRT.get(), new Item.Properties()));
 
     // Logs
-    public static final Supplier<Item> BLOODWOOD_LOG = RegistryTools.registerItem("bloodwood_log",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_LOG.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_LOG = RegistryTools.registerItem("blood_soaked_log",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_LOG.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_LOG = RegistryTools.registerItem("ghostly_log",
         () -> new BlockItem(BlockRegistry.GHOSTLY_LOG.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_LOG = RegistryTools.registerItem("seeping_log",
@@ -40,8 +40,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_LOG.get(), new Item.Properties()));
 
     // Stripped logs
-    public static final Supplier<Item> BLOODWOOD_STRIPPED_LOG = RegistryTools.registerItem("bloodwood_stripped_log",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_STRIPPED_LOG = RegistryTools.registerItem("blood_soaked_stripped_log",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_STRIPPED_LOG = RegistryTools.registerItem("ghostly_stripped_log",
         () -> new BlockItem(BlockRegistry.GHOSTLY_STRIPPED_LOG.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_STRIPPED_LOG = RegistryTools.registerItem("seeping_stripped_log",
@@ -52,8 +52,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_STRIPPED_LOG.get(), new Item.Properties()));
 
     // Woods
-    public static final Supplier<Item> BLOODWOOD_WOOD = RegistryTools.registerItem("bloodwood_wood",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_WOOD.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_WOOD = RegistryTools.registerItem("blood_soaked_wood",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_WOOD.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_WOOD = RegistryTools.registerItem("ghostly_wood",
         () -> new BlockItem(BlockRegistry.GHOSTLY_WOOD.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_WOOD = RegistryTools.registerItem("seeping_wood",
@@ -64,8 +64,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_WOOD.get(), new Item.Properties()));
 
     //Stripped woods
-    public static final Supplier<Item> BLOODWOOD_STRIPPED_WOOD = RegistryTools.registerItem("bloodwood_stripped_wood",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_STRIPPED_WOOD = RegistryTools.registerItem("blood_soaked_stripped_wood",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_STRIPPED_WOOD = RegistryTools.registerItem("ghostly_stripped_wood",
         () -> new BlockItem(BlockRegistry.GHOSTLY_WOOD.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_STRIPPED_WOOD = RegistryTools.registerItem("seeping_stripped_wood",
@@ -76,8 +76,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_STRIPPED_WOOD.get(), new Item.Properties()));
 
     // Planks
-    public static final Supplier<Item> BLOODWOOD_PLANKS = RegistryTools.registerItem("bloodwood_planks",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_PLANKS.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_PLANKS = RegistryTools.registerItem("blood_soaked_planks",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_PLANKS.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_PLANKS = RegistryTools.registerItem("ghostly_planks",
         () -> new BlockItem(BlockRegistry.GHOSTLY_PLANKS.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_PLANKS = RegistryTools.registerItem("seeping_planks",
@@ -88,8 +88,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_PLANKS.get(), new Item.Properties()));
 
     // Stairs
-    public static final Supplier<Item> BLOODWOOD_STAIRS = RegistryTools.registerItem("bloodwood_stairs",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_STAIRS.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_STAIRS = RegistryTools.registerItem("blood_soaked_stairs",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_STAIRS.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_STAIRS = RegistryTools.registerItem("ghostly_stairs",
         () -> new BlockItem(BlockRegistry.GHOSTLY_STAIRS.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_STAIRS = RegistryTools.registerItem("seeping_stairs",
@@ -100,8 +100,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_STAIRS.get(), new Item.Properties()));
 
     // Leaves
-    public static final Supplier<Item> BLOODWOOD_LEAVES = RegistryTools.registerItem("bloodwood_leaves",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_LEAVES.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_LEAVES = RegistryTools.registerItem("blood_soaked_leaves",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_LEAVES.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_LEAVES = RegistryTools.registerItem("ghostly_leaves",
         () -> new BlockItem(BlockRegistry.GHOSTLY_LEAVES.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_LEAVES = RegistryTools.registerItem("seeping_leaves",
@@ -112,8 +112,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_LEAVES.get(), new Item.Properties()));
 
     // Slabs
-    public static final Supplier<Item> BLOODWOOD_SLAB = RegistryTools.registerItem("bloodwood_slab",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_SLAB.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_SLAB = RegistryTools.registerItem("blood_soaked_slab",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_SLAB.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_SLAB = RegistryTools.registerItem("ghostly_slab",
         () -> new BlockItem(BlockRegistry.GHOSTLY_SLAB.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_SLAB = RegistryTools.registerItem("seeping_slab",
@@ -124,8 +124,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_SLAB.get(), new Item.Properties()));
 
     // Fences
-    public static final Supplier<Item> BLOODWOOD_FENCE = RegistryTools.registerItem("bloodwood_fence",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_FENCE.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_FENCE = RegistryTools.registerItem("blood_soaked_fence",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_FENCE.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_FENCE = RegistryTools.registerItem("ghostly_fence",
         () -> new BlockItem(BlockRegistry.GHOSTLY_FENCE.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_FENCE = RegistryTools.registerItem("seeping_fence",
@@ -136,8 +136,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_FENCE.get(), new Item.Properties()));
 
     // Gates
-    public static final Supplier<Item> BLOODWOOD_GATE = RegistryTools.registerItem("bloodwood_gate",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_GATE.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_GATE = RegistryTools.registerItem("blood_soaked_gate",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_GATE.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_GATE = RegistryTools.registerItem("ghostly_gate",
         () -> new BlockItem(BlockRegistry.GHOSTLY_GATE.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_GATE = RegistryTools.registerItem("seeping_gate",
@@ -148,8 +148,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_GATE.get(), new Item.Properties()));
 
     // Buttons
-    public static final Supplier<Item> BLOODWOOD_BUTTON = RegistryTools.registerItem("bloodwood_button",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_BUTTON.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_BUTTON = RegistryTools.registerItem("blood_soaked_button",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_BUTTON.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_BUTTON = RegistryTools.registerItem("ghostly_button",
         () -> new BlockItem(BlockRegistry.GHOSTLY_BUTTON.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_BUTTON = RegistryTools.registerItem("seeping_button",
@@ -160,8 +160,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_BUTTON.get(), new Item.Properties()));
 
     // Pressure plates
-    public static final Supplier<Item> BLOODWOOD_PRESSURE_PLATE = RegistryTools.registerItem("bloodwood_pressure_plate",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_PRESSURE_PLATE = RegistryTools.registerItem("blood_soaked_pressure_plate",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_PRESSURE_PLATE = RegistryTools.registerItem("ghostly_pressure_plate",
         () -> new BlockItem(BlockRegistry.GHOSTLY_PRESSURE_PLATE.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_PRESSURE_PLATE = RegistryTools.registerItem("seeping_pressure_plate",
@@ -172,8 +172,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_PRESSURE_PLATE.get(), new Item.Properties()));
 
     // Trapdoors
-    public static final Supplier<Item> BLOODWOOD_TRAPDOOR = RegistryTools.registerItem("bloodwood_trapdoor",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_TRAPDOOR = RegistryTools.registerItem("blood_soaked_trapdoor",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_TRAPDOOR = RegistryTools.registerItem("ghostly_trapdoor",
         () -> new BlockItem(BlockRegistry.GHOSTLY_TRAPDOOR.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_TRAPDOOR = RegistryTools.registerItem("seeping_trapdoor",
@@ -184,8 +184,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_TRAPDOOR.get(), new Item.Properties()));
 
     // Doors
-    public static final Supplier<Item> BLOODWOOD_DOOR = RegistryTools.registerItem("bloodwood_door",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_DOOR.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_DOOR = RegistryTools.registerItem("blood_soaked_door",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_DOOR.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_DOOR = RegistryTools.registerItem("ghostly_door",
         () -> new BlockItem(BlockRegistry.GHOSTLY_DOOR.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_DOOR = RegistryTools.registerItem("seeping_door",
@@ -196,8 +196,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_DOOR.get(), new Item.Properties()));
 
     // Saplings
-    public static final Supplier<Item> BLOODWOOD_SAPLING = RegistryTools.registerItem("bloodwood_sapling",
-        () -> new BlockItem(BlockRegistry.BLOODWOOD_SAPLING.get(), new Item.Properties()));
+    public static final Supplier<Item> BLOOD_SOAKED_SAPLING = RegistryTools.registerItem("blood_soaked_sapling",
+        () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_SAPLING.get(), new Item.Properties()));
     public static final Supplier<Item> GHOSTLY_SAPLING = RegistryTools.registerItem("ghostly_sapling",
         () -> new BlockItem(BlockRegistry.GHOSTLY_SAPLING.get(), new Item.Properties()));
     public static final Supplier<Item> SEEPING_SAPLING = RegistryTools.registerItem("seeping_sapling",
@@ -208,8 +208,8 @@ public class ItemRegistry {
         () -> new BlockItem(BlockRegistry.WALNUT_SAPLING.get(), new Item.Properties()));
 
     // Sign items
-    public static final Supplier<SignItem> BLOODWOOD_SIGN = RegistryTools.createSign(
-        "bloodwood_sign", BlockRegistry.BLOODWOOD_FLOOR_SIGN, BlockRegistry.BLOODWOOD_WALL_SIGN);
+    public static final Supplier<SignItem> BLOOD_SOAKED_SIGN = RegistryTools.createSign(
+        "blood_soaked_sign", BlockRegistry.BLOOD_SOAKED_FLOOR_SIGN, BlockRegistry.BLOOD_SOAKED_WALL_SIGN);
     public static final Supplier<SignItem> GHOSTLY_SIGN = RegistryTools.createSign(
         "ghostly_sign", BlockRegistry.GHOSTLY_FLOOR_SIGN, BlockRegistry.GHOSTLY_WALL_SIGN);
     public static final Supplier<SignItem> SEEPING_SIGN = RegistryTools.createSign(
@@ -220,8 +220,8 @@ public class ItemRegistry {
         "walnut_sign", BlockRegistry.WALNUT_FLOOR_SIGN, BlockRegistry.WALNUT_WALL_SIGN);
 
     // Hanging sign items
-    public static final Supplier<HangingSignItem> BLOODWOOD_HANGING_SIGN = RegistryTools.createHangingSign(
-        "bloodwood_hanging_sign", BlockRegistry.BLOODWOOD_HANGING_SIGN, BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN);
+    public static final Supplier<HangingSignItem> BLOOD_SOAKED_HANGING_SIGN = RegistryTools.createHangingSign(
+        "blood_soaked_hanging_sign", BlockRegistry.BLOOD_SOAKED_HANGING_SIGN, BlockRegistry.BLOOD_SOAKED_WALL_HANGING_SIGN);
     public static final Supplier<HangingSignItem> GHOSTLY_HANGING_SIGN = RegistryTools.createHangingSign(
         "ghostly_hanging_sign", BlockRegistry.GHOSTLY_HANGING_SIGN, BlockRegistry.GHOSTLY_WALL_HANGING_SIGN);
     public static final Supplier<HangingSignItem> SEEPING_HANGING_SIGN = RegistryTools.createHangingSign(

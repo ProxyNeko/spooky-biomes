@@ -38,9 +38,9 @@ public class MysteriousRenderingFabric implements ClientModInitializer {
         MysteriousRenderingCommon.getLayerDefinitions().forEach(
             layers -> EntityModelLayerRegistry.registerModelLayer(layers.layerLocation(), layers::supplier));
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_DOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_TRAPDOOR.get(), RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOODWOOD_SAPLING.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOOD_SOAKED_DOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get(), RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BLOOD_SOAKED_SAPLING.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_DOOR.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_TRAPDOOR.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GHOSTLY_SAPLING.get(), RenderType.cutout());

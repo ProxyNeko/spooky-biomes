@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_fence",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "mysteriousbiomes:blood_soaked_planks"
+    }
+  },
+  "pattern": [
+    "WSW",
+    "WSW"
+  ],
+  "result": {
+    "count": 3,
+    "id": "mysteriousbiomes:blood_soaked_fence"
+  }
+}

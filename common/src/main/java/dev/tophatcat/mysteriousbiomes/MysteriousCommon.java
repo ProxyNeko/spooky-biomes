@@ -46,8 +46,8 @@ public class MysteriousCommon {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
     public static final IPlatform COMMON_PLATFORM = ServiceLoader.load(IPlatform.class).findFirst().orElseThrow();
 
-    public static final ResourceKey<Biome> BLOODIED_PLAINS = ResourceKey.create(Registries.BIOME,
-            ResourceLocation.fromNamespaceAndPath(MOD_ID, "bloodied_plains"));
+    public static final ResourceKey<Biome> BLOOD_SOAKED_PLAINS = ResourceKey.create(Registries.BIOME,
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "blood_soaked_plains"));
     public static final ResourceKey<Biome> GHOSTLY_WOODLANDS = ResourceKey.create(Registries.BIOME,
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "ghostly_woodlands"));
     public static final ResourceKey<Biome> SEEPING_FOREST = ResourceKey.create(Registries.BIOME,
@@ -75,8 +75,8 @@ public class MysteriousCommon {
         Set<Block> signBlocks = new HashSet<>(BlockEntityType.SIGN.validBlocks);
         Set<Block> hangingSignBlocks = new HashSet<>(BlockEntityType.HANGING_SIGN.validBlocks);
 
-        signBlocks.add(BlockRegistry.BLOODWOOD_FLOOR_SIGN.get());
-        signBlocks.add(BlockRegistry.BLOODWOOD_WALL_SIGN.get());
+        signBlocks.add(BlockRegistry.BLOOD_SOAKED_FLOOR_SIGN.get());
+        signBlocks.add(BlockRegistry.BLOOD_SOAKED_WALL_SIGN.get());
         signBlocks.add(BlockRegistry.GHOSTLY_FLOOR_SIGN.get());
         signBlocks.add(BlockRegistry.GHOSTLY_WALL_SIGN.get());
         signBlocks.add(BlockRegistry.SEEPING_FLOOR_SIGN.get());
@@ -86,8 +86,8 @@ public class MysteriousCommon {
         signBlocks.add(BlockRegistry.WALNUT_FLOOR_SIGN.get());
         signBlocks.add(BlockRegistry.WALNUT_WALL_SIGN.get());
 
-        hangingSignBlocks.add(BlockRegistry.BLOODWOOD_HANGING_SIGN.get());
-        hangingSignBlocks.add(BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.BLOOD_SOAKED_HANGING_SIGN.get());
+        hangingSignBlocks.add(BlockRegistry.BLOOD_SOAKED_WALL_HANGING_SIGN.get());
         hangingSignBlocks.add(BlockRegistry.GHOSTLY_HANGING_SIGN.get());
         hangingSignBlocks.add(BlockRegistry.GHOSTLY_WALL_HANGING_SIGN.get());
         hangingSignBlocks.add(BlockRegistry.SEEPING_HANGING_SIGN.get());

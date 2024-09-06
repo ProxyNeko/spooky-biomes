@@ -44,9 +44,9 @@ public class MysteriousRecipeProvider extends RecipeProvider {
     protected void buildRecipes(RecipeOutput output) {
         // Planks
         ShapelessRecipeBuilder.shapeless(
-                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOODWOOD_PLANKS.get(), 4)
-            .requires(MysteriousTags.MysteriousItems.BLOODWOOD_LOGS)
-            .unlockedBy("has_log", RecipeProvider.has(MysteriousTags.MysteriousItems.BLOODWOOD_LOGS))
+                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOOD_SOAKED_PLANKS.get(), 4)
+            .requires(MysteriousTags.MysteriousItems.BLOOD_SOAKED_LOGS)
+            .unlockedBy("has_log", RecipeProvider.has(MysteriousTags.MysteriousItems.BLOOD_SOAKED_LOGS))
             .group("planks")
             .save(output);
         ShapelessRecipeBuilder.shapeless(
@@ -76,9 +76,9 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Buttons
         ShapelessRecipeBuilder.shapeless(
-                RecipeCategory.REDSTONE, BlockRegistry.BLOODWOOD_BUTTON.get())
-            .requires(BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+                RecipeCategory.REDSTONE, BlockRegistry.BLOOD_SOAKED_BUTTON.get())
+            .requires(BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_button")
             .save(output);
         ShapelessRecipeBuilder.shapeless(
@@ -107,12 +107,12 @@ public class MysteriousRecipeProvider extends RecipeProvider {
             .save(output);
 
         // Doors
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.BLOODWOOD_DOOR.get(), 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.BLOOD_SOAKED_DOOR.get(), 3)
             .pattern("WW")
             .pattern("WW")
             .pattern("WW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_door")
             .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.GHOSTLY_DOOR.get(), 3)
@@ -149,12 +149,12 @@ public class MysteriousRecipeProvider extends RecipeProvider {
             .save(output);
 
         // Fences
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.BLOODWOOD_FENCE.get(), 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.BLOOD_SOAKED_FENCE.get(), 3)
             .pattern("WSW")
             .pattern("WSW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
             .define('S', Items.STICK)
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_fence")
             .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.GHOSTLY_FENCE.get(), 3)
@@ -191,12 +191,12 @@ public class MysteriousRecipeProvider extends RecipeProvider {
             .save(output);
 
         // Gates
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.BLOODWOOD_GATE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.BLOOD_SOAKED_GATE.get())
             .pattern("SWS")
             .pattern("SWS")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
             .define('S', Items.STICK)
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_fence_gate")
             .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BlockRegistry.GHOSTLY_GATE.get())
@@ -234,15 +234,15 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Hanging signs
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.MISC, BlockRegistry.BLOODWOOD_HANGING_SIGN.get(), 6)
+                RecipeCategory.MISC, BlockRegistry.BLOOD_SOAKED_HANGING_SIGN.get(), 6)
             .pattern("X X")
             .pattern("WWW")
             .pattern("WWW")
-            .define('W', BlockRegistry.BLOODWOOD_STRIPPED_LOG.get())
+            .define('W', BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get())
             .define('X', Items.CHAIN)
             .unlockedBy(
                 "has_stripped_logs",
-                RecipeProvider.has(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get()))
+                RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get()))
             .group("hanging_sign")
             .save(output);
         ShapedRecipeBuilder.shaped(
@@ -290,10 +290,10 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Pressure plates
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.REDSTONE, BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get())
+                RecipeCategory.REDSTONE, BlockRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get())
             .pattern("WW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_pressure_plate")
             .save(output);
         ShapedRecipeBuilder.shaped(
@@ -326,13 +326,13 @@ public class MysteriousRecipeProvider extends RecipeProvider {
             .save(output);
 
         // Signs
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BLOODWOOD_SIGN.get(), 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BLOOD_SOAKED_SIGN.get(), 3)
             .pattern("WWW")
             .pattern("WWW")
             .pattern(" S ")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
             .define('S', Items.STICK)
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_sign")
             .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GHOSTLY_SIGN.get(), 3)
@@ -374,10 +374,10 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Slabs
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOODWOOD_SLAB.get(), 6)
+                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOOD_SOAKED_SLAB.get(), 6)
             .pattern("WWW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_slab")
             .save(output);
         ShapedRecipeBuilder.shaped(
@@ -411,12 +411,12 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Stairs
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOODWOOD_STAIRS.get(), 4)
+                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOOD_SOAKED_STAIRS.get(), 4)
             .pattern("W  ")
             .pattern("WW ")
             .pattern("WWW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_stairs")
             .save(output);
         ShapedRecipeBuilder.shaped(
@@ -458,11 +458,11 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Trapdoors
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.REDSTONE, BlockRegistry.BLOODWOOD_TRAPDOOR.get(), 2)
+                RecipeCategory.REDSTONE, BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get(), 2)
             .pattern("WWW")
             .pattern("WWW")
-            .define('W', BlockRegistry.BLOODWOOD_PLANKS.get())
-            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOODWOOD_PLANKS.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_PLANKS.get())
+            .unlockedBy("has_planks", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_PLANKS.get()))
             .group("wooden_trapdoor")
             .save(output);
         ShapedRecipeBuilder.shaped(
@@ -498,11 +498,11 @@ public class MysteriousRecipeProvider extends RecipeProvider {
 
         // Woods
         ShapedRecipeBuilder.shaped(
-                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOODWOOD_WOOD.get(), 3)
+                RecipeCategory.BUILDING_BLOCKS, BlockRegistry.BLOOD_SOAKED_WOOD.get(), 3)
             .pattern("WW")
             .pattern("WW")
-            .define('W', BlockRegistry.BLOODWOOD_LOG.get())
-            .unlockedBy("has_log", RecipeProvider.has(BlockRegistry.BLOODWOOD_LOG.get()))
+            .define('W', BlockRegistry.BLOOD_SOAKED_LOG.get())
+            .unlockedBy("has_log", RecipeProvider.has(BlockRegistry.BLOOD_SOAKED_LOG.get()))
             .group("bark")
             .save(output);
         ShapedRecipeBuilder.shaped(

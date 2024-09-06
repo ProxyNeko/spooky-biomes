@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "mysteriousbiomes:block/blood_soaked_grass"
+    },
+    "snowy=true": {
+      "model": "mysteriousbiomes:block/blood_soaked_grass_snow"
+    }
+  }
+}

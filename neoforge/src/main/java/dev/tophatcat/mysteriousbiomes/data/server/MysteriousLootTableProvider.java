@@ -54,31 +54,31 @@ public class MysteriousLootTableProvider {
         @Override
         protected void generate() {
             // Misc blocks.
-            dropSelf(BlockRegistry.BLOODIED_DIRT.get());
-            add(BlockRegistry.BLOODIED_GRASS.get(), block -> createSingleItemTableWithSilkTouch(block,
-                BlockRegistry.BLOODIED_DIRT.get()));
+            dropSelf(BlockRegistry.BLOOD_SOAKED_DIRT.get());
+            add(BlockRegistry.BLOOD_SOAKED_GRASS.get(), block -> createSingleItemTableWithSilkTouch(block,
+                BlockRegistry.BLOOD_SOAKED_DIRT.get()));
 
-            // Bloodwood tree family.
-            dropSelf(BlockRegistry.BLOODWOOD_LOG.get());
-            dropSelf(BlockRegistry.BLOODWOOD_STRIPPED_LOG.get());
-            dropSelf(BlockRegistry.BLOODWOOD_WOOD.get());
-            dropSelf(BlockRegistry.BLOODWOOD_STRIPPED_WOOD.get());
-            dropSelf(BlockRegistry.BLOODWOOD_PLANKS.get());
-            dropSelf(BlockRegistry.BLOODWOOD_STAIRS.get());
-            dropSelf(BlockRegistry.BLOODWOOD_SLAB.get());
-            dropSelf(BlockRegistry.BLOODWOOD_FENCE.get());
-            dropSelf(BlockRegistry.BLOODWOOD_GATE.get());
-            dropSelf(BlockRegistry.BLOODWOOD_BUTTON.get());
-            dropSelf(BlockRegistry.BLOODWOOD_PRESSURE_PLATE.get());
-            dropSelf(BlockRegistry.BLOODWOOD_TRAPDOOR.get());
-            dropSelf(BlockRegistry.BLOODWOOD_SAPLING.get());
-            dropSelf(Block.byItem(ItemRegistry.BLOODWOOD_SIGN.get()));
-            dropSelf(BlockRegistry.BLOODWOOD_WALL_SIGN.get());
-            dropSelf(BlockRegistry.BLOODWOOD_HANGING_SIGN.get());
-            dropSelf(BlockRegistry.BLOODWOOD_WALL_HANGING_SIGN.get());
-            add(BlockRegistry.BLOODWOOD_DOOR.get(), this::createDoorTable);
-            add(BlockRegistry.BLOODWOOD_LEAVES.get(), block -> createLeavesDrops(
-                BlockRegistry.BLOODWOOD_LEAVES.get(), BlockRegistry.BLOODWOOD_SAPLING.get(),
+            // Blood soaked tree family.
+            dropSelf(BlockRegistry.BLOOD_SOAKED_LOG.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_STRIPPED_LOG.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_WOOD.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_STRIPPED_WOOD.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_PLANKS.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_STAIRS.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_SLAB.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_FENCE.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_GATE.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_BUTTON.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_PRESSURE_PLATE.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_TRAPDOOR.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_SAPLING.get());
+            dropSelf(Block.byItem(ItemRegistry.BLOOD_SOAKED_SIGN.get()));
+            dropSelf(BlockRegistry.BLOOD_SOAKED_WALL_SIGN.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_HANGING_SIGN.get());
+            dropSelf(BlockRegistry.BLOOD_SOAKED_WALL_HANGING_SIGN.get());
+            add(BlockRegistry.BLOOD_SOAKED_DOOR.get(), this::createDoorTable);
+            add(BlockRegistry.BLOOD_SOAKED_LEAVES.get(), block -> createLeavesDrops(
+                BlockRegistry.BLOOD_SOAKED_LEAVES.get(), BlockRegistry.BLOOD_SOAKED_SAPLING.get(),
                 BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
 
             // Ghostly tree family.

@@ -1,48 +1,48 @@
 {
   "values": {
-    "mysteriousbiomes:bloodwood_log": {
+    "mysteriousbiomes:blood_soaked_log": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_stripped_log": {
+    "mysteriousbiomes:blood_soaked_stripped_log": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_wood": {
+    "mysteriousbiomes:blood_soaked_wood": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_stripped_wood": {
+    "mysteriousbiomes:blood_soaked_stripped_wood": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_planks": {
+    "mysteriousbiomes:blood_soaked_planks": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_stairs": {
+    "mysteriousbiomes:blood_soaked_stairs": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_slab": {
+    "mysteriousbiomes:blood_soaked_slab": {
       "burn_time": 150
     },
-    "mysteriousbiomes:bloodwood_trapdoor": {
+    "mysteriousbiomes:blood_soaked_trapdoor": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_pressure_plate": {
+    "mysteriousbiomes:blood_soaked_pressure_plate": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_fence": {
+    "mysteriousbiomes:blood_soaked_fence": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_gate": {
+    "mysteriousbiomes:blood_soaked_gate": {
       "burn_time": 300
     },
-    "mysteriousbiomes:bloodwood_sign": {
+    "mysteriousbiomes:blood_soaked_sign": {
       "burn_time": 200
     },
-    "mysteriousbiomes:bloodwood_hanging_sign": {
+    "mysteriousbiomes:blood_soaked_hanging_sign": {
       "burn_time": 800
     },
-    "mysteriousbiomes:bloodwood_button": {
+    "mysteriousbiomes:blood_soaked_button": {
       "burn_time": 100
     },
-    "mysteriousbiomes:bloodwood_sapling": {
+    "mysteriousbiomes:blood_soaked_sapling": {
       "burn_time": 100
     },
     "mysteriousbiomes:ghostly_log": {
