@@ -35,7 +35,6 @@ public class MysteriousLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // Creative tab.
-        //TODO Verify this is still the same.
         add("item_group.mysteriousbiomes.mysterious_tab", "Mysterious Biomes");
 
         // Entities
