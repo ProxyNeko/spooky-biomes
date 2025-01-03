@@ -1,6 +1,6 @@
 /*
  * A Minecraft mod made for SpookyJam 2017, contains Halloween themed biomes and content.
- * Copyright (C) KiriCattus 2013 - 2024
+ * Copyright (C) KiriCattus 2013 - 2025
  * https://github.com/kiris-mods/mysterious-biomes/blob/dev/LICENSE.md
  *
  * This library is free software; you can redistribute it and/or
@@ -21,6 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
+import java.util.List;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -34,8 +35,6 @@ import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
-
-import java.util.List;
 
 public class MysteriousPlacementsGen {
 

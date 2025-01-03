@@ -1,6 +1,6 @@
 /*
  * A Minecraft mod made for SpookyJam 2017, contains Halloween themed biomes and content.
- * Copyright (C) KiriCattus 2013 - 2024
+ * Copyright (C) KiriCattus 2013 - 2025
  * https://github.com/kiris-mods/mysterious-biomes/blob/dev/LICENSE.md
  *
  * This library is free software; you can redistribute it and/or
@@ -23,15 +23,14 @@ package dev.tophatcat.mysteriousbiomes.client;
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
 import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
 import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
 
 public class MysteriousRenderingCommon {
 

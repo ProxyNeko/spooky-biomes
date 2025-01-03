@@ -35,4 +35,5 @@ bin/
 # MacOS
 *.DS_Store
 /common/src/generated/resources/.cache
-buildSrc/*
+buildSrc/build
+buildSrc/.gradle

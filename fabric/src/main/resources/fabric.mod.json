@@ -17,10 +17,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "${group}.MysteriousFabric"
+      "dev.tophatcat.mysteriousbiomes.MysteriousFabric"
     ],
     "client": [
-      "${group}.client.MysteriousRenderingFabric"
+      "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingFabric"
     ]
   },
   "accessWidener": "META-INF/${mod_id}.accesswidener",
@@ -28,7 +28,7 @@
     "fabricloader": "${fabric_loader_version_range}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "resourcefulconfig": "*",
+    "terrablender": ">=${terrablender_fabric_version}",
     "java": "${java_version}"
   },
   "custom": {
@@ -48,7 +48,7 @@
       ],
       "dependencies": [
         "fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}",
-        "resourcefulconfig(required){modrinth:M1953qlQ}{curseforge:714059}"
+        "terrablender(required){modrinth:kkmrDlKT}{curseforge:565956}"
       ]
     }
   }

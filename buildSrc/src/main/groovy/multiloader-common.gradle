@@ -130,38 +130,41 @@ jar {
 
 processResources {
 	def expandProps = [
-		"version"                       : version,
-		"group"                         : project.group,
-		"mod_name"                      : project.mod_name,
-		"mod_id"                        : project.mod_id,
-		"author"                        : project.author,
-		"credits"                       : project.credits,
-		"license"                       : project.license,
-		"description"                   : project.description,
+		"version"                        : version,
+		"group"                          : project.group,
+		"mod_name"                       : project.mod_name,
+		"mod_id"                         : project.mod_id,
+		"author"                         : project.author,
+		"credits"                        : project.credits,
+		"license"                        : project.license,
+		"description"                    : project.description,
 
-		"display_url"                   : project.display_url,
-		"discord"                       : project.discord,
-		"mod_source"                    : project.mod_source,
-		"license_url"                   : project.license_url,
-		"modrinth_url"                  : project.modrinth_url,
-		"curseforge_url"                : project.curseforge_url,
+		"display_url"                    : project.display_url,
+		"discord"                        : project.discord,
+		"mod_source"                     : project.mod_source,
+		"license_url"                    : project.license_url,
+		"modrinth_url"                   : project.modrinth_url,
+		"curseforge_url"                 : project.curseforge_url,
 
-		"java_version"                  : project.java_version,
-		"minecraft_version"             : project.minecraft_version,
-		"minecraft_version_range"       : project.minecraft_version_range,
-		"curseforge_id"                 : project.curseforge_id,
-		"modrinth_id"                   : project.modrinth_id,
+		"java_version"                   : project.java_version,
+		"minecraft_version"              : project.minecraft_version,
+		"minecraft_version_range"        : project.minecraft_version_range,
+		"curseforge_id"                  : project.curseforge_id,
+		"modrinth_id"                    : project.modrinth_id,
 
-		"neoforge_version"              : project.neoforge_version,
-		"neoforge_version_range"        : project.neoforge_version_range,
-		"neoforge_loader_version"       : project.neoforge_loader_version,
-		"neoforge_loader_version_range" : project.neoforge_loader_version_range,
+		"neoforge_version"               : project.neoforge_version,
+		"neoforge_version_range"         : project.neoforge_version_range,
+		"fancy_mod_loader_version"       : project.fancy_mod_loader_version,
+		"fancy_mod_loader_version_range" : project.fancy_mod_loader_version_range,
 
-		"fabric_version"                : project.fabric_version,
-		"fabric_version_range"          : project.fabric_version_range,
-		"fabric_loader_version"         : project.fabric_loader_version,
-		"fabric_loader_version_range"   : project.fabric_loader_version_range
-	]
+		"fabric_version"                 : project.fabric_version,
+		"fabric_version_range"           : project.fabric_version_range,
+		"fabric_loader_version"          : project.fabric_loader_version,
+		"fabric_loader_version_range"    : project.fabric_loader_version_range,
+
+        "terrablender_fabric_version"    : project.terrablender_fabric_version,
+        "terrablender_neoforge_version"  : project.terrablender_neoforge_version
+    ]
 
 	filesMatching(["*.mod.json", "META-INF/neoforge.mods.toml", "*.mixins.json"]) {
 		expand expandProps

@@ -9,28 +9,34 @@ version = "${version}" #mandatory
 displayName = "${mod_name}" #mandatory
 displayURL = "${display_url}" #optional (displayed in the mod UI)
 logoFile = "logo.png" #optional
-credits = "KiriCattus" #optional
-authors = "KiriCattus" #optional
+credits = "${credits}" #optional
+authors = "${author}" #optional
 description = '''${description}''' #mandatory (Supports multiline text)
 
 [[dependencies.${mod_id}]] #optional
 modId = "neoforge" #mandatory
 type = "required"
-versionRange = "[21,)" #mandatory
+versionRange = "${neoforge_version_range}" #mandatory
 ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
 side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
-mc-publish = { ignore = true }
 
 [[dependencies.${ mod_id }]]
 modId = "minecraft"
 type = "required"
-versionRange = "[${minecraft_version}]"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "terrablender"
+type = "required"
+versionRange = "[${terrablender_neoforge_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [mc-publish]
-curseforge = "280003"
-modrinth = "SrAIvfzS"
+curseforge = "curseforge_id"
+modrinth = "modrinth_id"
 loaders = ["neoforge"]
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
