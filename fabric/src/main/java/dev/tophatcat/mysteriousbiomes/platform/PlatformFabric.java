@@ -83,12 +83,12 @@ public class PlatformFabric implements IPlatform {
     }
 
     @Override
-    public <T extends CreativeModeTab> Supplier<T> registerCreativeTab(String id, Supplier<T> tab) {
+    public <T extends CreativeModeTab> Supplier<T> registerCreativeModeTab(String id, Supplier<T> tab) {
         return registerSupplier(BuiltInRegistries.CREATIVE_MODE_TAB, id, tab);
     }
 
     @Override
-    public <E extends Mob> Supplier<SpawnEggItem> registerSpawnEggItem(
+    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(
         Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties itemProperties) {
         return () -> new SpawnEggItem(entityType.get(), primaryColor, secondaryColor, itemProperties);
     }

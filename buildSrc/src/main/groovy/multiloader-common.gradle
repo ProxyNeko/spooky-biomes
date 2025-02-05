@@ -1,10 +1,8 @@
 plugins {
-	id "pmd"
     id "idea"
 	id "java-library"
 	id "maven-publish"
 	id "net.neoforged.licenser"
-	id "com.diffplug.spotless"
 }
 
 def ENV = System.getenv()
@@ -13,79 +11,64 @@ def buildTime = ENV.BUILD_TIME ?: NOW.format('yyyyMMddHHmmss')
 
 boolean isPreviewBuild = !ENV.TAG || ENV.TAG.matches(".+-.+")
 def buildNumber = !ENV.TAG ? ("${ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}" : buildTime}") : ""
-version = (ENV.TAG ?: "${project.minecraft_version}-development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : "")
+version = (ENV.TAG ?: "${minecraft_version}-development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : "")
 
 def mod_name = rootProject.name.replaceAll("-", "_").toLowerCase(Locale.ROOT)
-
-println("Building ${project.name} ${version}")
 
 base {
 	archivesName = "${rootProject.name}-${project.name}"
 }
 
 java {
-	toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
+	toolchain.languageVersion = JavaLanguageVersion.of(java_version)
 	withSourcesJar()
 	withJavadocJar()
 }
 
 repositories {
 	mavenCentral()
-	// https://docs.gradle.org/current/userguide/declaring_repositories.html#declaring_content_exclusively_found_in_one_repository
-	exclusiveContent {
-		forRepository {
-			maven {
-				name = "Sponge"
-				url = "https://repo.spongepowered.org/repository/maven-public/"
-			}
-		}
-		filter {
-			includeGroupAndSubgroups("org.spongepowered")
-		}
+    maven {
+        name = "Sponge"
+		url = "https://repo.spongepowered.org/repository/maven-public/"
+    }
+
+	maven {
+		name = "NeoForge"
+		url = "https://maven.neoforged.net/releases/"
 	}
-	exclusiveContent {
-		forRepositories(
-			maven {
-				name = "ParchmentMC"
-				url = "https://maven.parchmentmc.org/"
-			},
-			maven {
-				name = "NeoForge"
-				url = "https://maven.neoforged.net/releases/"
-			}
-		)
-		filter {
-			includeGroup("org.parchmentmc.data")
-		}
 
-        maven {
-            name = "Team Resourceful Maven"
-            url = "https://maven.teamresourceful.com/repository/maven-public/"
-        }
+    maven {
+        name = "Team Resourceful Maven"
+        url = "https://maven.teamresourceful.com/repository/maven-public/"
+    }
 
-        maven {
-            name "TerraformersMC"
-            url "https://maven.terraformersmc.com/releases/"
-        }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/releases/"
+    }
 
-        maven {
-            name = "uuid.gg Maven Repository"
-            url = "https://maven.uuid.gg/releases/"
-        }
+    maven {
+        name = "uuid.gg Maven Repository"
+        url = "https://maven.uuid.gg/releases/"
+    }
 
-        maven {
-            name = "Modrinth"
-            url = "https://api.modrinth.com/maven/"
-            content {
-                includeGroup "maven.modrinth"
-            }
-        }
+    maven {
+        name = "Minecraft Forge (Used for Terrablender)"
+        url = "https://maven.minecraftforge.net/"
+    }
 
-        maven {
-            name = "Minecraft Forge"
-            url = "https://maven.minecraftforge.net/"
+    maven {
+        name = "SmartBrainLib (SBL) Maven Repo"
+        url = "https://dl.cloudsmith.io/public/tslat/sbl/maven/"
+    }
+
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven/"
+        content {
+            includeGroup "maven.modrinth"
         }
-	}
+    }
 }
 
 // Declare capabilities on the outgoing configurations.
@@ -93,7 +76,7 @@ repositories {
 ["apiElements", "runtimeElements", "sourcesElements", "javadocElements"].each { variant ->
 	configurations."$variant".outgoing {
 		capability("$group:${base.archivesName.get()}:$version")
-		capability("$group:$mod_id-${project.name}-${project.minecraft_version}:$version")
+		capability("$group:$mod_id-${project.name}-${minecraft_version}:$version")
 		capability("$group:$mod_id:$version")
 	}
 	publishing.publications.configureEach {
@@ -103,13 +86,13 @@ repositories {
 
 sourcesJar {
 	from(rootProject.file("LICENSE.md")) {
-		rename { "${it}_${project.mod_name}" }
+		rename { "LICENSE_${mod_name}.md" }
 	}
 }
 
 jar {
 	from(rootProject.file("LICENSE.md")) {
-		rename { "${it}_${project.mod_name}" }
+		rename { "LICENSE_${mod_name}.md" }
 	}
 
 	manifest {
@@ -129,47 +112,65 @@ jar {
 }
 
 processResources {
-	def expandProps = [
-		"version"                        : version,
-		"group"                          : project.group,
-		"mod_name"                       : project.mod_name,
-		"mod_id"                         : project.mod_id,
-		"author"                         : project.author,
-		"credits"                        : project.credits,
-		"license"                        : project.license,
-		"description"                    : project.description,
+	var expandProperties = [
+		"version"                             : version,
+		"group"                               : project.group,
+		"mod_name"                            : project.mod_name,
+		"mod_id"                              : project.mod_id,
+		"author"                              : project.author,
+		"credits"                             : project.credits,
+		"license"                             : project.license,
+		"description"                         : project.description,
 
-		"display_url"                    : project.display_url,
-		"discord"                        : project.discord,
-		"mod_source"                     : project.mod_source,
-		"license_url"                    : project.license_url,
-		"modrinth_url"                   : project.modrinth_url,
-		"curseforge_url"                 : project.curseforge_url,
+		"display_url"                         : project.display_url,
+		"discord"                             : project.discord,
+		"mod_source"                          : project.mod_source,
+		"license_url"                         : project.license_url,
+		"modrinth_url"                        : project.modrinth_url,
+		"curseforge_url"                      : project.curseforge_url,
 
-		"java_version"                   : project.java_version,
-		"minecraft_version"              : project.minecraft_version,
-		"minecraft_version_range"        : project.minecraft_version_range,
-		"curseforge_id"                  : project.curseforge_id,
-		"modrinth_id"                    : project.modrinth_id,
+		"java_version"                        : project.java_version,
+		"minecraft_version"                   : project.minecraft_version,
+		"minecraft_version_range"             : project.minecraft_version_range,
+		"curseforge_id"                       : project.curseforge_id,
+		"modrinth_id"                         : project.modrinth_id,
 
-		"neoforge_version"               : project.neoforge_version,
-		"neoforge_version_range"         : project.neoforge_version_range,
-		"fancy_mod_loader_version"       : project.fancy_mod_loader_version,
-		"fancy_mod_loader_version_range" : project.fancy_mod_loader_version_range,
+		"neoforge_version"                    : project.neoforge_version,
+		"neoforge_version_range"              : project.neoforge_version_range,
+		"fancy_mod_loader_version"            : project.fancy_mod_loader_version,
+		"fancy_mod_loader_version_range"      : project.fancy_mod_loader_version_range,
 
-		"fabric_version"                 : project.fabric_version,
-		"fabric_version_range"           : project.fabric_version_range,
-		"fabric_loader_version"          : project.fabric_loader_version,
-		"fabric_loader_version_range"    : project.fabric_loader_version_range,
+		"fabric_version"                      : project.fabric_version,
+		"fabric_version_range"                : project.fabric_version_range,
+		"fabric_loader_version"               : project.fabric_loader_version,
+		"fabric_loader_version_range"         : project.fabric_loader_version_range,
 
-        "terrablender_fabric_version"    : project.terrablender_fabric_version,
-        "terrablender_neoforge_version"  : project.terrablender_neoforge_version
+        "smart_brain_lib_neoforge_version"    : project.smart_brain_lib_neoforge_version,
+        "smart_brain_lib_fabric_version"      : project.smart_brain_lib_fabric_version,
+
+        "geckolib_neoforge_version"           : project.geckolib_neoforge_version,
+        "geckolib_fabric_version"             : project.geckolib_fabric_version,
+
+        "resourceful_config_neoforge_version" : project.resourceful_config_neoforge_version,
+        "resourceful_config_fabric_version"   : project.resourceful_config_fabric_version,
+
+        "terrablender_neoforge_version"       : project.terrablender_neoforge_version,
+        "terrablender_fabric_version"         : project.terrablender_fabric_version
     ]
 
-	filesMatching(["*.mod.json", "META-INF/neoforge.mods.toml", "*.mixins.json"]) {
-		expand expandProps
-	}
-	inputs.properties(expandProps)
+    var jsonExpandProperties = expandProperties.collectEntries {
+        key, value -> [(key): value instanceof String ? value.replace("\n", "\\\\n") : value]
+    }
+
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand expandProperties
+    }
+
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json']) {
+        expand jsonExpandProperties
+    }
+
+    inputs.properties(expandProperties)
 }
 
 license {
@@ -188,40 +189,7 @@ license {
 	}
 }
 
-spotless {
-	java {
-		importOrder()
-		removeUnusedImports()
-		endWithNewline()
-		toggleOffOn()
-
-		// Courtesy of diffplug/spotless#240
-		// https://github.com/diffplug/spotless/issues/240#issuecomment-385206606
-		custom "noWildcardImports", { String fileContents ->
-			if (fileContents.contains("*;\n")) {
-				throw new GradleException("No wildcard imports are allowed!")
-			}
-		}
-
-		bumpThisNumberIfACustomStepChanges(1)
-	}
-}
-
-pmd {
-	ignoreFailures = true
-	reportsDir = project.file("reports/")
-	rulesMinimumPriority = 5
-	toolVersion = "7.3.0"
-}
-
-tasks.named("spotlessApply").configure{mustRunAfter "licenseFormat"}
-tasks.named("pmdMain").configure{mustRunAfter "spotlessApply"}
-
-tasks.register("cleanCode", Task) {
-	dependsOn "licenseFormat", "spotlessApply", "pmdMain"
-}
-
-tasks.named("assemble").configure{dependsOn "cleanCode"}
+tasks.named("assemble").configure{dependsOn "licenseFormat"}
 
 publishing {
 	publications {
@@ -241,4 +209,17 @@ publishing {
 			}
 		}
 	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release.set(java_version.toInteger())
+}
+
+// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }

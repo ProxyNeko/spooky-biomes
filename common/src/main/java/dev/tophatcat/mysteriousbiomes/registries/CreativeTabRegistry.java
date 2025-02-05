@@ -32,7 +32,7 @@ public class CreativeTabRegistry {
         MysteriousCommon.LOG.debug("Registering creative tabs...");
     }
 
-    public static final Supplier<CreativeModeTab> MYSTERIOUS_TAB = MysteriousCommon.COMMON_PLATFORM.registerCreativeTab(
+    public static final Supplier<CreativeModeTab> MYSTERIOUS_TAB = MysteriousCommon.COMMON_PLATFORM.registerCreativeModeTab(
         "mysterious_tab", () -> MysteriousCommon.COMMON_PLATFORM.newCreativeTabBuilder()
         .title(Component.translatable("item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab"))
         .icon(() -> new ItemStack(ItemRegistry.GHOSTLY_SAPLING.get()))

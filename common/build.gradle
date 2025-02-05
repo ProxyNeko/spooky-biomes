@@ -4,15 +4,11 @@ plugins {
 }
 
 neoForge {
-    neoFormVersion = project.neo_form_version
-    // Automatically enable AccessTransformers if the file exists
-    def at = file("src/main/resources/META-INF/accesstransformer.cfg")
-    if (at.exists()) {
-        accessTransformers.from(at.absolutePath)
-    }
+    neoFormVersion = neo_form_version
+    // If they exist, access transformers are automatically detected now.
     parchment {
-        minecraftVersion = project.parchment_minecraft
-        mappingsVersion = project.parchment_version
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
     }
 }
 
@@ -21,6 +17,11 @@ dependencies {
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
     compileOnly group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
     annotationProcessor group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
+
+    // Dependencies we use for this mod to run as we expect it to.
+    implementation "net.tslat.smartbrainlib:SmartBrainLib-common-${minecraft_version}:${smart_brain_lib_common_version}"
+    implementation "software.bernie.geckolib:geckolib-common-${minecraft_version}:${geckolib_common_version}"
+    implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-common-1.21:${resourceful_config_common_version}"
     implementation "com.github.glitchfiend:TerraBlender-common:${minecraft_version}-${terrablender_common_version}"
 }
 

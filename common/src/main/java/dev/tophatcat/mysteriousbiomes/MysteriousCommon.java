@@ -71,6 +71,7 @@ public class MysteriousCommon {
     }
 
     public static void setupBlockEntities() {
+        // FIXME one of the access transformers must not be working here for .validBlocks
         Set<Block> signBlocks = new HashSet<>(BlockEntityType.SIGN.validBlocks);
         Set<Block> hangingSignBlocks = new HashSet<>(BlockEntityType.HANGING_SIGN.validBlocks);
 

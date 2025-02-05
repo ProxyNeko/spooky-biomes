@@ -37,7 +37,7 @@ public class ItemRegistry {
 
     //Spawn eggs
     public static final Supplier<SpawnEggItem> THE_FORGOTTEN_WARLOCK_SPAWN_EGG = RegistryTools.registerItem(
-        "the_forgotten_warlock_spawn_egg", MysteriousCommon.COMMON_PLATFORM.registerSpawnEggItem(
+        "the_forgotten_warlock_spawn_egg", MysteriousCommon.COMMON_PLATFORM.makeSpawnEgg(
         EntityRegistry.THE_FORGOTTEN_WARLOCK, 0x00127A, 0x702700, new SpawnEggItem.Properties()));
 
     //Grass

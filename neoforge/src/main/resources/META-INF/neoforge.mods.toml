@@ -28,6 +28,27 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
+modId = "smartbrainlib"
+required = true
+versionRange = "[${smart_brain_lib_neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "geckolib"
+required = true
+versionRange = "[${geckolib_neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "resourcefulconfig"
+required = true
+versionRange = "[${resourceful_config_neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
 modId = "terrablender"
 type = "required"
 versionRange = "[${terrablender_neoforge_version},)"

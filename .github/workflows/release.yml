@@ -1,78 +1,100 @@
 name: Upload Release Artifacts
 
 on:
-    push:
-        tags:
-            - '*'
+  push:
+    tags:
+      - '*'
+
+env:
+  BUILD_NUMBER: ${{ github.run_number }}
+  JAVA_VERSION: 21
+  MAVEN_UPLOAD_URL: ${{ secrets.MAVEN_UPLOAD_URL }}
+  MAVEN_UPLOAD_USERNAME: ${{ secrets.MAVEN_UPLOAD_USERNAME }}
+  MAVEN_UPLOAD_PASSWORD: ${{ secrets.MAVEN_UPLOAD_PASSWORD }}
+  TAG: ${{ github.ref_name }}
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest commit.
+        uses: actions/checkout@v4
 
-            - name: Set up JDK 21
-              uses: actions/setup-java@v4
-              with:
-                  distribution: 'microsoft'
-                  java-version: 21
+      - name: Get time of build
+        uses: srfrnk/current-time@master
+        id: current-time
+        with:
+          format: YYYYMMDDHHmmss
 
-            - name: Get current time
-              uses: srfrnk/current-time@master
-              id: current-time
-              with:
-                  format: YYYYMMDDHHmmss
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'microsoft'
+          cache: 'gradle'
 
-            - name: Setup ENV
-              run: echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
 
-            - name: Copy Maven Upload URL
-              id: extract_maven_upload_url
-              run: echo "maven_upload_url=${{secrets.MAVEN_UPLOAD_URL}}" >> $GITHUB_OUTPUT
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
 
-            - name: Grant execute permission for gradlew
-              run: chmod +x ./gradlew
+      - name: Build with Gradle
+        env:
+          BUILD_TIME: ${{ steps.current-time.outputs.formattedTime }}
+        run: ./gradlew assemble
 
-            - name: Build with Gradle
-              env:
-                  BUILD_TIME: ${{ steps.current-time.outputs.formattedTime }}
-                  BUILD_NUMBER: ${{ github.run_number }}
-              run: ./gradlew assemble
+      - name: Maven Release
+        if: ${{ env.MAVEN_UPLOAD_URL }}
+        run: ./gradlew publish
 
-            - name: Maven Release
-              if: steps.extract_maven_upload_url.outputs.maven_upload_url
-              env:
-                  BUILD_TIME: ${{ steps.current-time.outputs.formattedTime }}
-                  BUILD_NUMBER: ${{ github.run_number }}
-                  MAVEN_UPLOAD_URL: ${{ secrets.MAVEN_UPLOAD_URL }}
-                  MAVEN_UPLOAD_USERNAME: ${{ secrets.MAVEN_UPLOAD_USERNAME }}
-                  MAVEN_UPLOAD_PASSWORD: ${{ secrets.MAVEN_UPLOAD_PASSWORD }}
-              run: ./gradlew publish
+      - name: Publish (GitHub Releases)
+        id: publish_github
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          github-token: ${{ github.token }}
+          version: ${{ env.TAG }}
+          files: |
+            **/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
+            **/build/libs/*-@(sources|javadoc).jar
 
-            - name: Publish (GitHub Releases)
-              uses: Kir-Antipov/mc-publish@v3.3
-              with:
-                  github-token: ${{ github.token }}
-                  files: |
-                      **/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
-                      **/build/libs/*-@(sources|javadoc).jar
+      - name: Publish (NeoForge)
+        id: publish_neoforge
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          version: ${{ env.TAG }}+neoforge
+          files: |
+            neoforge/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
+            neoforge/build/libs/*-@(sources|javadoc).jar
 
-            - name: Publish (NeoForge)
-              uses: Kir-Antipov/mc-publish@v3.3
-              with:
-                  modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-                  curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-                  version: ${{ github.ref_name }}+neoforge
-                  files: |
-                      neoforge/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
-                      neoforge/build/libs/*-@(sources|javadoc).jar
+      - name: Publish (Fabric)
+        id: publish_fabric
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          version: ${{ env.TAG }}+fabric
+          files: |
+            fabric/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
+            fabric/build/libs/*-@(sources|javadoc).jar
 
-            - name: Publish (Fabric)
-              uses: Kir-Antipov/mc-publish@v3.3
-              with:
-                  modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-                  curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-                  version: ${{ github.ref_name }}+fabric
-                  files: |
-                      fabric/build/libs/!(*-@(dev|sources|javadoc|slim)).jar
-                      fabric/build/libs/*-@(sources|javadoc).jar
+      - name: Post to BlueSky
+        uses: myConsciousness/bluesky-post@v5
+        with:
+          text: "It's update time! :D
+An update has been released for Mysterious Biomes via [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mysterious-biomes) and [Modrinth](https://modrinth.com/mod/mysterious-biomes)! [Check out my other mods here!](https://tophatcat.dev)"
+          tags: "modding,minecraft,mods"
+          retry-count: 5
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
+
+      - name: Post to Discord
+        uses: Up-Mods/action-discord-release@main
+        with:
+          version: ${{ env.TAG }}
+          webhook-url: ${{ secrets.ANNOUNCEMENT_WEBHOOK_URL }}
+          curseforge-project-id: ${{ steps.publish_fabric.outputs.curseforge-id }}
+          modrinth-project-id: ${{ steps.publish_fabric.outputs.modrinth-id }}
+          thumbnail-url: https://raw.githubusercontent.com/kiris-mods/mysterious-biomes/refs/heads/dev/common/src/main/resources/logo.png

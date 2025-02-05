@@ -28,8 +28,11 @@
     "fabricloader": "${fabric_loader_version_range}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
+    "smartbrainlib": ">=${smart_brain_lib_fabric_version}",
+    "geckolib": ">=${geckolib_fabric_version}",
+    "resourcefulconfig": ">=${resourceful_config_fabric_version}",
     "terrablender": ">=${terrablender_fabric_version}",
-    "java": "${java_version}"
+    "java": ">=${java_version}"
   },
   "custom": {
     "modmenu": {
@@ -48,6 +51,9 @@
       ],
       "dependencies": [
         "fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}",
+        "smartbrainlib(required){modrinth:PuyPazRT}{curseforge:661293}",
+        "geckolib(required){modrinth:8BmcQJ2H}{curseforge:388172}",
+        "resourcefulconfig(required){modrinth:M1953qlQ}{curseforge:714059}",
         "terrablender(required){modrinth:kkmrDlKT}{curseforge:565956}"
       ]
     }

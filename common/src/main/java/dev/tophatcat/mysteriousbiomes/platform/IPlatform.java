@@ -37,17 +37,18 @@ public interface IPlatform {
     String getPlatformName();
     boolean isModLoaded(String modId);
     boolean isDevelopmentEnvironment();
-
     default String getEnvironmentName() {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
 
-    <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String id, Supplier<BlockEntityType<T>> blockEntityType);
+    <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(
+        String id, Supplier<BlockEntityType<T>> blockEntityType);
     <T extends Block> Supplier<T> registerBlock(String id, Supplier<T> block);
     <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, Supplier<EntityType<T>> entity);
     <T extends Item> Supplier<T> registerItem(String id, Supplier<T> item);
     <T extends SoundEvent> Supplier<T> registerSound(String id, Supplier<T> sound);
-    <T extends CreativeModeTab> Supplier<T> registerCreativeTab(String id, Supplier<T> tab);
-    <E extends Mob> Supplier<SpawnEggItem> registerSpawnEggItem(Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties itemProperties);
+    <T extends CreativeModeTab> Supplier<T> registerCreativeModeTab(String id, Supplier<T> tab);
+    <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(Supplier<EntityType<E>> entityType, int primaryEggColour,
+                                                        int secondaryEggColour, Item.Properties itemProperties);
     CreativeModeTab.Builder newCreativeTabBuilder();
 }

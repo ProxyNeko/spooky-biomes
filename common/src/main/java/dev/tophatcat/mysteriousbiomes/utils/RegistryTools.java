@@ -57,8 +57,8 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 /**
  * A collection of methods or tools I use to help clean up code duplication and make things easier to set up.
- * The first 7 "register" methods are used to help register things to the game.
- * The rest of "make" methods are to help make things.
+ * The first 7 "register" methods are used to help register things like items and blocks to the game.
+ * The rest of "create" methods are to help set up things like items and blocks. More specifically blocks in my case.
  */
 public final class RegistryTools {
 

@@ -25,10 +25,3 @@
 <a href="https://github.com/kiris-mods/mysterious-biomes/commits/dev">
     <img src="https://img.shields.io/github/last-commit/kiris-mods/mysterious-biomes.svg" alt="Latest commit.">
 </a>
-
-### Custom gradle tasks
-This workspace has a custom gradle task called ``cleanCode``, this task adds license headers, formats the code and compiles a code standards report that can be found per subproject, example: ``neoforge/reports/main.html``  
-Should you wish to do any of these on their own you can run any of the following:  
-- ``./gradlew licenseFormat`` Adds the license header to any classes without them.  
-- ``./gradlew spotlessApply`` Formats the code according to our code format rules.  
-- ``./gradlew pmdMain`` Compiles a code standards report you can use to improve your code.    

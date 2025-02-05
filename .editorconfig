@@ -12,6 +12,5 @@ max_line_length = 120
 [*.md]
 trim_trailing_whitespace = false
 
-
-[*.{json,toml,properties}]
+[*.{json,toml,properties,yml}]
 indent_size = 2
