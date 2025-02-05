@@ -8,9 +8,10 @@ pluginManagement {
         }
         exclusiveContent {
             forRepository {
-                name = "Fabric"
-                url = "https://maven.fabricmc.net"
-
+                maven {
+                    name = "Fabric"
+                    url = "https://maven.fabricmc.net"
+                }
             }
             filter {
                 includeGroup("net.fabricmc")
